@@ -1,0 +1,38 @@
+
+
+a {
+  color: black;
+}
+
+
+#menu {
+  // background-color: #ffc7de;
+
+  background-color: #ffc7de;
+  font-family: "Raleway", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: weight;
+	font-style: normal;
+}
+.menu-hamburguesa{
+  color: #ffc7de;
+}
+
+#menu .nav-link,
+#menu .navbar-brand {
+  color: #e40f56; /* Color de texto en hover (opcional) */
+  ;/* Color de texto blanco */
+}
+
+#menu .nav-link:hover,
+#menu .navbar-brand:hover {
+  color:  #8d002f; /* Color de texto en hover (opcional) */
+}
+
+/* Cambiar el color del menú hamburguesa */
+
+
+/* Cambiar el color del icono del menú hamburguesa */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' fill='white'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
