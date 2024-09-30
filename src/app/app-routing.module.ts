@@ -24,9 +24,10 @@ import { VerGananciasComponent } from './components/ver-ganancias/ver-ganancias.
 import { VistarolclienteComponent } from './components/vistarolcliente/vistarolcliente.component';
 import { RolclientesucursalesComponent } from './components/rolclientesucursales/rolclientesucursales.component';
 import { RolclienteproductosComponent } from './components/rolclienteproductos/rolclienteproductos.component';
-import { RolclientecarritoComponent } from './components/rolclientecarrito/rolclientecarrito.component';
 import { RoladminrepartidoresComponent } from './components/roladminrepartidores/roladminrepartidores.component';
 import { RoladmincajerosComponent } from './components/roladmincajeros/roladmincajeros.component';
+import { RolclientecarritoComponent } from './components/rolclientecarrito/rolclientecarrito.component';
+import { RolclientecategoriasComponent } from './components/rolclientecategorias/rolclientecategorias.component';
 
 const routes: Routes = [
 
@@ -71,7 +72,8 @@ const routes: Routes = [
   // VISTAS DEL ROL CLIENTE
   { path: 'rolclientesucursales', component: RolclientesucursalesComponent},
   { path: 'rolclienteproductos/:idSucursal', component: RolclienteproductosComponent},
-  { path: 'rolclientecarrito/:idProducto', component: RolclientecarritoComponent}
+  { path: 'rolclientecarrito', component: RolclientecarritoComponent },
+  { path: 'rolclientecategorias', component: RolclientecategoriasComponent},
 ];
 
 

@@ -81,8 +81,24 @@ export class ClienteUsuarioService {
 
     let headersToken = this.headersVariable.set('Authorization', token);
     
-    return this._http.get(this.url + '/verCarritosClienteRegistrado', {headers: headersToken,});
+    return this._http.get(this.url + '/verCarritosClienteRegistrado', {headers: headersToken});
+  };
+
+
+  verCarritoCliente(token): Observable<any>{
+    let headersToken = this.headersVariable.set ('Authorization', token);
+
+    return this._http.get(this.url + '/verCarritosClienteRegistrado', {headers: headersToken})
   }
 
+
+  /*VER CATEGORIAS GENERALES */
+  obtenerCategotiasRolCliente(token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+    
+    return this._http.get(this.url + '/getCategoriasRolCliente', {headers: headersToken});
+    
+  };
 
 }

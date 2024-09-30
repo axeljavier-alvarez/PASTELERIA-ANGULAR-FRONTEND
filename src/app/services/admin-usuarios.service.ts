@@ -299,7 +299,35 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization',token);
     let parametros = JSON.stringify(modeloCategoria);
     return this._http.post(this.url + '/agregarCategoriaAdmin', parametros, { headers: headersToken });
+  } 
+
+
+ // AGREGAR CATEGORIA CON IMAGEN
+
+ agregarCategoriaConImagen(
+  
+  modeloCategoria: Categoria,
+  token: string,
+  imagen: File
+ ): Observable<any> {
+
+  const formData = new FormData();
+  formData.append('nombreCategoria', String(modeloCategoria.nombreCategoria || ''));
+  formData.append('descripcionCategoria', String(modeloCategoria.descripcionCategoria || ''));
+
+   // Asegúrate de que la imagen no sea nula antes de agregarla
+   if (imagen) {
+    formData.append('imagen', imagen, imagen.name); // Agregar la imagen al FormData
   }
+
+  const headersToken = new HttpHeaders().set('Authorization', token);
+
+  return this._http.post(
+    `${this.url}/agregarCategoriaAdmin`, formData, { headers: headersToken }
+  );
+ }
+
+
 
   //ELIMINAR CATEGORIAS
   eliminarCategoriaRolAdmin(idCategoria,token){

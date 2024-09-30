@@ -1,18 +1,18 @@
+
 <div class="container">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
 
-    <button class="btn btn-outline-success mt-3" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarCarrito">
-        <i class="bi bi-plus-circle"> Agregar</i>
-    </button>
+    
     <div class="row">
         <h1>CARRITO DE COMPRAS</h1>
 
         <div *ngFor="let carritos of CarritosModelGet">
             <div *ngFor="let compra of carritos.compras" style="display: flex; border-top: 2px solid pink; padding-top: 15px;">
-                <img src="https://static.vecteezy.com/system/resources/previews/001/931/880/non_2x/sweet-cake-portion-happy-birthday-icon-free-vector.jpg" alt="" width="200px">
+                <img *ngIf="compra.imagen" [src]="'http://localhost:3000/imagenes/' + compra.imagen" class="img-fluid">
+
                 <div style="width: 100%;">
                     <div style="display: flex; justify-content: space-between; width: 100%;">
                         <h2>{{ compra.nombreProducto }}</h2>
@@ -31,29 +31,3 @@
 
     </div>
 </div>
-
-        <!--Agregar-->
-        <div class="modal fade" id="modalAgregarCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #modal>
-            <div class="modal-dialog">
-              <div class="modal-content bk-form">
-                <div class="modal-header pink-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto al carrito</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="mb-3">
-                        <label for="inputCantidad" class="form-label">Cantidad</label>
-                        <input type="number" class="form-control" id="inputCantidad" name="cantidad" #cantidad="ngModel" [(ngModel)]="CarritoModelPost.compras[0].cantidad"
-                         autocomplete="off">
-                      </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal" >Cerrar</button>
-                  <button type="button" class="btn btn-aceptar" data-bs-dismiss="modal" (click)="putCarrito(idProducto)">Agregar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-    

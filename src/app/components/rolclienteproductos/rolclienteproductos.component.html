@@ -9,15 +9,13 @@
           {{ productos.nombreProducto }}
         </div>
         <div class="card-body">
-          <img src="https://static.vecteezy.com/system/resources/previews/001/931/880/non_2x/sweet-cake-portion-happy-birthday-icon-free-vector.jpg" alt="pastel" class="card-img-top" id="iconos">
+          <img *ngIf="productos.imagen" [src]="'http://localhost:3000/imagenes/' + productos.imagen" class="img-fluid">
           <h5 class="card-title"> Marca: {{ productos.marca }} </h5>
           <h5 class="card-title"> Descripción: {{ productos.descripcion }} </h5>
           <h5 class="card-title"> Precio: {{ productos.precio }} </h5>
           <h5 class="card-title"> Categoria: {{ productos.descripcionCategoria[0].nombreCategoria }}</h5>
 
-          <button type="button" class="btn btn-outline-success" [routerLink]="['/rolclientecarrito', productos._id]">
-            Ver su carrito
-          </button>
+          
 
           <button type="button" class="btn btn-aceptar" data-bs-toggle="offcanvas"
             data-bs-target="#editarProductosApp" aria-controls="offcanvasExample"

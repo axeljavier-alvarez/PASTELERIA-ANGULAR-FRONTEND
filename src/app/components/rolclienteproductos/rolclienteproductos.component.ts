@@ -36,6 +36,7 @@ export class RolclienteproductosComponent implements OnInit {
         idProducto: "",
         nombreProducto: "",
         marca: "",
+        imagen: "",
         cantidad: 0,
         precio: 0,
         subTotal: 0,

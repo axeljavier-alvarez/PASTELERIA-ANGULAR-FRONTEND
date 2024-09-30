@@ -1,26 +1,5 @@
-@import '../../../styles.scss';
-h1 {
-    text-align: center;
+img{
+    width: 190px;
+    height: 180px;
+    margin-right: 20px;
 }
-.cart-table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 20px;
-  }
-  
-  .cart-table td, .cart-table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .cart-table tr:nth-child(even){background-color: #ffdddd;}
-  
-  .cart-table tr:hover {background-color: #ffcece;}
-  
-  .cart-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #ec6592;
-    color: white;
-  }

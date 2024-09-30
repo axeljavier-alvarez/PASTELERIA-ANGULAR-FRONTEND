@@ -6,6 +6,7 @@ export class Carrito{
             idProducto: String,
             nombreProducto: String,
             marca: String,
+            imagen: String,
             cantidad: Number,
             precio: Number,
             subTotal: Number,

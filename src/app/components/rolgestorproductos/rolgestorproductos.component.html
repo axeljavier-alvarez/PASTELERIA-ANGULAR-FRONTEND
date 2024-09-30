@@ -14,8 +14,12 @@
             <div class="card text-center mb-3">
               <div class="card-header pink-header fs-4 d-flex flex-column ">
                 {{producto.nombreProducto}}
+              
               </div>
+
               <div class="card-body">
+                <img *ngIf="producto.imagen" [src]="'http://localhost:3000/imagenes/' + producto.imagen" class="img-fluid">
+                <br>
                 <h5 class="card-title">Marca: {{producto.marca}}</h5>
                 <h5 class="card-title">Descripción: {{producto.descripcion}} </h5>
                 <h5 class="card-title">Stock: {{producto.stock}} </h5>
@@ -23,6 +27,8 @@
                 <h5 class="card-title">Tamaño: {{producto.size}} </h5>
                 <h5 class="card-title">Vendido: {{producto.vendido}} </h5>
                 <h5 class="card-title">Estado: {{producto.estado}} </h5>
+                
+                <br>
 
                 <button type="button" class="btn btn-outline-warning w-25" data-bs-toggle="offcanvas"
                         data-bs-target="#editarProductosApp" aria-controls="offcanvasExample"
@@ -49,6 +55,13 @@
           </div>
           <div class="modal-body">
             <form>
+
+              
+               <div class="mb-3">
+              <label for="inputImagen" class="form-label">Imagen:</label>
+              <input type="file" class="form-control" id="inputImagen" (change)="onImageSelected($event)">
+            </div>
+            
               <div class="mb-3">
                 <label for="inputNombreProducto" class="form-label">Nombre Producto:</label>
                 <input type="text" class="form-control" id="inputNombreProducto" name="nombre" #nombre="ngModel" [(ngModel)]="ProductoModelPost.nombreProducto"
@@ -82,6 +95,10 @@
                 <input type="text" class="form-control" id="inputTamano" name="size" #size="ngModel" [(ngModel)]="ProductoModelPost.size"
                  autocomplete="off">
               </div>
+
+
+             
+              
             </form>
           </div>
           <div class="modal-footer">

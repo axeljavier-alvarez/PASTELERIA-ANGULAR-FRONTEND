@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Categoria } from 'src/app/models/categoria.model';
-import { AdminUsuariosService} from 'src/app/services/admin-usuarios.service';
+import { AdminUsuariosService } from 'src/app/services/admin-usuarios.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
@@ -25,25 +25,71 @@ export class RoladmincateComponent implements OnInit {
   ) {
     this.titleService.setTitle('Rol admin categorias');
     this.token = this._usuarioService.obtenerToken();
-    this.CategoriasModelPost = new Categoria("","","","","");
-    this.CategoriasModelGetId = new Categoria("","","","", "");
+    this.CategoriasModelPost = new Categoria("", "", "", "", "");
+    this.CategoriasModelGetId = new Categoria("", "", "", "", "");
   }
 
   //VER CATEGORIAS
-  getCategorias(){
+  getCategorias() {
     this._adminUsuariosService.obtenerCategoriasRolAdmin(this.token).subscribe(
-      (response)=>{
+      (response) => {
         this.CategoriasModelGet = response.categorias;
         console.log(this.CategoriasModelGet);
-      },(error)=>{
+      }, (error) => {
         console.log(<any>error);
       }
     )
   }
 
-  //AGREGAR CATEGORIAS
+  /* AGREGAR */
+
+  selectedImage: File | null = null;
+
+  // Método para manejar la selección de la imagen
+  onImageSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.selectedImage = file; // Guarda la imagen seleccionada
+    }
+  }
+
   postCategorias(){
-    this._adminUsuariosService.agregarCategoriaRolAdmin(this.CategoriasModelPost,this._usuarioService.obtenerToken()).subscribe(
+    this._adminUsuariosService.
+    agregarCategoriaConImagen(
+      this.CategoriasModelPost,
+      this.token,
+      this.selectedImage
+    ).subscribe({
+
+
+      next: (response: any) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito!',
+          text: 'Producto agregado exitosamente',
+          showConfirmButton: false,
+          timer: 1500,
+          willClose: () => {
+            window.location.reload();
+          }
+        });
+      },
+      error: (error) => {
+        console.log(<any>error);
+        Swal.fire({
+          icon: 'error',
+          title: "Datos incompletos o nombre existente",
+          footer: '*Ingrese los datos de nuevo*',
+          showConfirmButton: false,
+          timer: 2500
+        });
+      }
+    })
+  }
+
+  //AGREGAR CATEGORIAS
+ /* postCategorias() {
+    this._adminUsuariosService.agregarCategoriaRolAdmin(this.CategoriasModelPost, this._usuarioService.obtenerToken()).subscribe(
       (response) => {
         console.log(response);
         this.getCategorias();
@@ -54,7 +100,7 @@ export class RoladmincateComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         });
-      },(error) => {
+      }, (error) => {
         console.log(<any>error);
         Swal.fire({
           icon: 'error',
@@ -65,10 +111,10 @@ export class RoladmincateComponent implements OnInit {
         });
       }
     )
-  }
+  } */
 
   //ELIMINAR CAEGORIAS
-  deleteCategorias(idCategoria){
+  deleteCategorias(idCategoria) {
     Swal.fire({
       title: '¿Estás seguro?',
       text: '¡No podrás revertir esto!',
@@ -79,7 +125,7 @@ export class RoladmincateComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         // Si el usuario confirma, se llama al servicio para eliminar
-        this._adminUsuariosService.eliminarCategoriaRolAdmin(idCategoria,this.token).subscribe(
+        this._adminUsuariosService.eliminarCategoriaRolAdmin(idCategoria, this.token).subscribe(
           (response) => {
             console.log(response);
             this.getCategorias();
@@ -107,20 +153,20 @@ export class RoladmincateComponent implements OnInit {
   }
 
   //OBTENER CATEGORIA POR ID
-  getCategoriaId(idCategoria){
-    this._adminUsuariosService.obtenerCategoriaIdRolAdmin(idCategoria,this.token).subscribe(
-      (response)=>{
+  getCategoriaId(idCategoria) {
+    this._adminUsuariosService.obtenerCategoriaIdRolAdmin(idCategoria, this.token).subscribe(
+      (response) => {
         console.log(response);
         this.CategoriasModelGetId = response.categorias;
-      },(error)=>{
+      }, (error) => {
         console.log(error);
       }
     )
   }
 
   //EDITAR CATEGORIA
-  putCategorias(){
-    this._adminUsuariosService.editarCategoriaRolAdmin(this.CategoriasModelGetId,this.token).subscribe(
+  putCategorias() {
+    this._adminUsuariosService.editarCategoriaRolAdmin(this.CategoriasModelGetId, this.token).subscribe(
       (response) => {
         console.log(response);
         this.getCategorias();
@@ -131,7 +177,7 @@ export class RoladmincateComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         });
-      },(error) => {
+      }, (error) => {
         console.log(<any>error);
         Swal.fire({
           icon: 'error',
