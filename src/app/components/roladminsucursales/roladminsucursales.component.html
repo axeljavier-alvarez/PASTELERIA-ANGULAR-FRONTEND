@@ -5,6 +5,9 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
   </style>
+
+
+
   <div class="row">
     <div class="col-12 col-md-4" *ngFor="let gestor of UsuarioModelGet">
       <div class="card text-center mb-3">
@@ -30,4 +33,81 @@
       </div>
     </div>
   </div>
+  <h2 class="text-center mt-3">ADMINISTRAR SUCURSALES</h2>
+
+<br>
+<button class="btn btn-agregar-sucursal mt-3" style="padding-left: 30px; padding-right: 30px;" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarSucursales">
+  <i class="bi bi-building-add"></i>
+</button>
+  <div class="col-12 col-md-4" *ngFor="let sucursal of SucursalModelGet">
+    <div class="card text-center mb-3">
+      <div class="card-header pink-header fs-4 d-flex flex-column ">
+        <img src="../../../assets/img/sucursal.png" alt="" width="75px" class="m-auto">
+        {{sucursal.nombreSucursal}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">ID: {{sucursal._id}}</h5>
+        <h5 class="card-title">Nombre sucursal: {{sucursal.nombreSucursal}}</h5>
+
+        
+      </div>
+    </div>
+  </div>
+  
 </div>
+
+     
+  <!--Agregar-->
+  <div class="modal fade" id="modalAgregarSucursales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #modal>
+    <div class="modal-dialog">
+      <div class="modal-content bk-form">
+        <div class="modal-header pink-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Nueva Sucursal</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+
+            <div class="mb-3">
+              <label for="inputNombreSucursal" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="inputNombreSucursal" name="nombre" #nombre="ngModel" [(ngModel)]="SucursalModelPost.nombreSucursal"
+               autocomplete="off">
+            </div>
+            <div class="mb-3">
+              <label for="inputDireccion" class="form-label">Direccion:</label>
+              <input type="text" class="form-control" id="inputDireccion" name="direccion" #direccion="ngModel" [(ngModel)]="SucursalModelPost.direccionSucursal"
+               autocomplete="off">
+            </div>
+            <div class="mb-3">
+              <label for="inputTelefono" class="form-label">Télefono:</label>
+              <input type="number" class="form-control" id="inputTelefono" name="telefono" #telefono="ngModel" [(ngModel)]="SucursalModelPost.telefonoSucursal"
+               autocomplete="off">
+            </div>
+            <div class="mb-3 pt-4">
+              <label for="inputDepartamento" class="form-label"><i class="fas fa-user"></i>Departamento:</label>
+              <select class="form-select" aria-label="Default select example" id="inputDepartamento" name="departamento"
+                  #departamento="ngModel" [(ngModel)]="SucursalModelPost.departamento" (change)="actualizarMunicipio(departamento.value)" required>
+                  <option *ngFor="let clasificacion of clasificacion" [value]="clasificacion.tipo">{{clasificacion.tipo}}</option>
+              </select>
+            </div>
+            <div class="mb-3 pt-4">
+              <label for="inputMunicipio" class="form-label"><i class="fas fa-user"></i>Municipio:</label>
+              <select class="form-select" aria-label="Municipio select" id="inputMunicipio" name="municipio"
+                  #municipio="ngModel" [(ngModel)]="SucursalModelPost.municipio" required>
+                  <option *ngFor="let numero of municipios" [value]="numero">{{numero}}</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal" >Cerrar</button>
+          <button 
+          type="button" 
+          class="btn btn-aceptar" 
+          data-bs-dismiss="modal" 
+          (click)="postSucursal(idEmpresa)"> 
+          Agregar 
+      </button>        </div>
+      </div>
+    </div>
+  </div>

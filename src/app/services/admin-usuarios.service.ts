@@ -16,7 +16,7 @@ export class AdminUsuariosService {
   public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
   public identidad;
   public token;
-
+  // public idEmpresa;
 
   constructor(public _http: HttpClient) { }
 
@@ -208,7 +208,15 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
   }
 
 
-  
+//AGREGAR SUCURSAL POR ID EMRPRESA
+  obtenerSucursalPorIdEmpresa(idEmpresa, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/verSucursalPorEmpresa/' + idEmpresa,
+      { headers: headersToken }
+    );
+  }
 
 
   /* Eliminar sucursal*/
@@ -258,15 +266,25 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
   }
 
   /* Agregar sucursal */
-  agregarSucursalesIdEmpresa(modeloSucursal: Sucursal, token): Observable<any> {
+  //cuando se necesita un id
+  agregarSucursalesIdEmpresa(modeloSucursal: Sucursal, token:string,idEmpresa:string): Observable<any> {
 
-    let headersToken = this.headersVariable.set('Authorization', token)
-
+    let headersToken = this.headersVariable.set('Authorization', token);
     let parametros = JSON.stringify(modeloSucursal);
 
-    return this._http.post(this.url + '/agregarSucursal' , parametros, { headers: headersToken });
+    return this._http.post(this.url + '/agregarSucursal/' + idEmpresa, parametros, { headers: headersToken });
 
   }
+
+
+  /*AgregarNuevaSucursal(modeloSucursal: Sucursal, token: string, idEmpresa: string, idUsuario: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    let parametros = JSON.stringify(modeloSucursal);
+
+    // Puedes agregar el idUsuario a la URL si es necesario
+    return this._http.post(this.url + '/agregarSucursalPor/' + idEmpresa + '/' + idUsuario, parametros, { headers: headersToken });
+} */
+
 
 
   /* ----- SUCURSALES ------------ */

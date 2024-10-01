@@ -7,7 +7,8 @@ import { Usuario }  from  'src/app/models/usuarios.model';
 import { AdminUsuariosService} from 'src/app/services/admin-usuarios.service';
 //Llamando al token
 import { UsuarioService } from 'src/app/services/usuario.service';
-/* rol admin gestores */
+/* sucursales*/
+import { Sucursal }  from  'src/app/models/sucursal.model';
 
 import Swal from 'sweetalert2';
 
@@ -26,7 +27,14 @@ export class RoladmingestoresComponent implements OnInit {
   //Ver por Id
   public UsuarioModelGetId: Usuario;
 
+  public campoBusqueda: string = ''; // Inicializar como cadena vacía
+
+  // importar el buscar
+  public buscar;
+
   public municipios: String[] = [];
+
+  public nombreSucursal: string; // Nueva propiedad para el nombre de la sucursal
 
   clasificacion = [
     { tipo: 'Alta Verapaz' },
@@ -381,19 +389,26 @@ break;
         console.log(<any>error);
       }
     )
+
+
+
    }
 
    //Agregar Usuarios
    postUsuariosRolGestor() {
-    this._adminUsuariosService.agregarUsuarioRolGestor(this.UsuarioModelPost, this._usuarioService.obtenerToken()).subscribe(
+    const usuarioConSucursal = {
+      ...this.UsuarioModelPost,
+      nombreSucursal: this.nombreSucursal // Se agrega el nombre de la sucursal al objeto
+    };
+
+    this._adminUsuariosService.agregarUsuarioRolGestor(usuarioConSucursal, this.token).subscribe(
       (response) => {
         console.log(response);
         this.getUsuariosRolGestor();
 
-        // Aquí debe ir Swal.fire dentro del bloque de respuesta
         Swal.fire({
           icon: 'success',
-          title: 'Exito!',
+          title: 'Éxito!',
           text: 'Usuario agregado exitosamente',
           showConfirmButton: false,
           timer: 1500
@@ -403,7 +418,7 @@ break;
         console.log(<any>error);
         Swal.fire({
           icon: 'error',
-          title: "Datos incompleto o email existente",
+          title: "Datos incompletos o email existente",
           footer: '*Ingrese los datos de nuevo*',
           showConfirmButton: false,
           timer: 2500
@@ -411,6 +426,8 @@ break;
       }
     );
   }
+
+  
 
 
    //Eliminar Usuarios

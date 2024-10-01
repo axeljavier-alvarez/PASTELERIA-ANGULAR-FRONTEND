@@ -74,6 +74,8 @@ const routes: Routes = [
   { path: 'rolclienteproductos/:idSucursal', component: RolclienteproductosComponent},
   { path: 'rolclientecarrito', component: RolclientecarritoComponent },
   { path: 'rolclientecategorias', component: RolclientecategoriasComponent},
+
+  // pipes de busqueda
 ];
 
 

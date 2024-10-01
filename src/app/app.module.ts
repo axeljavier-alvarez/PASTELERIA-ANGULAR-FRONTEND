@@ -35,6 +35,8 @@ import { RoladminrepartidoresComponent } from './components/roladminrepartidores
 import { RoladmincajerosComponent } from './components/roladmincajeros/roladmincajeros.component';
 import { RolclientecarritoComponent } from './components/rolclientecarrito/rolclientecarrito.component';
 import { RolclientecategoriasComponent } from './components/rolclientecategorias/rolclientecategorias.component';
+import { BuscarusuariopormunicipioPipe } from './pipes/buscarusuariopormunicipio.pipe';
+
 
 
 
@@ -68,7 +70,9 @@ import { RolclientecategoriasComponent } from './components/rolclientecategorias
     RoladminrepartidoresComponent,
     RoladmincajerosComponent,
     RolclientecarritoComponent,
-    RolclientecategoriasComponent
+    RolclientecategoriasComponent,
+    BuscarusuariopormunicipioPipe,
+   
   ],
   imports: [
     BrowserModule,
