@@ -4,10 +4,23 @@
     <h2 class="text-center mt-3">Administrar Usuarios Rol_Repartidor</h2>
     <button class="btn btn-agregar-usuario rounded-pill" type="button" title="Agregar usuario" data-bs-toggle="modal" data-bs-target="#modalAgregarRepartidor">
         <i class="bi bi-person-plus"></i>
-      </button>
+    </button>
+
+    <!-- Campo de búsqueda -->
+    <div class="input-group mb-3">
+        <select class="form-select" [(ngModel)]="campoBusqueda">
+            <option value="nombre">Nombre</option>
+            <option value="apellido">Apellido</option>
+            <option value="departamento">Departamento</option>
+            <option value="municipio">Municipio</option>
+        </select>
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="buscar" name="buscar" placeholder="Ingrese el valor a buscar" aria-label="Ingrese el nombre del usuario" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+    </div>
+
     <!-- CONTENEDORES -->
     <div class="row py-5">
-        <div class="col-12 col-md-4" *ngFor="let repartidor of UsuarioModelGet">
+        <div class="col-12 col-md-4" *ngFor="let repartidor of UsuarioModelGet | buscarusuariopormunicipio: buscar : campoBusqueda">
             <div class="card text-center mb-3 ">
                 <div class="card-header pink-header">
                     {{repartidor.nombre}} {{ repartidor.apellido}}
@@ -92,15 +105,20 @@
                                 #departamento="ngModel" [(ngModel)]="UsuarioModelPost.departamento" (change)="actualizarMunicipio(departamento.value)" required>
                                 <option *ngFor="let clasificacion of clasificacion" [value]="clasificacion.tipo">{{clasificacion.tipo}}</option>
                             </select>
-                          </div>
-              
-                          <div class="mb-3 pt-4">
+                        </div>
+                        <div class="mb-3 pt-4">
                             <label for="inputMunicipio" class="form-label"><i class="fas fa-user"></i>Municipio:</label>
                             <select class="form-select" aria-label="Municipio select" id="inputMunicipio" name="municipio"
                                 #municipio="ngModel" [(ngModel)]="UsuarioModelPost.municipio" required>
                                 <option *ngFor="let numero of municipios" [value]="numero">{{numero}}</option>
                             </select>
-                          </div>
+                        </div>
+                        <div class="mb-3 pt-4">
+                            <label for="inputNombreSucursal" class="form-label"><i class="fas fa-building"></i>Nombre sucursal:</label>
+                            <input type="text" id="inputNombreSucursal" class="form-control" autocomplete="off"
+                                placeholder="Ingrese el nombre de la sucursal" name="nombreSucursal"
+                                [(ngModel)]="nombreSucursal">
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">

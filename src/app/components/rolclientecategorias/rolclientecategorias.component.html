@@ -9,7 +9,9 @@
             {{ categorias.nombreCategoria }}
           </div>
           <div class="card-body">
-            <img *ngIf="categorias.imagen" [src]="'http://localhost:3000/imagenes/' + categorias.imagen" class="img-fluid">
+            <div class="aspect-ratio">
+              <img *ngIf="categorias.imagen" [src]="'http://localhost:3000/imagenes/' + categorias.imagen">
+            </div>
             <h5 class="card-title"> Marca: {{ categorias.descripcionCategoria }} </h5>
             
             <button type="button" class="btn btn-success">

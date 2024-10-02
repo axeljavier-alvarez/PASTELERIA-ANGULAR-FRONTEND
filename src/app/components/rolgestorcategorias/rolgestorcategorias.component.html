@@ -8,8 +8,9 @@
                     {{ category.nombreCategoria }}
                 </div>
                 <div class="card-body">
-                    <img *ngIf="category.imagen" [src]="'http://localhost:3000/imagenes/' + category.imagen" class="img-fluid">
-                    <br>
+                    <div class="aspect-ratio">
+                        <img *ngIf="category.imagen" [src]="'http://localhost:3000/imagenes/' + category.imagen">
+                    </div>
                     <h5 class="card-title">Descripción: {{category.descripcionCategoria}}</h5>
                     <!-- BOTON PARA TRAERSE EL ID DE LA CATEGORIA -->
                     <button type="button" class="btn btn-aceptar mt-3"

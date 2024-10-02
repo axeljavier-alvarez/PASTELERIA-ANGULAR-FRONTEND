@@ -9,13 +9,13 @@
           {{ productos.nombreProducto }}
         </div>
         <div class="card-body">
-          <img *ngIf="productos.imagen" [src]="'http://localhost:3000/imagenes/' + productos.imagen" class="img-fluid">
+          <div class="aspect-ratio">
+            <img *ngIf="productos.imagen" [src]="'http://localhost:3000/imagenes/' + productos.imagen">
+          </div>
           <h5 class="card-title"> Marca: {{ productos.marca }} </h5>
           <h5 class="card-title"> Descripción: {{ productos.descripcion }} </h5>
           <h5 class="card-title"> Precio: {{ productos.precio }} </h5>
           <h5 class="card-title"> Categoria: {{ productos.descripcionCategoria[0].nombreCategoria }}</h5>
-
-          
 
           <button type="button" class="btn btn-aceptar" data-bs-toggle="offcanvas"
             data-bs-target="#editarProductosApp" aria-controls="offcanvasExample"

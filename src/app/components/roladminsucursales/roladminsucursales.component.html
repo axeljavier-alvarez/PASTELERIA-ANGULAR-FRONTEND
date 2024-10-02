@@ -35,10 +35,10 @@
   </div>
   <h2 class="text-center mt-3">ADMINISTRAR SUCURSALES</h2>
 
-<br>
-<button class="btn btn-agregar-sucursal mt-3" style="padding-left: 30px; padding-right: 30px;" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarSucursales">
-  <i class="bi bi-building-add"></i>
-</button>
+  <br>
+  <button class="btn btn-agregar-sucursal mt-3" style="padding-left: 30px; padding-right: 30px;" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarSucursales">
+    <i class="bi bi-building-add"></i>
+  </button>
   <div class="col-12 col-md-4" *ngFor="let sucursal of SucursalModelGet">
     <div class="card text-center mb-3">
       <div class="card-header pink-header fs-4 d-flex flex-column ">
@@ -48,15 +48,18 @@
       <div class="card-body">
         <h5 class="card-title">ID: {{sucursal._id}}</h5>
         <h5 class="card-title">Nombre sucursal: {{sucursal.nombreSucursal}}</h5>
-
-        
+        <button type="button" class="btn btn-outline-warning mx-3 my-2 w-25" data-bs-toggle="offcanvas"
+                    data-bs-target="#editarSucursalesApp" aria-controls="offcanvasExample"
+                    (click)="getSucursalIdRolAdmin(sucursal._id)">
+                    <img src="../../../assets/img/editaricono.png" alt="" class="icono">
+          </button>
+          <button type="button" class="btn btn-outline-danger w-25" (click)="deleteSucursalesRolAdmin(sucursal._id)">
+            <img src="../../../assets/img/trash.svg" alt="" class="icono">
+          </button>
       </div>
     </div>
   </div>
-  
-</div>
 
-     
   <!--Agregar-->
   <div class="modal fade" id="modalAgregarSucursales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #modal>
     <div class="modal-dialog">
@@ -101,13 +104,53 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal" >Cerrar</button>
-          <button 
-          type="button" 
-          class="btn btn-aceptar" 
-          data-bs-dismiss="modal" 
-          (click)="postSucursal(idEmpresa)"> 
-          Agregar 
-      </button>        </div>
+          <button type="button" class="btn btn-aceptar" data-bs-dismiss="modal" (click)="postSucursal(idEmpresa)"> 
+            Agregar 
+          </button>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--Editar-->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="editarSucursalesApp" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header pink-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Editar sucursal</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body bk-form">
+      <form>
+
+        <div class="mb-3">
+          <label for="editarNombreSucursal" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="editarNombreSucursal" name="nombre" #nombre="ngModel" [(ngModel)]="SucursalModelGetId.nombreSucursal"
+           autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label for="editarDireccion" class="form-label">Direccion:</label>
+          <input type="text" class="form-control" id="editarDireccion" name="direccion" #direccion="ngModel" [(ngModel)]="SucursalModelGetId.direccionSucursal"
+           autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label for="editarTelefono" class="form-label">Télefono</label>
+          <input type="number" class="form-control" id="editarTelefono" name="telefono" #telefono="ngModel" [(ngModel)]="SucursalModelGetId.telefonoSucursal"
+           autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label for="editarDepartamento" class="form-label">Departamento</label>
+          <input type="text" class="form-control" id="editarDepartamento" name="departamento" #departamento="ngModel" [(ngModel)]="SucursalModelGetId.departamento"
+           autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label for="editarMunicipio" class="form-label">Municipio</label>
+          <input type="text" class="form-control" id="editarMunicipio" name="municipio" #municipio="ngModel" [(ngModel)]="SucursalModelGetId.municipio"
+           autocomplete="off">
+        </div>
+        <br>
+        <button class="btn btn-aceptar" data-bs-dismiss="offcanvas" (click)="putSucursales()">Editar sucursal</button>
+      
+      </form>
+    </div>
+  </div>
+
+</div>

@@ -18,8 +18,9 @@
               </div>
 
               <div class="card-body">
-                <img *ngIf="producto.imagen" [src]="'http://localhost:3000/imagenes/' + producto.imagen" class="img-fluid">
-                <br>
+                <div class="aspect-ratio">
+                  <img *ngIf="producto.imagen" [src]="'http://localhost:3000/imagenes/' + producto.imagen">
+                </div>
                 <h5 class="card-title">Marca: {{producto.marca}}</h5>
                 <h5 class="card-title">Descripción: {{producto.descripcion}} </h5>
                 <h5 class="card-title">Stock: {{producto.stock}} </h5>

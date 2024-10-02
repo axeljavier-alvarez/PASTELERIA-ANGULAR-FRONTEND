@@ -14,7 +14,9 @@
                     {{ category.nombreCategoria }}
                 </div>
                 <div class="card-body">
-                    <img *ngIf="category.imagen" [src]="'http://localhost:3000/imagenes/' + category.imagen" class="img-fluid">
+                    <div class="aspect-ratio">
+                        <img *ngIf="category.imagen" [src]="'http://localhost:3000/imagenes/' + category.imagen">
+                    </div>
                     <h5 class="card-title">ID: {{category._id}}</h5>
                     <h5 class="card-title">Descripción: {{category.descripcionCategoria}}</h5>
                     <h5 class="card-title">ID Usuario: {{category.idUsuario}}</h5>
@@ -44,11 +46,8 @@
                         <div class="mb-3">
                             <label for="inputImagen" class="form-label">Imagen:</label>
                             <input type="file" class="form-control" id="inputImagen" (change)="onImageSelected($event)">
-                          </div>
-                          
+                        </div>
                         <div class="mb-3">
-
-
                             <label for="inputNombre" class="form-label">Nombre:</label>
                             <input type="text" id="inputNombre" class="form-control" autocomplete="off"
                                 placeholder="Ingrese el nombre de la categoría" name="nombre" #nombre="ngModel"
@@ -60,6 +59,7 @@
                                 placeholder="Ingrese una descripción" name="descripcion" #descripcion="ngModel"
                                 [(ngModel)]="CategoriasModelPost.descripcionCategoria">
                         </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">

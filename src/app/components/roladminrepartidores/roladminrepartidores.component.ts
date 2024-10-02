@@ -17,7 +17,10 @@ export class RoladminrepartidoresComponent implements OnInit {
   public UsuarioModelGet: Usuario;
   public UsuarioModelPost: Usuario;
   public UsuarioModelGetId: Usuario;
+  public campoBusqueda: string = '';
+  public buscar;
   public municipios: String[] = [];
+  public nombreSucursal: string;
 
   clasificacion = [
     { tipo: 'Alta Verapaz' },
@@ -371,13 +374,17 @@ break;
 
   //AGREGAR REPARTIDOR
   postUsuariosRolRepartidor(){
-    this._adminUsuariosService.agregarUsuarioRolRepartidor(this.UsuarioModelPost,this._usuarioService.obtenerToken()).subscribe(
+    const usuarioConSucursal = {
+      ...this.UsuarioModelPost,
+      nombreSucursal: this.nombreSucursal
+    };
+    this._adminUsuariosService.agregarUsuarioRolRepartidor(usuarioConSucursal,this.token).subscribe(
       (response)=>{
         console.log(response);
         this.getUsuariosRolRepartidor();
         Swal.fire({
           icon: 'success',
-          title: 'Exito!',
+          title: 'Éxito!',
           text: 'Usuario agregado exitosamente',
           showConfirmButton: false,
           timer: 1500
@@ -386,7 +393,7 @@ break;
         console.log(<any>error);
         Swal.fire({
           icon: 'error',
-          title: "Datos incompleto o email existente",
+          title: "Datos incompletos o email existente",
           footer: '*Ingrese los datos de nuevo*',
           showConfirmButton: false,
           timer: 2500

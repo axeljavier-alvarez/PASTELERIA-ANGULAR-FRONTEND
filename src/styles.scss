@@ -73,6 +73,7 @@
 	}
 }
 
+// ---------Botones Outline---------
 // Variables de colores
 $colors: (
   cancelar: #921A40,
@@ -116,4 +117,24 @@ $colors: (
 
 .btn-agregar-sucursal i{
   font-size: 23px;
+}
+
+// ---------Ajuste de imagenes---------
+.aspect-ratio {
+  position: relative;
+  width: 100%; /* O el ancho que desees */
+  padding-top: 75%; /* Para una relación de aspecto de 4:3 */
+  overflow: hidden; /* Oculta el exceso de la imagen */
+  margin-bottom: 20px;
+}
+
+.aspect-ratio img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto; /* Cambiar a 'auto' para mantener el tamaño original */
+  height: 100%; /* O ajustar según la relación deseada */
+  min-width: 100%; /* Asegura que cubra el contenedor */
+  transform: translate(-50%, -50%); /* Centra la imagen */
+  object-fit: cover; /* Recorta la imagen */
 }

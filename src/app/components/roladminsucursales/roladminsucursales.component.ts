@@ -26,6 +26,8 @@ export class RoladminsucursalesComponent implements OnInit {
   public SucursalModelGet: Sucursal;
   //Agregar
   public SucursalModelPost: Sucursal;
+  //Editar
+  public SucursalModelGetId: Sucursal;
   // Administrar usuarios
   public UsuarioModelGet: Usuario;
   public UsuarioModelGetId: Usuario;
@@ -401,6 +403,30 @@ break;
         rol: ""
       }],
     );
+
+    this.SucursalModelGetId = new Sucursal(
+      "",
+      "",
+      "",
+      0,
+      "",
+      "",
+      "",
+      [{
+
+        idEmpresa: "",
+        nombreEmpresa: "",
+        direccion: "",
+        telefono: 0
+      }],
+      [{
+        idUsuario: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+        rol: ""
+      }],
+    );
   }
 
   // los id se quedan guardados en el local storage y se abriran en la siguiente pagina
@@ -438,8 +464,7 @@ break;
       );
   }
 
-//Agregar sucursal por id empresa
-  // post sucursal
+  //Agregar sucursal por id empresa
   postSucursal(idEmpresa) {
     this._adminUsuariosService
       .agregarSucursalesIdEmpresa(
@@ -518,63 +543,85 @@ break;
     )
   }
 
+  // Eliminar Sucursales
+  deleteSucursalesRolAdmin(idSucursal){
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario confirma, se llama al servicio para eliminar
+        this._adminUsuariosService.eliminarSucursalesRolAdmin(idSucursal,this.token).subscribe(
+          (response)=>{
+            console.log(response);
+            Swal.fire({
+              icon: 'success',
+              title: 'Eliminado',
+              text: 'La sucursal ha sido eliminada exitosamente.',
+              showConfirmButton: false,
+              timer: 1500,
+              willClose: () => {
+                window.location.reload();
+              }
+            });
+          },
+          (error) => {
+            console.log(<any>error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se pudo eliminar la sucursal.',
+              showConfirmButton: false,
+              timer: 2500
+            });
+          }
+        );
+      }
+    });
+  }
 
-
-  /* postSucursalPorEmpresa(){
-    this._adminUsuariosService.agregarSucursalesIdEmpresa(this.SucursalModelPost, this._usuarioService.obtenerToken()).subscribe(
+  getSucursalIdRolAdmin(idSucursal){
+    this._adminUsuariosService.obtenerSucursalRolId(idSucursal, this.token).subscribe(
       (response)=>{
         console.log(response);
-        this._activatedRoute.paramMap.subscribe((dataRuta)=>{
-          console.log(dataRuta.get('idEmpresa'));
-          this.getSucursalesPorEmpresa(dataRuta.get('idEmpresa'))
-        })
-      },
-      (error)=>{
-        console.log(<any>error);
+        this.SucursalModelGetId = response.sucursales;
+      },(error)=>{
+        console.log(error)
       }
     )
-   }*/
+  }
+  
+  // Editar sucursales
+  putSucursales(){
 
-
-   // Eliminar Sucursales
-   /*deleteSucursalesRolAdmin(idSucursal){
-
-    this._adminUsuariosService.eliminarSucursalesRolAdmin(idSucursal,this.token).subscribe(
+    this._adminUsuariosService.editarSucursalRolAdmin(this.SucursalModelGetId, this.token).subscribe(
       (response)=>{
         console.log(response);
-
-        this.getSucursalesRolAdmin();
-      },
-      (error)=>{
+        Swal.fire({
+          icon: 'success',
+          title: 'Exito!',
+          text: 'Sucursal editada correctamente',
+          showConfirmButton: false,
+          timer: 1500,
+          willClose: () => {
+            window.location.reload();
+          }
+        });
+      },(error) => {
         console.log(<any>error);
+        Swal.fire({
+          icon: 'error',
+          title: "Nombre existente",
+          footer: '*Ingrese uno nuevo*',
+          showConfirmButton: false,
+          timer: 2500
+        });
       }
     )
-   }*/
-
-
-
-    /*getSucursalIdRolAdmin(idSucursal){
-      this._adminUsuariosService.obtenerSucursalRolId(idSucursal, this.token).subscribe(
-        (response)=>{
-          console.log(response);
-          this.SucursalModelGetId = response.sucursales;
-        },(error)=>{
-          console.log(error)
-        }
-      )
-    }*/
-
-    // Editar sucursales
-
-   /* putSucursales(){
-
-      this._adminUsuariosService.editarSucursalRolAdmin(this.SucursalModelGetId, this.token).subscribe(
-        (response)=>{
-          console.log(response);
-          this.getSucursalesRolAdmin();
-        }
-      )
-    }*/
-
+  }
 
 }
