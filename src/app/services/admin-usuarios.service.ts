@@ -423,5 +423,17 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization',token);
     return this._http.put(this.url + '/editarRolCajero/' + modeloUsuario._id, parametros, { headers: headersToken });
   }
+
+
+  /* SERVICIOS PARA EDITAR PERFIL */
+  modificarPerfilAdmin(modeloUsuarios: Usuario, token): Observable<any> {
+
+    let parametros = JSON.stringify(modeloUsuarios);
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.put(this.url + '/editarPerfilAdmin/' + modeloUsuarios._id, parametros, { headers: headersToken })
+
+  }
   
 }

@@ -532,8 +532,6 @@ break;
       (response) => {
         console.log(response);
 
-        this.UsuarioModelGetId = response.usuario;
-
       },
 
       (error) => {

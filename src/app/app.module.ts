@@ -36,6 +36,14 @@ import { RoladmincajerosComponent } from './components/roladmincajeros/roladminc
 import { RolclientecarritoComponent } from './components/rolclientecarrito/rolclientecarrito.component';
 import { RolclientecategoriasComponent } from './components/rolclientecategorias/rolclientecategorias.component';
 import { BuscarusuariopormunicipioPipe } from './pipes/buscarusuariopormunicipio.pipe';
+import { EditarrolgestorComponent } from './components/editarrolgestor/editarrolgestor.component';
+import { EditarrolfacturadorComponent } from './components/editarrolfacturador/editarrolfacturador.component';
+import { EditarrolcajeroComponent } from './components/editarrolcajero/editarrolcajero.component';
+import { EditarrolrepartidorComponent } from './components/editarrolrepartidor/editarrolrepartidor.component';
+import { EditarrolclienteComponent } from './components/editarrolcliente/editarrolcliente.component';
+import { EditarroladminComponent } from './components/editarroladmin/editarroladmin.component';
+import { VistarolrepartidorComponent } from './components/vistarolrepartidor/vistarolrepartidor.component';
+import { VistarolcajeroComponent } from './components/vistarolcajero/vistarolcajero.component';
 
 
 
@@ -72,6 +80,14 @@ import { BuscarusuariopormunicipioPipe } from './pipes/buscarusuariopormunicipio
     RolclientecarritoComponent,
     RolclientecategoriasComponent,
     BuscarusuariopormunicipioPipe,
+    EditarrolgestorComponent,
+    EditarrolfacturadorComponent,
+    EditarrolcajeroComponent,
+    EditarrolrepartidorComponent,
+    EditarrolclienteComponent,
+    EditarroladminComponent,
+    VistarolrepartidorComponent,
+    VistarolcajeroComponent,
    
   ],
   imports: [

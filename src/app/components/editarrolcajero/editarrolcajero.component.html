@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div class="card w-100 text-center mt-5">
+        <div class="card-body">
+            <h5 class="card-title">Editar Usuario</h5>
+            <h5><i class="fa fa-user fa-4x"></i></h5>
+
+            <form>
+
+                <div class="mb-3">
+                    <label for="inputNombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+                        [(ngModel)]="usuariosModelGetId.nombre">
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputUsuario" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="inputUsuario" name="email" #email="ngModel"
+                        [(ngModel)]="usuariosModelGetId.email">
+                </div>
+
+                <button class="btn btn-success" (click)="putUsuarios()">Editar </button>
+
+            </form>
+        </div>
+    </div>
+
+</div>

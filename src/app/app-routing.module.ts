@@ -28,15 +28,19 @@ import { RoladminrepartidoresComponent } from './components/roladminrepartidores
 import { RoladmincajerosComponent } from './components/roladmincajeros/roladmincajeros.component';
 import { RolclientecarritoComponent } from './components/rolclientecarrito/rolclientecarrito.component';
 import { RolclientecategoriasComponent } from './components/rolclientecategorias/rolclientecategorias.component';
+import { EditarroladminComponent } from './components/editarroladmin/editarroladmin.component';
+import { EditarrolcajeroComponent } from './components/editarrolcajero/editarrolcajero.component';
+import { VistarolcajeroComponent } from './components/vistarolcajero/vistarolcajero.component';
 
 const routes: Routes = [
 
 
   //Vistas principales
   { path: 'vistarolgestor', component: VistarolgestorComponent},
-  { path: 'vistaroladmin', component: VistaroladminComponent },
+  { path: 'vistaroladmin', component: VistaroladminComponent},
   { path: 'vistarolfacturador', component: VistarolfacturadorComponent },
   { path: 'vistarolcliente', component: VistarolclienteComponent},
+  { path: 'vistarolcajero', component: VistarolcajeroComponent},
 
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent},
@@ -75,7 +79,9 @@ const routes: Routes = [
   { path: 'rolclientecarrito', component: RolclientecarritoComponent },
   { path: 'rolclientecategorias', component: RolclientecategoriasComponent},
 
-  // pipes de busqueda
+  // VISTAS PARA EDITAR ROLES DE USUARIO
+  { path: 'editarroladmin', component: EditarroladminComponent},
+  { path: 'editarrolcajero', component: EditarrolcajeroComponent },
 ];
 
 
