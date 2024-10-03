@@ -554,13 +554,12 @@ break;
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Si el usuario confirma, se llama al servicio para eliminar
         this._adminUsuariosService.eliminarSucursalesRolAdmin(idSucursal,this.token).subscribe(
           (response)=>{
             console.log(response);
             Swal.fire({
               icon: 'success',
-              title: 'Eliminado',
+              title: 'Eliminada',
               text: 'La sucursal ha sido eliminada exitosamente.',
               showConfirmButton: false,
               timer: 1500,
@@ -568,8 +567,7 @@ break;
                 window.location.reload();
               }
             });
-          },
-          (error) => {
+          },(error) => {
             console.log(<any>error);
             Swal.fire({
               icon: 'error',
@@ -597,13 +595,12 @@ break;
   
   // Editar sucursales
   putSucursales(){
-
-    this._adminUsuariosService.editarSucursalRolAdmin(this.SucursalModelGetId, this.token).subscribe(
+    this._adminUsuariosService.editarSucursalRolAdmin(this.SucursalModelGetId,this.token).subscribe(
       (response)=>{
         console.log(response);
         Swal.fire({
           icon: 'success',
-          title: 'Exito!',
+          title: 'Éxito!',
           text: 'Sucursal editada correctamente',
           showConfirmButton: false,
           timer: 1500,
