@@ -34,7 +34,8 @@ export class AdminUsuariosService {
   }
 
 
-  agregarUsuarioRolGestor(modeloUsuario: Usuario, token): Observable<any> {
+
+  /* agregarUsuarioRolGestor(modeloUsuario: Usuario, token): Observable<any> {
 
     let headersToken = this.headersVariable.set('Authorization', token)
 
@@ -42,7 +43,35 @@ export class AdminUsuariosService {
 
     return this._http.post(this.url + '/agregarRolGestor', parametros, { headers: headersToken });
 
-  }
+  } */
+
+
+    agregarUsuarioRolGestor(
+      modeloUsuario: Usuario,
+      modeloSucursal: Sucursal, // Asegúrate de que este modelo está bien definido
+      token: string,
+      imagen: File
+    ): Observable<any> {
+      const formData = new FormData();
+      formData.append('nombre', String(modeloUsuario.nombre || ''));
+      formData.append('apellido', String(modeloUsuario.apellido || ''));
+      formData.append('email', String(modeloUsuario.email || ''));
+      formData.append('password', String(modeloUsuario.password || ''));
+      formData.append('telefono', modeloUsuario.telefono != null ? modeloUsuario.telefono.toString() : '0');
+      formData.append('direccion', String(modeloUsuario.direccion || ''));
+      formData.append('departamento', String(modeloUsuario.departamento || ''));
+      formData.append('municipio', String(modeloUsuario.municipio || ''));
+      formData.append('nombreSucursal', String(modeloSucursal.nombreSucursal || '')); // Uso correcto del modeloSucursal
+    
+      if (imagen) {
+        formData.append('imagen', imagen, imagen.name); // Agregar la imagen al FormData
+      }
+    
+      const headersToken = new HttpHeaders().set('Authorization', token);
+    
+      return this._http.post(`${this.url}/agregarGestor`, formData, { headers: headersToken });
+    }
+
 
   eliminarUsuarioRolGestor(idUsuario, token) {
     let headersToken = this.headersVariable.set('Authorization', token);

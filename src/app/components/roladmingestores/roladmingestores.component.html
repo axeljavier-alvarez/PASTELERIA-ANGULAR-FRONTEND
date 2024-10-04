@@ -25,7 +25,11 @@
         <div class="card-header pink-header">
           {{gestor.nombre}} {{gestor.apellido}}
         </div>
-        <img src="../../../assets/img/usuarioclick&cake.png" id="imagen-usuario">
+        <!-- ver imagen -->
+        <div class="aspect-ratio">
+          <img *ngIf="gestor.imagen" [src]="'http://localhost:3000/imagenes/' + gestor.imagen">
+        </div>
+
         <div class="card-body">
           <h5 class="card-title">ID: {{gestor._id}}</h5>
           <h5 class="card-title">Email: {{gestor.email}}</h5>
@@ -56,6 +60,12 @@
         </div>
         <div class="modal-body">
           <form>
+
+            <!-- AGREGAR IMAGEN -->
+            <div class="mb-3">
+              <label for="inputImagen" class="form-label">Imagen:</label>
+              <input type="file" class="form-control" id="inputImagen" (change)="onImageSelected($event)">
+            </div>
 
             <div class="mb-3">
               <label for="inputNombre" class="form-label">Nombre</label>

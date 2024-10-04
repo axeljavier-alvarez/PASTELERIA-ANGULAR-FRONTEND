@@ -1,4 +1,4 @@
-export class Sucursal{
+export class Sucursal {
   constructor(
     public _id: String,
     public nombreSucursal: String,
@@ -8,25 +8,19 @@ export class Sucursal{
     public municipio: String,
     public imagen: String,
     
-    public datosEmpresa: [{
+    public datosEmpresa: {
       idEmpresa: String,
       nombreEmpresa: String,
       direccion: String,
       telefono: Number
-    }],
+    }[], // Debe ser un array de objetos con estas propiedades
 
-    public gestorSucursales: [{
+    public gestorSucursales: {
       idUsuario: String,
       nombre: String,
       apellido: String,
       email: String,
       rol: String
-    }],
-
-
-
-
-  ) {
-
-  }
+    }[] // También debe ser un array de objetos con estas propiedades
+  ) {}
 }
