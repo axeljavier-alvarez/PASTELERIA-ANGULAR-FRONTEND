@@ -27,6 +27,8 @@ export class RoladmingestoresComponent implements OnInit {
   //Ver por Id
   public UsuarioModelGetId: Usuario;
 
+  public SucursalesModelGet: Sucursal;
+
   public campoBusqueda: string = ''; // Inicializar como cadena vacía
 
   // importar el buscar
@@ -34,8 +36,8 @@ export class RoladmingestoresComponent implements OnInit {
 
   public municipios: String[] = [];
 
-  public nombreSucursal: string; // Nueva propiedad para el nombre de la sucursal
-
+  public nombreSucursal: string = ''; // Inicializar como cadena vacía
+  
   clasificacion = [
     { tipo: 'Alta Verapaz' },
     { tipo: 'Baja Verapaz' },
@@ -566,6 +568,25 @@ postUsuariosRolGestor() {
 
   ngOnInit(): void {
     this.getUsuariosRolGestor();
+    this.cargarSucursales(); // Cargar sucursales al iniciar
   }
+  
 
+
+
+
+  cargarSucursales() {
+    this._adminUsuariosService.obtenerSucursales(this.token).subscribe(
+      (response) => {
+        this.SucursalesModelGet = response.sucursales;
+        console.log(this.SucursalesModelGet)
+      },
+      (error) => {
+        console.log('Error al cargar sucursales', error);
+        
+      }
+    );
+  }
+  
+ 
 }

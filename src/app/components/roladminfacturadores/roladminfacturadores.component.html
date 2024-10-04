@@ -5,9 +5,10 @@
     <img src="../../../assets/img/flecha2.png" routerLink="/roladminusuarios" routerLinkActive="active" alt="retroceder"
         width="50px" class="mt-3">
     <h2 class="text-center">Administrar Usuarios ROL_FACTURADOR</h2>
-    <button class="btn btn-agregar-usuario rounded-pill" type="button" title="Agregar usuario" data-bs-toggle="modal" data-bs-target="#modalAgregarFacturador">
+    <button class="btn btn-agregar-usuario rounded-pill" type="button" title="Agregar usuario" data-bs-toggle="modal"
+        data-bs-target="#modalAgregarFacturador">
         <i class="bi bi-person-plus"></i>
-      </button>
+    </button>
 
     <!-- Campo de búsqueda -->
     <div class="input-group mb-3">
@@ -17,15 +18,22 @@
             <option value="departamento">Departamento</option>
             <option value="municipio">Municipio</option>
         </select>
-        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="buscar" name="buscar" placeholder="Ingrese el valor a buscar" aria-label="Ingrese el nombre del usuario" aria-describedby="button-addon2">
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="buscar" name="buscar"
+            placeholder="Ingrese el valor a buscar" aria-label="Ingrese el nombre del usuario"
+            aria-describedby="button-addon2">
         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
     </div>
 
     <div class="row">
-        <div class="col-12 col-md-4" *ngFor="let facturador of UsuarioModelGet | buscarusuariopormunicipio: buscar : campoBusqueda">
+        <div class="col-12 col-md-4"
+            *ngFor="let facturador of UsuarioModelGet | buscarusuariopormunicipio: buscar : campoBusqueda">
             <div class="card text-center mb-3">
                 <div class="card-header pink-header">
                     {{facturador.nombre}} {{ facturador.apellido}}
+                </div>
+                <!-- ver imagen -->
+                <div class="aspect-ratio">
+                    <img *ngIf="facturador.imagen" [src]="'http://localhost:3000/imagenes/' + facturador.imagen">
                 </div>
                 <img src="../../../assets/img/usuarioclick&cake.png" id="imagen-usuario">
                 <div class="card-body">
@@ -66,6 +74,11 @@
                 <div class="modal-body">
                     <form>
 
+                        <!-- AGREGAR IMAGEN -->
+                        <div class="mb-3">
+                            <label for="inputImagen" class="form-label">Imagen:</label>
+                            <input type="file" class="form-control" id="inputImagen" (change)="onImageSelected($event)">
+                        </div>
                         <div class="mb-3">
                             <label for="inputNombre" class="form-label">Nombre</label>
                             <input type="text" id="inputNombre" class="form-control" autocomplete="off"
@@ -103,16 +116,19 @@
                                 [(ngModel)]="UsuarioModelPost.direccion">
                         </div>
                         <div class="mb-3 pt-4">
-                            <label for="inputDepartamento" class="form-label"><i class="fas fa-user"></i>Departamento:</label>
-                            <select class="form-select" aria-label="Default select example" id="inputDepartamento" name="departamento"
-                                #departamento="ngModel" [(ngModel)]="UsuarioModelPost.departamento" (change)="actualizarMunicipio(departamento.value)" required>
-                                <option *ngFor="let clasificacion of clasificacion" [value]="clasificacion.tipo">{{clasificacion.tipo}}</option>
+                            <label for="inputDepartamento" class="form-label"><i
+                                    class="fas fa-user"></i>Departamento:</label>
+                            <select class="form-select" aria-label="Default select example" id="inputDepartamento"
+                                name="departamento" #departamento="ngModel" [(ngModel)]="UsuarioModelPost.departamento"
+                                (change)="actualizarMunicipio(departamento.value)" required>
+                                <option *ngFor="let clasificacion of clasificacion" [value]="clasificacion.tipo">
+                                    {{clasificacion.tipo}}</option>
                             </select>
                         </div>
                         <div class="mb-3 pt-4">
                             <label for="inputMunicipio" class="form-label"><i class="fas fa-user"></i>Municipio:</label>
-                            <select class="form-select" aria-label="Municipio select" id="inputMunicipio" name="municipio"
-                                #municipio="ngModel" [(ngModel)]="UsuarioModelPost.municipio" required>
+                            <select class="form-select" aria-label="Municipio select" id="inputMunicipio"
+                                name="municipio" #municipio="ngModel" [(ngModel)]="UsuarioModelPost.municipio" required>
                                 <option *ngFor="let numero of municipios" [value]="numero">{{numero}}</option>
                             </select>
                         </div>
@@ -120,7 +136,7 @@
                             <label for="inputNombreSucursal" class="form-label"><i class="fas fa-building"></i>Nombre sucursal:</label>
                             <input type="text" id="inputNombreSucursal" class="form-control" autocomplete="off"
                                 placeholder="Ingrese el nombre de la sucursal" name="nombreSucursal"
-                                [(ngModel)]="nombreSucursal">
+                                [(ngModel)]="nombreSucursal"> <!-- Aquí solo guardas el valor en una variable local -->
                         </div>
 
                     </form>

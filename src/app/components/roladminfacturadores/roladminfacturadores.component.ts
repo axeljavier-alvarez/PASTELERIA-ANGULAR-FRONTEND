@@ -8,6 +8,7 @@ import { AdminUsuariosService} from 'src/app/services/admin-usuarios.service';
 //Llamando al token
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
+import { Sucursal } from 'src/app/models/sucursal.model';
 
 
 @Component({
@@ -417,17 +418,55 @@ break;
     });
   }
 
+    /* DE LA LINEA 397 A 472 */
+    selectedImage: File | null = null;
+
+    // Método para manejar la selección de la imagen
+    onImageSelected(event: any) {
+      const file: File = event.target.files[0];
+      if (file) {
+        this.selectedImage = file; // Guarda la imagen seleccionada
+      }
+    }
 
 
 postUsuariosRolFacturador(){
+ 
+  if (!this.UsuarioModelPost || !this.nombreSucursal) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Datos incompletos',
+      text: 'Por favor, complete todos los campos requeridos.',
+      showConfirmButton: true
+    });
+    return; // Salir si no hay datos completos
+  }
+  const modeloSucursal = new Sucursal(
+    '', // _id, puedes dejarlo vacío o asignar un valor por defecto
+    this.nombreSucursal,
+    '', // direccionSucursal
+    0, // telefonoSucursal
+    '', // departamento
+    '', // municipio
+    '', // imagen
+    [], // datosEmpresa
+    []  // gestorSucursales
+  );
   const usuarioConSucursal = {
     ...this.UsuarioModelPost,
-    nombreSucursal: this.nombreSucursal
+    // Puedes agregar más propiedades de modeloSucursal si es necesario
   };
-  this._adminUsuariosService.agregarUsuarioRolFacturador(usuarioConSucursal,this.token).subscribe(
-    (response)=>{
+
+  this._adminUsuariosService.agregarUsuarioRolGestor(
+    usuarioConSucursal, // Pasa el objeto que incluye los datos del usuario
+    modeloSucursal, // Pasa el modelo de sucursal
+    this.token,
+    this.selectedImage // Asegúrate de pasar la imagen en el orden correcto
+  ).subscribe(
+    (response) => {
       console.log(response);
       this.getUsuariosRolFacturador();
+
       Swal.fire({
         icon: 'success',
         title: 'Éxito!',
@@ -446,8 +485,9 @@ postUsuariosRolFacturador(){
         timer: 2500
       });
     }
-  )
+  );
 }
+
 
 getUsuarioId(idUsuario){
   this._adminUsuariosService.obtenerRolFacturadorId(idUsuario, this.token).subscribe(
