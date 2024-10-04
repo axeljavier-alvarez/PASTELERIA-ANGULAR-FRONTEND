@@ -31,6 +31,11 @@ import { RolclientecategoriasComponent } from './components/rolclientecategorias
 import { EditarroladminComponent } from './components/editarroladmin/editarroladmin.component';
 import { EditarrolcajeroComponent } from './components/editarrolcajero/editarrolcajero.component';
 import { VistarolcajeroComponent } from './components/vistarolcajero/vistarolcajero.component';
+import { EditarrolclienteComponent } from './components/editarrolcliente/editarrolcliente.component';
+import { EditarrolfacturadorComponent } from './components/editarrolfacturador/editarrolfacturador.component';
+import { EditarrolgestorComponent } from './components/editarrolgestor/editarrolgestor.component';
+import { VistarolrepartidorComponent } from './components/vistarolrepartidor/vistarolrepartidor.component';
+import { EditarrolrepartidorComponent } from './components/editarrolrepartidor/editarrolrepartidor.component';
 
 const routes: Routes = [
 
@@ -41,6 +46,7 @@ const routes: Routes = [
   { path: 'vistarolfacturador', component: VistarolfacturadorComponent },
   { path: 'vistarolcliente', component: VistarolclienteComponent},
   { path: 'vistarolcajero', component: VistarolcajeroComponent},
+  { path: 'vistarolrepartidor', component: VistarolrepartidorComponent},
 
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent},
@@ -82,6 +88,10 @@ const routes: Routes = [
   // VISTAS PARA EDITAR ROLES DE USUARIO
   { path: 'editarroladmin', component: EditarroladminComponent},
   { path: 'editarrolcajero', component: EditarrolcajeroComponent },
+  { path: 'editarrolcliente', component: EditarrolclienteComponent},
+  { path: 'editarrolfacturador', component: EditarrolfacturadorComponent},
+  { path: 'editarrolgestor', component: EditarrolgestorComponent},
+  { path: 'editarrolrepartidor', component: EditarrolrepartidorComponent},
 ];
 
 

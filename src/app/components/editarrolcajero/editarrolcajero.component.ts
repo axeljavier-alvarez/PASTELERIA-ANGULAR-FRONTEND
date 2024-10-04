@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { CajeroService} from 'src/app/services/cajero.service';
+import { CajeroService } from 'src/app/services/cajero.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/models/usuarios.model';
 import { Router } from '@angular/router';
@@ -17,8 +17,12 @@ export class EditarrolcajeroComponent implements OnInit {
   public usuariosModelGetId: Usuario;
 
   constructor(
-    public _usuariosService: UsuarioService, private _adminUsuariosService:CajeroService, private router: Router
+    private titleService: Title,
+    public _usuariosService: UsuarioService,
+    private _adminUsuariosService:CajeroService,
+    private router: Router
   ) { 
+    this.titleService.setTitle('Editar perfil cajero');
     this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
     this.token = this._usuariosService.obtenerToken()
   }

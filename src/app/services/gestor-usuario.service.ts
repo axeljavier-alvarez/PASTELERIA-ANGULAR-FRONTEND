@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Categoria } from '../models/categoria.model';
 import { Empresa } from '../models/empresa.model';
 import { Producto } from '../models/productos.model';
+import { Usuario } from '../models/usuarios.model';
 
 @Injectable({
   providedIn: 'root',
@@ -216,5 +217,16 @@ export class GestorUsuarioService {
     let parametros = JSON.stringify(modeloProducto);
     let headersToken = this.headersVariable.set('Authorization',token);
     return this._http.put(this.url + '/editarProductosRolGestor/' + modeloProducto._id, parametros, { headers: headersToken });
+  }
+
+  obtenerRolGestorId(idUsuario, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/getUsuarioRolGestor/' + idUsuario, { headers: headersToken });
+  }
+
+  modificarPerfilGestor(modeloUsuarios: Usuario, token): Observable<any> {
+    let parametros = JSON.stringify(modeloUsuarios);
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.put(this.url + '/editarPerfilGestor/' + modeloUsuarios._id, parametros, { headers: headersToken });
   }
 }

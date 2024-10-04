@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Producto } from '../models/productos.model';
 import { Sucursal } from '../models/sucursal.model';
 import { Carrito } from '../models/carrito.model';
+import { Usuario } from '../models/usuarios.model';
 
 @Injectable({
   providedIn: 'root'
@@ -100,5 +101,16 @@ export class ClienteUsuarioService {
     return this._http.get(this.url + '/getCategoriasRolCliente', {headers: headersToken});
     
   };
+
+  obtenerRolClienteId(idUsuario, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/getUsuarioRolCliente/' + idUsuario, { headers: headersToken });
+  }
+
+  modificarPerfilCliente(modeloUsuarios: Usuario, token): Observable<any> {
+    let parametros = JSON.stringify(modeloUsuarios);
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.put(this.url + '/editarPerfilCliente/' + modeloUsuarios._id, parametros, { headers: headersToken })
+  }
 
 }
