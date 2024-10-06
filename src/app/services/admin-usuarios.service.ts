@@ -428,11 +428,36 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     return this._http.get(this.url + '/getUsuarioRolRepartidor', { headers: headersToken });
   }
 
-  agregarUsuarioRolRepartidor(modeloUsuario: Usuario, token): Observable<any> {
+  /*agregarUsuarioRolRepartidor(modeloUsuario: Usuario, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization',token);
     let parametros = JSON.stringify(modeloUsuario);
     return this._http.post(this.url + '/agregarRolRepartidor', parametros, { headers: headersToken });
+  }*/
+ agregarUsuarioRolRepartidor(
+  modeloUsuario: Usuario,
+  modeloSucursal: Sucursal, // Asegúrate de que este modelo está bien definido
+  token: string,
+  imagen: File
+): Observable<any> {
+  const formData = new FormData();
+  formData.append('nombre', String(modeloUsuario.nombre || ''));
+  formData.append('apellido', String(modeloUsuario.apellido || ''));
+  formData.append('email', String(modeloUsuario.email || ''));
+  formData.append('password', String(modeloUsuario.password || ''));
+  formData.append('telefono', modeloUsuario.telefono != null ? modeloUsuario.telefono.toString() : '0');
+  formData.append('direccion', String(modeloUsuario.direccion || ''));
+  formData.append('departamento', String(modeloUsuario.departamento || ''));
+  formData.append('municipio', String(modeloUsuario.municipio || ''));
+  formData.append('nombreSucursal', String(modeloSucursal.nombreSucursal || '')); // Uso correcto del modeloSucursal
+
+  if (imagen) {
+    formData.append('imagen', imagen, imagen.name); // Agregar la imagen al FormData
   }
+
+  const headersToken = new HttpHeaders().set('Authorization', token);
+
+  return this._http.post(`${this.url}/agregarRolRepartidor`, formData, { headers: headersToken });
+}
   
   eliminarUsuarioRolRepartidor(idUsuario,token) {
     let headersToken = this.headersVariable.set('Authorization',token);
@@ -457,10 +482,36 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     return this._http.get(this.url + '/getRolCajero', { headers: headersToken });
   }
 
-  agregarUsuarioRolCajero(modeloUsuario: Usuario, token): Observable<any> {
+  /*agregarUsuarioRolCajero(modeloUsuario: Usuario, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization',token);
     let parametros = JSON.stringify(modeloUsuario);
     return this._http.post(this.url + '/agregarRolCajero', parametros, { headers: headersToken });
+  }*/
+
+  agregarUsuarioRolCajero(
+    modeloUsuario: Usuario,
+    modeloSucursal: Sucursal, // Asegúrate de que este modelo está bien definido
+    token: string,
+    imagen: File
+  ): Observable<any> {
+    const formData = new FormData();
+    formData.append('nombre', String(modeloUsuario.nombre || ''));
+    formData.append('apellido', String(modeloUsuario.apellido || ''));
+    formData.append('email', String(modeloUsuario.email || ''));
+    formData.append('password', String(modeloUsuario.password || ''));
+    formData.append('telefono', modeloUsuario.telefono != null ? modeloUsuario.telefono.toString() : '0');
+    formData.append('direccion', String(modeloUsuario.direccion || ''));
+    formData.append('departamento', String(modeloUsuario.departamento || ''));
+    formData.append('municipio', String(modeloUsuario.municipio || ''));
+    formData.append('nombreSucursal', String(modeloSucursal.nombreSucursal || '')); // Uso correcto del modeloSucursal
+  
+    if (imagen) {
+      formData.append('imagen', imagen, imagen.name); // Agregar la imagen al FormData
+    }
+  
+    const headersToken = new HttpHeaders().set('Authorization', token);
+  
+    return this._http.post(`${this.url}/agregarRolCajero`, formData, { headers: headersToken });
   }
   
   eliminarUsuarioRolCajero(idUsuario,token) {

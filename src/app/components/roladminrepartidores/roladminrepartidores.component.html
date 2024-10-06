@@ -25,7 +25,10 @@
                 <div class="card-header pink-header">
                     {{repartidor.nombre}} {{ repartidor.apellido}}
                 </div>
-                <img src="../../../assets/img/usuarioclick&cake.png" id="imagen-usuario">
+                <!-- ver imagen -->
+                <div class="aspect-ratio">
+                    <img *ngIf="repartidor.imagen" [src]="'http://localhost:3000/imagenes/' + repartidor.imagen">
+                </div>
 
                 <div class="card-body">
 
@@ -63,6 +66,11 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                        <!-- AGREGAR IMAGEN -->
+                        <div class="mb-3">
+                            <label for="inputImagen" class="form-label">Imagen:</label>
+                            <input type="file" class="form-control" id="inputImagen" (change)="onImageSelected($event)">
+                        </div>
                         <div class="mb-3">
                             <label for="inputNombre" class="form-label">Nombre</label>
                             <input type="text" id="inputNombre" class="form-control" autocomplete="off"

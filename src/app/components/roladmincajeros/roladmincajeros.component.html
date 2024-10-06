@@ -26,7 +26,10 @@
                     {{cajero.nombre}} {{ cajero.apellido}}
                 </div>
 
-                <img src="../../../assets/img/usuarioclick&cake.png" id="imagen-usuario">
+                <!-- ver imagen -->
+                <div class="aspect-ratio">
+                    <img *ngIf="cajero.imagen" [src]="'http://localhost:3000/imagenes/' + cajero.imagen">
+                </div>
 
                 <div class="card-body">
 
@@ -65,6 +68,12 @@
                 </div>
                 <div class="modal-body">
                     <form>
+
+                        <!-- AGREGAR IMAGEN -->
+                        <div class="mb-3">
+                            <label for="inputImagen" class="form-label">Imagen:</label>
+                            <input type="file" class="form-control" id="inputImagen" (change)="onImageSelected($event)">
+                        </div>
 
                         <div class="mb-3">
                             <label for="inputNombre" class="form-label">Nombre:</label>

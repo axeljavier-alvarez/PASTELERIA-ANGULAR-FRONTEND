@@ -457,7 +457,7 @@ postUsuariosRolFacturador(){
     // Puedes agregar más propiedades de modeloSucursal si es necesario
   };
 
-  this._adminUsuariosService.agregarUsuarioRolGestor(
+  this._adminUsuariosService.agregarUsuarioRolFacturador(
     usuarioConSucursal, // Pasa el objeto que incluye los datos del usuario
     modeloSucursal, // Pasa el modelo de sucursal
     this.token,

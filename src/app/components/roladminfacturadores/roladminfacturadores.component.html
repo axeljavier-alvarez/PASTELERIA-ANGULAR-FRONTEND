@@ -31,11 +31,12 @@
                 <div class="card-header pink-header">
                     {{facturador.nombre}} {{ facturador.apellido}}
                 </div>
+                
                 <!-- ver imagen -->
                 <div class="aspect-ratio">
                     <img *ngIf="facturador.imagen" [src]="'http://localhost:3000/imagenes/' + facturador.imagen">
                 </div>
-                <img src="../../../assets/img/usuarioclick&cake.png" id="imagen-usuario">
+                
                 <div class="card-body">
 
                     <h5 class="card-title"> ID: {{facturador._id}}</h5>
