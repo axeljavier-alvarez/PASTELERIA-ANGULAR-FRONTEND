@@ -1,11 +1,13 @@
+
 .titulo {
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
 }
-.tarjeta-login {
-    height: 100vh;
+
+.login {
+    backdrop-filter: blur(10px);
 }
 
 .fondo {
@@ -13,10 +15,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    backdrop-filter: blur(5px);
+    
+    // backdrop-filter: blur(1px);
 }
 
-.verde {
+.contorno {
     color: #375b06;
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
@@ -25,7 +28,7 @@
     font-style: oblique;
 }
 
-.botonLogin {
+button {
     font-size: 18px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -43,7 +46,7 @@
     z-index: 1;
 }
 
-.botonLogin:before {
+button:before {
     transition: 0.5s all ease;
     border-radius: 50px;
     position: absolute;
@@ -57,31 +60,30 @@
     z-index: -1;
 }
 
-.botonLogin:hover,
-.botonLogin:focus {
+button:hover,
+button:focus {
     color: #FF0072;
 }
 
-.botonLogin:hover:before,
-.botonLogin:focus:before {
+button:hover:before,
+button:focus:before {
     transition: 0.5s all ease;
     left: 0;
     right: 0;
     opacity: 1;
 }
 
-.botonLogin:active {
+button:active {
     transform: scale(0.9);
 }
 
 .logo-login {
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
     position: absolute;
     left: 150px;
     top: 100px;
     width: 300px;
-}
-.borde-eye {
-    border-radius: 0px;
 }
 
 /*Vista laptop / tablet horizontal*/
@@ -142,6 +144,6 @@ text-align: center; */
     }
 
     .tarjeta-login {
-        transform: scale(0.9);
+        transform: scale(0.8);
     }
 }
