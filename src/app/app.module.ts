@@ -44,6 +44,7 @@ import { EditarrolclienteComponent } from './components/editarrolcliente/editarr
 import { EditarroladminComponent } from './components/editarroladmin/editarroladmin.component';
 import { VistarolrepartidorComponent } from './components/vistarolrepartidor/vistarolrepartidor.component';
 import { VistarolcajeroComponent } from './components/vistarolcajero/vistarolcajero.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 
 
@@ -88,6 +89,7 @@ import { VistarolcajeroComponent } from './components/vistarolcajero/vistarolcaj
     EditarroladminComponent,
     VistarolrepartidorComponent,
     VistarolcajeroComponent,
+    InicioComponent,
    
   ],
   imports: [
