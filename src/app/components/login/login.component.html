@@ -22,13 +22,13 @@
             font-style: normal;
         }
 
-        .fondo {
+       /*  .fondo {
             background-image: url('../../../assets/img/cupcakeClick.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
             backdrop-filter: blur(5px);
-        }
+        } */
 
         .contorno {
             color: #375b06;
@@ -107,13 +107,13 @@
 
         /* Vista Tablet vertical */
         @media (width <=853px) {
-            .fondo {
+            /* .fondo {
                 background-image: url('../../../assets/img/cupcakeClick.jpg');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 backdrop-filter: blur(5px);
-            }
+            } */
 
             /*.contenedor {*/
                 /* display: flex; */
@@ -129,7 +129,7 @@
                 /* margin: auto;
       display: flex;
       justify-content: center;
-      align-items: center; 
+      align-items: center;
       text-align: center; */
                 width: 300px;
             }
@@ -137,13 +137,13 @@
 
         /* Vista telefono */
         @media (width <=430px) {
-            .fondo {
+            /* .fondo {
                 background-image: url('../../../assets/img/cupcakeClick.jpg');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 backdrop-filter: blur(5px);
-            }
+            } */
 
             .logo-login {
                 position: absolute;
@@ -158,7 +158,8 @@
         }
     </style>
 </head>
-<body class="fondo">
+<!-- <body  class="fondo">-->
+  <body>
     <div class="contenedor">
         <img src="../../../assets/img/logo_empresa2.png" alt="" width="300px" class="logo-login">
         <main class="d-flex justify-content-center align-items-center tarjeta-login" style="height: 100vh;">
@@ -167,7 +168,7 @@
                 <div class="mb-3">
                     <label for="email" class="form-label contorno"><i class="fas fa-unlock-alt"></i>Email</label>
                     <input class="form-control" type="email" placeholder="Ingrese su email"
-                        style="background-color: #ffc7de; border: 3px solid #fb74a2;" id="email"  name="email" #email="ngModel" 
+                        style="background-color: #ffc7de; border: 3px solid #fb74a2;" id="email"  name="email" #email="ngModel"
                         [(ngModel)]="usuarioModel.email" required autocomplete="off">
                 </div>
                 <div class="mb-3">

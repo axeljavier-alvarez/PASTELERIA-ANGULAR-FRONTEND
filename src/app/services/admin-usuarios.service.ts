@@ -62,13 +62,13 @@ export class AdminUsuariosService {
       formData.append('departamento', String(modeloUsuario.departamento || ''));
       formData.append('municipio', String(modeloUsuario.municipio || ''));
       formData.append('nombreSucursal', String(modeloSucursal.nombreSucursal || '')); // Uso correcto del modeloSucursal
-    
+
       if (imagen) {
         formData.append('imagen', imagen, imagen.name); // Agregar la imagen al FormData
       }
-    
+
       const headersToken = new HttpHeaders().set('Authorization', token);
-    
+
       return this._http.post(`${this.url}/agregarGestor`, formData, { headers: headersToken });
     }
 
@@ -116,7 +116,7 @@ getUsuariosRolFacturador(token): Observable<any> {
 
 }*/
 agregarUsuarioRolFacturador(
-  
+
   modeloUsuario: Usuario,
   modeloSucursal: Sucursal, // Asegúrate de que este modelo está bien definido
   token: string,
@@ -312,7 +312,7 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
   }
 
 //VER SUCURSALES POR ID DE LA EMPRESA
-  
+
   ObtenerSucursalesIdEmpresa(idEmpresa, token): Observable<any> {
 
     let headersToken = this.headersVariable.set('Authorization', token )
@@ -372,13 +372,13 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization',token);
     let parametros = JSON.stringify(modeloCategoria);
     return this._http.post(this.url + '/agregarCategoriaAdmin', parametros, { headers: headersToken });
-  } 
+  }
 
 
  // AGREGAR CATEGORIA CON IMAGEN
 
  agregarCategoriaConImagen(
-  
+
   modeloCategoria: Categoria,
   token: string,
   imagen: File
@@ -458,7 +458,7 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
 
   return this._http.post(`${this.url}/agregarRolRepartidor`, formData, { headers: headersToken });
 }
-  
+
   eliminarUsuarioRolRepartidor(idUsuario,token) {
     let headersToken = this.headersVariable.set('Authorization',token);
     return this._http.delete(this.url + '/eliminarRolRepartidor/' + idUsuario, { headers: headersToken });
@@ -468,7 +468,7 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization',token);
     return this._http.get(this.url + '/getUsuarioIdRolRepartidor/' + idUsuario, { headers: headersToken });
   }
-  
+
   editarRolRepartidor(modeloUsuario: Usuario, token): Observable<any> {
     let parametros = JSON.stringify(modeloUsuario);
     let headersToken = this.headersVariable.set('Authorization',token);
@@ -504,16 +504,16 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     formData.append('departamento', String(modeloUsuario.departamento || ''));
     formData.append('municipio', String(modeloUsuario.municipio || ''));
     formData.append('nombreSucursal', String(modeloSucursal.nombreSucursal || '')); // Uso correcto del modeloSucursal
-  
+
     if (imagen) {
       formData.append('imagen', imagen, imagen.name); // Agregar la imagen al FormData
     }
-  
+
     const headersToken = new HttpHeaders().set('Authorization', token);
-  
+
     return this._http.post(`${this.url}/agregarRolCajero`, formData, { headers: headersToken });
   }
-  
+
   eliminarUsuarioRolCajero(idUsuario,token) {
     let headersToken = this.headersVariable.set('Authorization',token);
     return this._http.delete(this.url + '/eliminarRolCajero/' + idUsuario, { headers: headersToken });
@@ -523,7 +523,7 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization',token);
     return this._http.get(this.url + '/getRolIdCajero/' + idUsuario, { headers: headersToken });
   }
-  
+
   editarRolCajero(modeloUsuario: Usuario, token): Observable<any> {
     let parametros = JSON.stringify(modeloUsuario);
     let headersToken = this.headersVariable.set('Authorization',token);
@@ -532,14 +532,32 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
 
 
   /* SERVICIOS PARA EDITAR PERFIL */
-  modificarPerfilAdmin(modeloUsuarios: Usuario, token): Observable<any> {
+  modificarPerfilAdmin(
+    modeloUsuarios: Usuario,
+    token: string,
+    imagen?: File // Añadido el parámetro de imagen
+  ): Observable<any> {
 
-    let parametros = JSON.stringify(modeloUsuarios);
+    const formData = new FormData();
 
-    let headersToken = this.headersVariable.set('Authorization', token);
+    // Agregar los campos de usuario al FormData
+    formData.append('nombre', String(modeloUsuarios.nombre || ''));
+    formData.append('apellido', String(modeloUsuarios.apellido || ''));
+    formData.append('email', String(modeloUsuarios.email || ''));
+    formData.append('telefono', modeloUsuarios.telefono != null ? modeloUsuarios.telefono.toString() : '0');
+    formData.append('direccion', String(modeloUsuarios.direccion || ''));
+    formData.append('departamento', String(modeloUsuarios.departamento || ''));
+    formData.append('municipio', String(modeloUsuarios.municipio || ''));
 
-    return this._http.put(this.url + '/editarPerfilAdmin/' + modeloUsuarios._id, parametros, { headers: headersToken })
+    // Si se proporciona una imagen, añadirla a FormData
+    if (imagen) {
+      formData.append('imagen', imagen, imagen.name);
+    }
 
+    const headersToken = new HttpHeaders().set('Authorization', token);
+
+    // Realizar la petición PUT
+    return this._http.put(`${this.url}/editarPerfilAdmin/${modeloUsuarios._id}`, formData, { headers: headersToken });
   }
 
   /* OBTENER TODAS LAS SUCURSALES */
@@ -551,5 +569,5 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     });
   }
 
-  
+
 }

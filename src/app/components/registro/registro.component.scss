@@ -4,33 +4,33 @@
     font-weight: 500;
     font-style: normal;
   }
-  
+
   .contenedor {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
-  
+
   .contenedor-columnas {
     width: 65vh;
     margin: auto;
   }
-  
+
   .login {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
   }
-  
-  .fondo {
+
+  /* .fondo {
     background-image: url('../../../assets/img/cupcakeClick.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     backdrop-filter: blur(5px);
-  }
-  
+  } */
+
   .contorno {
     color: #375b06;
     font-family: "Josefin Sans", sans-serif;
@@ -39,7 +39,7 @@
     font-size: 20px;
     font-style: oblique;
   }
-  
+
   .botonRegistro {
     font-size: 18px;
     letter-spacing: 2px;
@@ -57,7 +57,7 @@
     transition: 0.3s ease all;
     z-index: 1;
   }
-  
+
   .botonRegistro:before {
     transition: 0.5s all ease;
     border-radius: 50px;
@@ -71,12 +71,12 @@
     background-color: #ffc7de;
     z-index: -1;
   }
-  
+
   .botonRegistro:hover,
   .botonRegistro:focus {
     color: #FF0072;
   }
-  
+
   .botonRegistro:hover:before,
   .botonRegistro:focus:before {
     transition: 0.5s all ease;
@@ -84,12 +84,12 @@
     right: 0;
     opacity: 1;
   }
-  
+
   .botonRegistro:active {
     transform: scale(0.9);
   }
-  
-  
+
+
   .tarjeta-login {
     width: 65vh;
     transform: scale(0.9);
@@ -100,18 +100,18 @@
     align-items: center;
     flex-direction: column;
   }
-  
+
   /* Estilos generales */
   .logo-container {
     display: flex;
     justify-content: center;
     width: 100%;
   }
-  
+
   .logo-login {
     width: 200px;
   }
-  
+
   /* Vista laptop / desktop */
   @media (min-width: 1301px) {
     .logo-container {
@@ -121,16 +121,16 @@
       width: auto;
       justify-content: flex-start;
     }
-  
+
     .logo-login {
       width: 150px;
     }
-  
+
     .contenedor {
       position: relative;
     }
   }
-  
+
   /* Vista laptop / tablet horizontal */
   @media (min-width: 860px) and (max-width: 1300px) {
     .logo-container {
@@ -140,15 +140,15 @@
       width: auto;
       justify-content: flex-start;
     }
-  
+
     .logo-login {
       width: 130px;
     }
-  
+
     .contenedor {
       position: relative;
     }
-  
+
     .tarjeta-login {
       width: 65vh;
       transform: scale(0.8);
@@ -158,7 +158,7 @@
       align-items: center;
     }
   }
-  
+
   /* Vista Tablet vertical */
   @media (min-width: 440px) and (max-width: 854px) {
     .contenedor {
@@ -171,15 +171,15 @@
       padding: 20px 0;
       overflow-x: hidden;
     }
-  
+
     .logo-container {
       margin-bottom: 20px;
     }
-  
+
     .logo-login {
       width: 250px;
     }
-  
+
     .tarjeta-login {
       width: 90%;
       max-width: 100%;
@@ -191,7 +191,7 @@
       width: 40vh;
       margin: auto;
     }
-  
+
     .login {
       display: flex;
       flex-direction: column;
@@ -205,28 +205,28 @@
       width: 100%;
       margin-bottom: 15px;
     }
-  
+
     .contenedor-columnas {
       width: 100%;
       padding: 10px;
     }
-  
+
     .columna1,
     .columna2 {
       width: 100%;
     }
   }
-  
+
   /* Vista teléfono */
   @media (max-width: 430px) {
-    .fondo {
+    /* .fondo {
       background-image: url('../../../assets/img/cupcakeClickVertical.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
       backdrop-filter: blur(5px);
-    }
-  
+    } */
+
     .contenedor {
       display: flex;
       flex-direction: column;
@@ -238,18 +238,18 @@
       overflow-x: hidden;
       /* Previene el desplazamiento horizontal */
     }
-  
+
     .logo-container {
       margin-bottom: 20px;
       width: 100%;
       display: flex;
       justify-content: center;
     }
-  
+
     .logo-login {
       width: 170px;
     }
-  
+
     .tarjeta-login {
       width: 90%;
       max-width: 100%;
@@ -259,33 +259,33 @@
       overflow-x: hidden;
       /* Previene el desplazamiento horizontal dentro de la tarjeta */
     }
-  
+
     .login {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
     }
-  
+
     .login>div {
       width: 100%;
       margin-bottom: 15px;
     }
-  
+
     .contenedor-columnas {
       width: 100%;
       padding: 10px;
     }
-  
+
     .columna1,
     .columna2 {
       width: 100%;
     }
-  
+
     .mb-3 {
       margin-bottom: 15px !important;
     }
-  
+
     input.form-control {
       width: 100%;
     }

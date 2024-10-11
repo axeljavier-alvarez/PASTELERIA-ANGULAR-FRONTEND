@@ -1,1 +1,32 @@
-<p>inicio works!</p>
+<div class="container">
+
+  <h1 class="text-center mt-3">Categorias</h1>
+  <div class="row">
+    <div class="col-12 col-md-4" *ngFor="let categorias of categoriasModelGet">
+      <div class="card text-center mb-3">
+        <div class="card-header pink-header">
+          {{ categorias.nombreCategoria }}
+        </div>
+        <div class="card-body">
+          <div class="aspect-ratio">
+            <img *ngIf="categorias.imagen" [src]="'http://localhost:3000/imagenes/' + categorias.imagen">
+          </div>
+          <h5 class="card-title"> Marca: {{ categorias.descripcionCategoria }} </h5>
+
+          <button type="button" class="btn btn-success">
+         Ver Productos
+        </button>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+

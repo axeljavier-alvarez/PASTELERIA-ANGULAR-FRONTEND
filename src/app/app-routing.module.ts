@@ -39,9 +39,8 @@ import { EditarrolrepartidorComponent } from './components/editarrolrepartidor/e
 import { InicioComponent } from './components/inicio/inicio.component';
 
 const routes: Routes = [
-  
-  // vista inicio
-  { path: 'inicio', component: InicioComponent},
+
+
   //Vistas principales
   { path: 'vistarolgestor', component: VistarolgestorComponent},
   { path: 'vistaroladmin', component: VistaroladminComponent},
@@ -94,6 +93,10 @@ const routes: Routes = [
   { path: 'editarrolfacturador', component: EditarrolfacturadorComponent},
   { path: 'editarrolgestor', component: EditarrolgestorComponent},
   { path: 'editarrolrepartidor', component: EditarrolrepartidorComponent},
+
+
+  // INICIO
+  { path: 'inicio', component: InicioComponent}
 ];
 
 

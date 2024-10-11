@@ -20,4 +20,9 @@ export class TareaslibresService {
     return this._http.post(this.url + '/agregarUsuario', parametros, {headers: this.headersVariable})
   }
 
+  // ver categorias
+  obtenerCategorias(): Observable <any> {
+    return this._http.get(this.url + '/obtenerCategoriasCualquiera', { headers: this.headersVariable});
+  }
+
 }
