@@ -25,24 +25,20 @@
 }
 
 .pink-header {
-    background-color: #f8bdbd;
-    color: #d30a49; /* Color de texto en hover (opcional) */
-}
-
-.bk-form {
-	background-color: #F4D9D0;
+    background-color: #eb984e;
+    color: #ffff; /* Color de texto en hover (opcional) */
 }
 
 .card {
 	border-radius: 4px;
-	box-shadow: 0 -1px 1px 0 rgb(246, 192, 248), 0 1px 2px 0 rgb(246, 192, 248);
+	box-shadow: 0 -1px 1px 0 rgb(211, 84, 0), 0 1px 2px 0 rgb(220, 118, 51);
 	transition: all .2s ease;
 	position: relative;
 	overflow: hidden;
 
 	&:hover, &.hover {
 		transform: translateY(-4px);
-		box-shadow: 0 4px 25px 0 rgba(246, 192, 248), 0 0 1px 0 rgba(246, 192, 248);		
+		box-shadow: 0 4px 25px 0 rgba(211, 84, 0), 0 0 1px 0 rgba(220, 118, 51);		
 	}
 
 	&-content {
@@ -76,10 +72,10 @@
 // ---------Botones Outline---------
 // Variables de colores
 $colors: (
-  cancelar: #921A40,
-  aceptar: #C75B7A,
-  agregar-sucursal: #d83256,
-  agregar-usuario: #b0d45b
+  cancelar: #a04000 ,
+  aceptar:#e67e22,
+  agregar-sucursal: #ff9100,
+  agregar-usuario: #ff9100
 );
 
 // Mixin para botones outline
