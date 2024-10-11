@@ -5,6 +5,47 @@
     font-style: normal;
   }
 
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+    position: relative;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.circle1 {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    left: 50px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.circle2 {
+    width: 250px;
+    height: 250px;
+    top: 200px;
+    right: 100px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.circle3 {
+    width: 150px;
+    height: 150px;
+    bottom: 100px;
+    left: 150px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
   .contenedor {
     display: flex;
     justify-content: center;
@@ -13,8 +54,8 @@
   }
 
   .contenedor-columnas {
-    width: 65vh;
-    margin: auto;
+    width: 80vh;
+    // margin: auto;
   }
 
   .login {
@@ -32,7 +73,7 @@
   } */
 
   .contorno {
-    color: #375b06;
+    color: white;
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
@@ -132,7 +173,7 @@
   }
 
   /* Vista laptop / tablet horizontal */
-  @media (min-width: 860px) and (max-width: 1300px) {
+  @media (min-width: 880px) and (max-width: 1300px) {
     .logo-container {
       position: absolute;
       left: 20px;
@@ -160,7 +201,7 @@
   }
 
   /* Vista Tablet vertical */
-  @media (min-width: 440px) and (max-width: 854px) {
+  @media (min-width: 440px) and (max-width: 880px) {
     .contenedor {
       display: flex;
       flex-direction: column;
@@ -187,10 +228,9 @@
       transform: scale(1.1);
       padding: 20px;
     }
-    .contenedor-columnas {
-      width: 40vh;
-      margin: auto;
-    }
+    // .contenedor-columnas {
+    //   width: 40vh;
+    // }
 
     .login {
       display: flex;
@@ -274,11 +314,10 @@
 
     .contenedor-columnas {
       width: 100%;
-      padding: 10px;
+      // padding: 10px;
     }
 
-    .columna1,
-    .columna2 {
+    .columna {
       width: 100%;
     }
 

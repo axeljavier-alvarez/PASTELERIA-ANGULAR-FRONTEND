@@ -1,46 +1,89 @@
-
+/* Fuente del Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 a {
   color: black;
 }
 
-
 #menu {
-  // background-color: #ffc7de;
   background-color: #f7f7f7;
-  border-color:#c75b7a;
+  border-color: #c75b7a;
   font-family: "Raleway", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: weight;
-	font-style: normal;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
 }
-.menu-hamburguesa{
-  color: #d45555;
-}
-.hamburguesa-color{
-  color: #c75b7a;
-}
-#menu .nav-link,
-#menu .navbar-brand {
-  color:#f0b27a; /* Color de texto en hover (opcional) */
-  ;/* Color de texto blanco */
 
+.logo {
+  max-height: 70px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+#menu .navbar-brand,
+#menu .nav-link {
+  color: #c75b7a;
 }
 
 #menu .nav-link:hover,
 #menu .navbar-brand:hover {
-  color:  #dc7633; /* Color de texto en hover (opcional) */
+  color: #921A40;
 }
 
-/* Cambiar el color del menú hamburguesa */
-
-
-/* Cambiar el color del icono del menú hamburguesa */
 .navbar-toggler-icon {
   background-image: url('https://cdn-icons-png.freepik.com/512/10061/10061428.png');
-  // background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' fill='white'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .bi-cart4 {
   font-size: 25px;
+}
+
+/* Asegurar que el menú hamburguesa, carrito y cerrar sesión sean visibles en la capa superior */
+.d-flex,
+.navbar-toggler {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 991px) {
+  /* Vista móvil */
+  .logo-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .navbar-toggler {
+    order: 2;
+  }
+
+  .navbar-toggler-icon {
+    color: #d45555;
+  }
+
+  #navbarSupportedContent {
+    text-align: left;
+  }
+
+  /* Carrito a la izquierda, logo a la derecha en móvil */
+  .d-flex {
+    order: 1;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    top: 70px; /* Asegura que el menú se despliegue desde justo debajo del navbar */
+    left: 0;
+    right: 0;
+    background-color: #f7f7f7;
+    z-index: 1;
+  }
+
+  /* Asegura que el botón de menú, el carrito y cerrar sesión permanezcan visibles cuando el menú se despliegue */
+  .d-flex,
+  .navbar-toggler {
+    z-index: 3;
+  }
 }

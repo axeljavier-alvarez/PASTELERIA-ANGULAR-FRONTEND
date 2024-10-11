@@ -8,16 +8,69 @@
     height: 100vh;
 }
 
-.fondo {
-    background-image: url('../../../assets/img/cupcakeClick.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    backdrop-filter: blur(5px);
+.container {
+
+}
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+    position: relative;
+    overflow: hidden;
 }
 
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.circle1 {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    left: 50px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.circle2 {
+    width: 250px;
+    height: 250px;
+    top: 200px;
+    right: 100px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.circle3 {
+    width: 150px;
+    height: 150px;
+    bottom: 100px;
+    left: 150px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.login-container {
+    position: relative;
+    z-index: 10;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+// .fondo {
+//     background-image: url('../../../assets/img/cupcakeClick.jpg');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;
+//     backdrop-filter: blur(5px);
+// }
+
 .verde {
-    color: #375b06;
+    color: white;
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
@@ -29,7 +82,7 @@
     font-size: 18px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    display: inline-block;
+    display: inline-block;  
     text-align: center;
     font-weight: bold;
     padding: 0.7em 2em;
