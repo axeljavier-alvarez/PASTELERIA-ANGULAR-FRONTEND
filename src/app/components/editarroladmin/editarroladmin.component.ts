@@ -74,7 +74,7 @@ export class EditarroladminComponent implements OnInit {
       text: '¿Desea editar sus datos?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#eb984e',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, editar',
       cancelButtonText: 'Cancelar'

@@ -134,3 +134,21 @@ $colors: (
   transform: translate(-50%, -50%); /* Centra la imagen */
   object-fit: cover; /* Recorta la imagen */
 }
+
+// ---------Imagenes redondas---------
+.crop-container {
+  width: 100%; /* Ancho del contenedor */
+  height: 150px; /* Alto del contenedor */
+  overflow: hidden; /* Oculta el contenido que sobresale */
+  position: relative;
+}
+
+.crop-container img {
+  position: absolute; /* Permite mover la imagen dentro del contenedor */
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  height: 150px; /* Ajusta la altura al 100% del contenedor */
+  transform: translate(-50%, -50%); /* Centra la imagen */
+  max-width: 150px;
+  border-radius:75px;
+}
