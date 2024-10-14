@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -31,27 +31,27 @@
         } */
 
         .contorno {
-            color: white;
+            /* color: #fff; */
             font-family: "Josefin Sans", sans-serif;
             font-optical-sizing: auto;
             font-weight: 200;
-            font-size: 20px;
+            font-size: 22px;
             font-style: oblique;
         }
 
         button {
             font-size: 18px;
             letter-spacing: 2px;
+            background-color: #ffb574;
             text-transform: uppercase;
             display: inline-block;
             text-align: center;
             font-weight: bold;
             padding: 0.7em 2em;
-            border: 3px solid #fb74a2;
+            border: 3px solid #eb984e;
             border-radius: 50px;
             position: relative;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
-            color: #fb74a2;
             text-decoration: none;
             transition: 0.3s ease all;
             z-index: 1;
@@ -67,13 +67,13 @@
             bottom: 0;
             opacity: 0;
             content: '';
-            background-color: #ff78a5;
+            background-color: #ffa454;
             z-index: -1;
         }
 
         button:hover,
         button:focus {
-            color: #FF0072;
+            color: #fca75e ;
         }
 
         button:hover:before,
@@ -107,43 +107,14 @@
 
         /* Vista Tablet vertical */
         @media (width <=853px) {
-            /* .fondo {
-                background-image: url('../../../assets/img/cupcakeClick.jpg');
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                backdrop-filter: blur(5px);
-            } */
-
-            /*.contenedor {*/
-                /* display: flex; */
-                /* flex-direction: column; */
-                /* margin: auto; */
-                /* justify-content: center;*/
-                /*align-items: center; */
-           /* }*/
 
             .logo-login {
-                /* position: absolute;
-      top: 20px; */
-                /* margin: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center; */
                 width: 300px;
             }
         }
 
         /* Vista telefono */
         @media (width <=430px) {
-            /* .fondo {
-                background-image: url('../../../assets/img/cupcakeClick.jpg');
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                backdrop-filter: blur(5px);
-            } */
 
             .logo-login {
                 position: absolute;
@@ -153,7 +124,7 @@
             }
 
             .tarjeta-login {
-                transform: scale(0.8);
+                transform: scale(0.6);
             }
         }
     </style>
@@ -165,18 +136,18 @@
     <div class="circle circle3"></div>
     <div class="contenedor">
         <main class="d-flex justify-content-center align-items-center tarjeta-login" style="height: 100vh;">
-            <div class="container rounded p-4" style="width: 70vh; border: solid 3px #ffc7de; font-weight: bold;">
-                <h2 class="text-center mb-4 titulo" style="color: #ffffffd3;">INICIAR SESIÓN</h2>
+            <div class="container rounded p-4" style="width: 70vh; border: solid 3px #d3d8e1; font-weight: bold;">
+                <h2 class="text-center mb-4 titulo " style="color: #ffa556;">INICIAR SESIÓN</h2>
                 <div class="mb-3">
                     <label for="email" class="form-label contorno"><i class="fas fa-unlock-alt"></i>Email</label>
                     <input class="form-control" type="email" placeholder="Ingrese su email"
-                        style="background-color: #ffc7de; border: 3px solid #fb74a2;" id="email"  name="email" #email="ngModel"
+                        style="background-color: #fff; border: 3px solid #dde5f4;" id="email"  name="email" #email="ngModel"
                         [(ngModel)]="usuarioModel.email" required autocomplete="off">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label contorno"><i class="fas fa-unlock-alt"></i>Contraseña</label>
                     <input class="form-control " type="password" id="password" placeholder="Ingrese su contraseña"
-                        style="background-color: #ffc7de; border: 3px solid #fb74a2;" id="password" #password="ngModel"[(ngModel)]="usuarioModel.password" required autocomplete="off" >
+                        style="background-color: #fff; border: 3px solid #dde5f4;" id="password" #password="ngModel"[(ngModel)]="usuarioModel.password" required autocomplete="off" >
                 </div>
                 <div class="text-center"><button class="rounded-pill text-black" type="submit"(click)="login()">Iniciar Sesion</button>
                 </div>

@@ -9,15 +9,18 @@
 }
 
 .container {
-
+    // background-color: #e8eaef;
+    box-shadow: 1px 1px 30px -16px;
+    border-radius: 15px;
 }
+
 body {
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+    background: linear-gradient(135deg, #ffffff , #dce3f0 );
     position: relative;
     overflow: hidden;
 }
@@ -25,7 +28,7 @@ body {
 .circle {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.1;
+    opacity: 0.5;
 }
 
 .circle1 {
@@ -33,7 +36,7 @@ body {
     height: 200px;
     top: 50px;
     left: 50px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255);
 }
 
 .circle2 {
@@ -41,7 +44,7 @@ body {
     height: 250px;
     top: 200px;
     right: 100px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .circle3 {
@@ -49,7 +52,17 @@ body {
     height: 150px;
     bottom: 100px;
     left: 150px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255);
+}
+
+
+.circle4 {
+    width: 150px;
+    height: 150px;
+    background: rgba(206, 206, 206, 0.9);
+    // position: absolute;
+    border-radius: 50%;
+    opacity: 0.11;
 }
 
 .login-container {
@@ -60,14 +73,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
-
-// .fondo {
-//     background-image: url('../../../assets/img/cupcakeClick.jpg');
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-attachment: fixed;
-//     backdrop-filter: blur(5px);
-// }
 
 .verde {
     color: white;
@@ -86,7 +91,7 @@ body {
     text-align: center;
     font-weight: bold;
     padding: 0.7em 2em;
-    border: 3px solid #fb74a2;
+    border: 3px solid #eb984e;
     border-radius: 50px;
     position: relative;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -112,7 +117,7 @@ body {
 
 .botonLogin:hover,
 .botonLogin:focus {
-    color: #FF0072;
+    color: #ca1d6b;
 }
 
 .botonLogin:hover:before,
@@ -156,14 +161,6 @@ body {
         background-attachment: fixed;
         backdrop-filter: blur(5px);
     }
-
-    /*.contenedor {*/
-        /* display: flex; */
-        /* flex-direction: column; */
-        /* margin: auto; */
-        /* justify-content: center;*/
-        /*align-items: center; */
-   /* }*/
 
     .logo-login {
         /* position: absolute;

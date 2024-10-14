@@ -18,22 +18,22 @@
     <div class="circle circle3"></div>
     <div class="contenedor">    
         <main class="tarjeta-login">
-            <div class="p-4 contenedor-columnas" style="border: solid 3px #ffc7de; font-weight: bold;">
-                <h2 class="text-center mb-4 " style="color: #fff;">Registrarse</h2>
+            <div class="p-4 contenedor-columnas " style="border: solid 3px #d3d8e1; font-weight: bold;">
+                <h2 class="text-center mb-4 " style="color: #ffa556;">Registrarse</h2>
                 <div class="login">
                     <div class="columna">
                         <div class="mb-3">
                             <label for="nombre" class="form-label contorno">Nombre</label>
                             <input class="form-control" type="text" id="nombre" name="nombre"
                                 placeholder="Ingrese su nombre"
-                                style="background-color: #ffc7de; border: 3px solid #fb74a2;" #nombre="ngModel"
+                                style="background-color: #fff; border: 3px solid #dde5f4;" #nombre="ngModel"
                                 [(ngModel)]="UsuarioModelPost.nombre" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label contorno">Email</label>
                             <input class="form-control" type="email" id="email" name="email"
                                 placeholder="Ingrese su email"
-                                style="background-color: #ffc7de; border: 3px solid #fb74a2;" #email="ngModel"
+                                style="background-color: #fff; border: 3px solid #dde5f4;" #email="ngModel"
                                 [(ngModel)]="UsuarioModelPost.email" required>
                         </div>
                         <div class="mb-3">
@@ -42,7 +42,7 @@
                             <div class="input-group">
                                 <input class="form-control" type="{{ passwordVisible ? 'text' : 'password' }}"
                                     id="password" name="password" placeholder="Ingrese su contraseña"
-                                    style="background-color: #ffc7de; border: 3px solid #fb74a2;" [(ngModel)]="password"
+                                    style="background-color: #fff; border: 3px solid #dde5f4;" [(ngModel)]="password"
                                     (input)="updatePasswordStrength()" required autocomplete="off">
                                 <button class="btn" type="button" (click)="togglePasswordVisibility()">
                                     <i class="bi eye-icon"
@@ -57,7 +57,7 @@
                         <div class="mb-3">
                             <label for="departamento" class="form-label contorno">Departamento</label>
                             <select class="form-select" aria-label="Default select example" id="departamento"
-                                name="departamento" style="background-color: #ffc7de; border: 3px solid #fb74a2;"
+                                name="departamento" style="background-color: #fff; border: 3px solid #dde5f4;"
                                 #departamento="ngModel" [(ngModel)]="UsuarioModelPost.departamento"
                                 (change)="actualizarMunicipio(departamento.value)" required>
                                 <option *ngFor="let clasificacion of clasificacion" [value]="clasificacion.tipo">
@@ -70,27 +70,27 @@
                             <label for="apellido" class="form-label contorno">Apellido</label>
                             <input class="form-control" type="text" id="apellido" name="apellido"
                                 placeholder="Ingrese su apellido"
-                                style="background-color: #ffc7de; border: 3px solid #fb74a2;" #apellido="ngModel"
+                                style="background-color: #fff; border: 3px solid #dde5f4;" #apellido="ngModel"
                                 [(ngModel)]="UsuarioModelPost.apellido" required>
                         </div>
                         <div class="mb-3">
                             <label for="telefono" class="form-label contorno">Teléfono</label>
                             <input class="form-control" type="number" id="telefono" name="telefono"
                                 placeholder="Ingrese su telefono"
-                                style="background-color: #ffc7de; border: 3px solid #fb74a2;" #telefono="ngModel"
+                                style="background-color: #fff; border: 3px solid #dde5f4;" #telefono="ngModel"
                                 [(ngModel)]="UsuarioModelPost.telefono" required>
                         </div>
                         <div class="mb-3">
                             <label for="direccion" class="form-label contorno">Dirección</label>
                             <input class="form-control" type="text" id="direccion" name="direccion"
                                 placeholder="Ingrese su direccion"
-                                style="background-color: #ffc7de; border: 3px solid #fb74a2;" #direccion="ngModel"
+                                style="background-color: #fff; border: 3px solid #dde5f4;" #direccion="ngModel"
                                 [(ngModel)]="UsuarioModelPost.direccion" required>
                         </div>
                         <div class="mb-3">
                             <label for="municipio" class="form-label contorno">Municipio</label>
                             <select class="form-select" aria-label="Municipio select" id="municipio" name="municipio"
-                                style="background-color: #ffc7de; border: 3px solid #fb74a2;" #municipio="ngModel"
+                                style="background-color: #fff; border: 3px solid #dde5f4;" #municipio="ngModel"
                                 [(ngModel)]="UsuarioModelPost.municipio" required>
                                 <option *ngFor="let numero of municipios" [value]="numero">{{numero}}</option>
                             </select>

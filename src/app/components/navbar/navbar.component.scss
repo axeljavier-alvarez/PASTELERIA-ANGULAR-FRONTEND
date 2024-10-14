@@ -11,7 +11,9 @@ a {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   position: relative;
+  top: 0px;
   z-index: 1;
+  box-shadow: 1px 1px 20px -10px ;
 }
 
 .logo {
@@ -22,12 +24,12 @@ a {
 
 #menu .navbar-brand,
 #menu .nav-link {
-  color: #c75b7a;
+  color: #eb984e;
 }
 
 #menu .nav-link:hover,
 #menu .navbar-brand:hover {
-  color: #921A40;
+  color: #b96e2d;
 }
 
 .navbar-toggler-icon {
