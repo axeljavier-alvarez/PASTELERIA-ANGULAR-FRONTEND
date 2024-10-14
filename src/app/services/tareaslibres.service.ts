@@ -25,4 +25,14 @@ export class TareaslibresService {
     return this._http.get(this.url + '/obtenerCategoriasCualquiera', { headers: this.headersVariable});
   }
 
+  // ver productos
+  obtenerProductos(): Observable <any> {
+    return this._http.get(this.url + '/obtenerProductosCualquiera', { headers: this.headersVariable});
+  }
+
+  // ver sucursales
+  obtenerSucursales(): Observable <any> {
+    return this._http.get(this.url + '/ObtenerSucursalesInicio', { headers: this.headersVariable});
+  }
+
 }

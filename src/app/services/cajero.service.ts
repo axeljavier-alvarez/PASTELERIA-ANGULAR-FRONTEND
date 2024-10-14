@@ -59,4 +59,10 @@ export class CajeroService {
     return this._http.put(`${this.url}/editarPerfilCajero/${modeloUsuarios._id}`, formData, { headers: headersToken });
   }
 
+  // VER PEDIDOS
+  obtenerPedidos(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verPedidosRolCajero', { headers: headersToken });
+  }
+
 }

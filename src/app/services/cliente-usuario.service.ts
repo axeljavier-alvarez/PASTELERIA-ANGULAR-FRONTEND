@@ -150,4 +150,10 @@ export class ClienteUsuarioService {
     return this._http.post(this.url + '/generarPedido/' + idCarrito, parametros, { headers: headersToken });
   }
 
+  // VER PEDIDOS
+  obtenerPedidos(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verPedidosClienteRegistrado', { headers: headersToken });
+  }
+
 }
