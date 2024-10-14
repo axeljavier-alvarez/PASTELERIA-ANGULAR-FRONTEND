@@ -10,7 +10,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-rolclienteproductos',
   templateUrl: './rolclienteproductos.component.html',
-  styleUrls: ['./rolclienteproductos.component.scss']
+  styleUrls: ['./rolclienteproductos.component.scss'],
+  providers: [UsuarioService, ClienteUsuarioService]
+
 })
 export class RolclienteproductosComponent implements OnInit {
 
@@ -119,11 +121,10 @@ export class RolclienteproductosComponent implements OnInit {
         this.token    // Verifica que el token no sea nulo o indefinido
     ).subscribe(
         (response) => {
-            console.log('Producto agregado al carrito:', response);
             window.location.reload(); // Recargar la página si es necesario
         },
         (error) => {
-            console.error('Error al agregar el producto:', error);
+          
         }
     );
 }

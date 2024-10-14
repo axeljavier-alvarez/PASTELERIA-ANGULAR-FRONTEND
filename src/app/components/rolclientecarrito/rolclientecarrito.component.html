@@ -5,7 +5,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
 
-    
+
     <div class="row">
         <h1>CARRITO DE COMPRAS</h1>
 
@@ -29,8 +29,11 @@
             </div>
             <div class="text-end total-container">
                 <h2>Total: {{ carritos.total | currency:'Q' }}</h2>
-                <button type="button" class="btn btn-aceptar"><i class="bi bi-credit-card"> Continuar con la compra</i></button>
+                <button type="button" class="btn btn-aceptar" [routerLink]="['/pedidos', carritos._id]"><i class="bi bi-credit-card"> Generar pedido</i></button>
             </div>
+
+
+            
         </div>
 
     </div>

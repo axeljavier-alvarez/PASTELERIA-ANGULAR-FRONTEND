@@ -5,6 +5,7 @@ import { Producto } from '../models/productos.model';
 import { Sucursal } from '../models/sucursal.model';
 import { Carrito } from '../models/carrito.model';
 import { Usuario } from '../models/usuarios.model';
+import { Pedido } from '../models/pedido.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,6 @@ export class ClienteUsuarioService {
     'Content-Type',
     'application/json'
   );
-
-
     constructor(public _http: HttpClient) {}
 
     /*---------------------- SUCURSALES ------------------------*/
@@ -57,7 +56,7 @@ export class ClienteUsuarioService {
     let parametros = JSON.stringify(modeloCarrito);
 
     return this._http.put(this.url + '/registrarCarritoPorId/' + idProducto, parametros, { headers: headersToken });
-    
+
   }
 
   /* carritos funcion 2 prueba */
@@ -81,7 +80,7 @@ export class ClienteUsuarioService {
   obtenerCarritos(token): Observable<any> {
 
     let headersToken = this.headersVariable.set('Authorization', token);
-    
+
     return this._http.get(this.url + '/verCarritosClienteRegistrado', {headers: headersToken});
   };
 
@@ -97,9 +96,9 @@ export class ClienteUsuarioService {
   obtenerCategotiasRolCliente(token): Observable<any> {
 
     let headersToken = this.headersVariable.set('Authorization', token);
-    
+
     return this._http.get(this.url + '/getCategoriasRolCliente', {headers: headersToken});
-    
+
   };
 
   obtenerRolClienteId(idUsuario, token): Observable<any> {
@@ -139,6 +138,16 @@ export class ClienteUsuarioService {
 
     // Realizar la petición PUT
     return this._http.put(`${this.url}/editarPerfilCliente/${modeloUsuarios._id}`, formData, { headers: headersToken });
+  }
+
+
+  // PEDIDOS
+  agregarPedidoCliente(modeloPedido: Pedido, token:string, idCarrito:string): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+    let parametros = JSON.stringify(modeloPedido);
+
+    return this._http.post(this.url + '/generarPedido/' + idCarrito, parametros, { headers: headersToken });
   }
 
 }

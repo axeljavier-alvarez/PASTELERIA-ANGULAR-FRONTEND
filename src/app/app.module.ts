@@ -45,6 +45,9 @@ import { EditarroladminComponent } from './components/editarroladmin/editarrolad
 import { VistarolrepartidorComponent } from './components/vistarolrepartidor/vistarolrepartidor.component';
 import { VistarolcajeroComponent } from './components/vistarolcajero/vistarolcajero.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { VerpedidosclienteComponent } from './components/verpedidoscliente/verpedidoscliente.component';
+import { HistorialpedidoscajeroComponent } from './components/historialpedidoscajero/historialpedidoscajero.component';
 
 
 
@@ -90,7 +93,9 @@ import { InicioComponent } from './components/inicio/inicio.component';
     VistarolrepartidorComponent,
     VistarolcajeroComponent,
     InicioComponent,
-   
+    PedidosComponent,
+    VerpedidosclienteComponent,
+    HistorialpedidoscajeroComponent,
   ],
   imports: [
     BrowserModule,

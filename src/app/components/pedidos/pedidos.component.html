@@ -1,0 +1,25 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="form-container">
+    <h2 class="text-center">Pedido</h2>
+    <form>
+
+
+      <div class="mb-3">
+        <label for="inputTipoPago" class="form-label">Tipo Pago:</label>
+        <input type="text" class="form-control" id="inputTipoPago" name="tipoPago" #tipoPago="ngModel" [(ngModel)]="PedidoModelPost.tipoPago"
+         autocomplete="off">
+      </div>
+
+
+      <div class="mb-3">
+        <label for="inputDireccionEnvio" class="form-label">Direccion Envio:</label>
+        <input type="text" class="form-control" id="inputDireccionEnvio" name="direccionEnvio" #direccionEnvio="ngModel" [(ngModel)]="PedidoModelPost.direccionEnvio"
+         autocomplete="off">
+      </div>
+
+      <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="postPedido(idCarrito)">
+        Generar Pedido
+      </button>
+    </form>
+  </div>
+</div>
