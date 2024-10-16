@@ -55,4 +55,10 @@ export class FacturadorService {
     return this._http.put(`${this.url}/editarPerfilFacturador/${modeloUsuarios._id}`, formData, { headers: headersToken });
   }
 
+  // VER SUCURSAL
+  obtenerSucursal(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verSucursalFacturadorRegistrado', {headers: headersToken });
+  }
+
 }

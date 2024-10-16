@@ -49,6 +49,9 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { VerpedidosclienteComponent } from './components/verpedidoscliente/verpedidoscliente.component';
 import { HistorialpedidoscajeroComponent } from './components/historialpedidoscajero/historialpedidoscajero.component';
 import { PagocreditopedidosComponent } from './components/pagocreditopedidos/pagocreditopedidos.component';
+import { RolcajeroversucursalesComponent } from './components/rolcajeroversucursales/rolcajeroversucursales.component';
+import { RolrepartidorversucursalesComponent } from './components/rolrepartidorversucursales/rolrepartidorversucursales.component';
+import { RolfacturadorversucursalesComponent } from './components/rolfacturadorversucursales/rolfacturadorversucursales.component';
 
 
 
@@ -98,6 +101,9 @@ import { PagocreditopedidosComponent } from './components/pagocreditopedidos/pag
     VerpedidosclienteComponent,
     HistorialpedidoscajeroComponent,
     PagocreditopedidosComponent,
+    RolcajeroversucursalesComponent,
+    RolrepartidorversucursalesComponent,
+    RolfacturadorversucursalesComponent,
   ],
   imports: [
     BrowserModule,

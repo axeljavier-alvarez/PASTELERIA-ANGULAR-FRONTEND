@@ -35,4 +35,9 @@ export class TareaslibresService {
     return this._http.get(this.url + '/ObtenerSucursalesInicio', { headers: this.headersVariable});
   }
 
+  // ver datos empresa
+  obtenerDatosEmpresa(): Observable <any> {
+    return this._http.get(this.url + '/ObtenerEmpresaInicio', { headers: this.headersVariable});
+  }
+
 }

@@ -55,4 +55,10 @@ export class RepartidorService {
     return this._http.put(`${this.url}/editarPerfilRepartidor/${modeloUsuarios._id}`, formData, { headers: headersToken });
   }
 
+  // VER SUCURSAL
+  obtenerSucursal(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verSucursalRepartidorRegistrado', {headers: headersToken });
+  }
+
 }

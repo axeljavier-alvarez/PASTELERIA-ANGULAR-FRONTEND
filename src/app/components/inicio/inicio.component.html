@@ -1,3 +1,4 @@
+<!--CATEGORIAS-->
 <div class="container">
 
   <h1 class="text-center mt-3">Categorias</h1>
@@ -20,6 +21,7 @@
   </div>
 </div>
 
+<!--PRODUCTOS-->
 <div class="container">
 
   <h1 class="text-center mt-3">Productos</h1>
@@ -42,10 +44,9 @@
       </div>
     </div>
   </div>
-
 </div>
 
-
+<!--SUCURSALES-->
 <div class="container">
 
   <h1 class="text-center mt-3">Sucursales</h1>
@@ -54,7 +55,7 @@
       <div class="card text-center mb-3">
         <div class="">
           <div class="aspect-ratio">
-            <img *ngIf="sucursales.imagen" [src]="'http://localhost:3000/imagenes/' + categorias.imagen">
+            <img *ngIf="sucursales.imagen" [src]="'http://localhost:3000/imagenes/' + sucursales.imagen">
           </div>
           <h2>{{ sucursales.nombreSucursal }}</h2>
           <h5> Télefono: {{ sucursales.telefonoSucursal }} </h5>
@@ -68,9 +69,47 @@
   </div>
 </div>
 
-
-<div class="container">
+<!--EMPRESA-->
+<div class="container" *ngFor="let empresas of empresaModelGet">
 
   <h1 class="text-center mt-3">Sobre la Empresa</h1>
+
+  <h2 class="text-center">{{ empresas.nombreEmpresa }}</h2>
+
+  <div class="row">
+
+    <div class="col-12 col-md-4" >
+      <div class="card text-center mb-3">
+        <div class="m-4">
+          <h2>MISIÓN</h2>
+          <p> {{ empresas.mision }} </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-12 col-md-4" >
+      <div class="card text-center mb-3">
+        <div class="m-4">
+          <h2>VISIÓN</h2>
+          <p> {{ empresas.vision }} </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4" >
+      <div class="card text-center mb-3">
+        <div class="m-4">
+          <h2>HISTORIA</h2>
+          <p> {{ empresas.historia }} </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <h3>Télefono: {{ empresas.telefono }}</h3>
+      <h3>Dirección: {{ empresas.direccion }}</h3>
+    </div>
+
+  </div>
 
 </div>

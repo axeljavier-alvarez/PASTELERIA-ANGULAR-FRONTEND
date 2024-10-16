@@ -41,6 +41,9 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { VerpedidosclienteComponent } from './components/verpedidoscliente/verpedidoscliente.component';
 import { HistorialpedidoscajeroComponent } from './components/historialpedidoscajero/historialpedidoscajero.component';
 import { PagocreditopedidosComponent } from './components/pagocreditopedidos/pagocreditopedidos.component';
+import { RolcajeroversucursalesComponent } from './components/rolcajeroversucursales/rolcajeroversucursales.component';
+import { RolrepartidorversucursalesComponent } from './components/rolrepartidorversucursales/rolrepartidorversucursales.component';
+import { RolfacturadorversucursalesComponent } from './components/rolfacturadorversucursales/rolfacturadorversucursales.component';
 
 const routes: Routes = [
 
@@ -104,6 +107,13 @@ const routes: Routes = [
 
   // VISTAS DEL ROL CAJERO
   { path: 'historialpedidoscajero', component: HistorialpedidoscajeroComponent},
+  { path: 'rolcajeroversucursales', component: RolcajeroversucursalesComponent },
+
+  // VISTAS DEL ROL REPARTIDOR
+  { path: 'rolrepartidorversucursales', component: RolrepartidorversucursalesComponent },
+
+  // VISTAS DEL ROL FACTURADOR
+  { path: 'rolfacturadorversucursales', component: RolfacturadorversucursalesComponent },
 
   // INICIO
   { path: 'inicio', component: InicioComponent}

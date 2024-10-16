@@ -65,4 +65,10 @@ export class CajeroService {
     return this._http.get(this.url + '/verPedidosRolCajero', { headers: headersToken });
   }
 
+  // VER SUCURSAL
+  obtenerSucursal(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verSucursalCajeroRegistrado', {headers: headersToken });
+  }
+
 }
