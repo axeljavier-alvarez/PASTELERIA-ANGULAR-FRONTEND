@@ -21,7 +21,7 @@ export class RegistroComponent implements OnInit {
     private _tareasLibresService: TareaslibresService,
     private _router: Router
   ) {
-    this.UsuarioModelPost = new Usuario('', '', '', '', '', '', 0, '', '', '', '');
+    this.UsuarioModelPost = new Usuario('', '', '', '', '', '', 0, '', '', '', '', '', '');
   }
 
   clasificacion = [
@@ -58,7 +58,7 @@ export class RegistroComponent implements OnInit {
     const hasLowercase = /[a-z]/.test(this.password);
     const hasNumber = /\d/.test(this.password);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>-]/.test(this.password);
-    
+
     if (this.password.length >= minLength && hasUppercase && hasLowercase && hasNumber && hasSpecialChar) {
       this.passwordStrengthMessage = 'Contraseña válida';
       this.passwordStrengthColor = '#2ecc71'; // Verde
@@ -405,8 +405,8 @@ break;
         this.municipios = [];
         break;
     }
-  }  
-  
+  }
+
   postUsuarios() {
     this._tareasLibresService.agregarUsuario(this.UsuarioModelPost).subscribe(
       (res) => {

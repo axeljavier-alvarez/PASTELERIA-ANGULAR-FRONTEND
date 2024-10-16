@@ -10,7 +10,10 @@ export class Usuario{
         public direccion: String,
         public departamento: String,
         public municipio: String,
-        public imagen: String
+        public imagen: String,
+
+        public estadoRepartidor: String,
+        public idSucursal: String
 
     ){}
 }

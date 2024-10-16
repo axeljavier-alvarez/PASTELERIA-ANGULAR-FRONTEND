@@ -31,7 +31,7 @@ export class RoladminsucursalesComponent implements OnInit {
   // Administrar usuarios
   public UsuarioModelGet: Usuario;
   public UsuarioModelGetId: Usuario;
-  public idEmpresa: string; 
+  public idEmpresa: string;
   // public idEmpresa;
   // public idUsuario;
   public municipios: String[] = [];
@@ -377,7 +377,7 @@ break;
     this.titleService.setTitle('Rol admin sucursales');
     this.token=this._usuarioService.obtenerToken();
     // traerme el id del gestor
-    this.UsuarioModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.UsuarioModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
 
     // cambiando el array que no se usara xd
     this.SucursalModelPost = new Sucursal(
@@ -590,7 +590,7 @@ break;
       }
     )
   }
-  
+
   // Editar sucursales
   putSucursales(){
     this._adminUsuariosService.editarSucursalRolAdmin(this.SucursalModelGetId,this.token).subscribe(

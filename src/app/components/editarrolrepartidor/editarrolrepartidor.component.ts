@@ -25,7 +25,7 @@ export class EditarrolrepartidorComponent implements OnInit {
     private router: Router
   ) {
     this.titleService.setTitle('Editar perfil cajero');
-    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
     this.token = this._usuariosService.obtenerToken()
    }
 

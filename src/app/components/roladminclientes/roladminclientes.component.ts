@@ -365,9 +365,9 @@ break;
     this.titleService.setTitle('Rol admin cliente');
     this.token=this._usuarioService.obtenerToken();
     //AGREGAR
-    this.UsuarioModelPost = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.UsuarioModelPost = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
     //VER POR ID
-    this.UsuarioModelGetId=new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.UsuarioModelGetId=new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
   }
   //Crear funcines para CRUDs
   //Ver Usuarios

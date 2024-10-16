@@ -364,8 +364,8 @@ break;
     //token
     this.titleService.setTitle('Rol admin facturador');
     this.token=this._usuarioService.obtenerToken();
-    this.UsuarioModelPost= new Usuario("","","","","","",0,"","","","");
-    this.UsuarioModelGetId = new Usuario("","","","","","",0,"","","","");
+    this.UsuarioModelPost= new Usuario("","","","","","",0,"","","","", "", "");
+    this.UsuarioModelGetId = new Usuario("","","","","","",0,"","","","", "", "");
 
   }
   //Crear funciones para CRUDs
@@ -431,7 +431,7 @@ break;
 
 
 postUsuariosRolFacturador(){
- 
+
   if (!this.UsuarioModelPost || !this.nombreSucursal) {
     Swal.fire({
       icon: 'error',

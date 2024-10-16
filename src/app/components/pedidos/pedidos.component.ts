@@ -5,6 +5,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { ClienteUsuarioService } from 'src/app/services/cliente-usuario.service';
 import { Pedido } from 'src/app/models/pedido.model';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedidos',
@@ -26,7 +27,8 @@ export class PedidosComponent implements OnInit {
     public _activatedRoute: ActivatedRoute,
     private titleService: Title,
     private _usuarioService: UsuarioService,
-    private _clienteUsuarioService: ClienteUsuarioService
+    private _clienteUsuarioService: ClienteUsuarioService,
+    private _router: Router,
 
   ) {
     this.titleService.setTitle('Pedidos');
@@ -100,37 +102,53 @@ export class PedidosComponent implements OnInit {
 
   // metodos
   postPedido(idCarrito) {
-    this._clienteUsuarioService
-      .agregarPedidoCliente(
-        this.PedidoModelPost,
-        this.token,
-        idCarrito,
-      )
-      .subscribe({
-        next: (response: any) => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Exito!',
-            text: 'Pedido generado exitosamente',
-            showConfirmButton: false,
-            timer: 1500,
-            willClose: () => {
-              // Recarga la página después de que el Swal se cierre
-              window.location.reload();
-            }
-          });
-        },
-        error: (error) => {
-          console.log(<any>error);
-          Swal.fire({
-            icon: 'error',
-            title: "Error al generar el pedido",
-            footer: '*Ingrese los datos de nuevo*',
-            showConfirmButton: false,
-            timer: 2500
-          });
+    // Mostrar una alerta de confirmación
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: '¿Deseas generar el pedido?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, generar pedido',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma, procede a generar el pedido
+            this._clienteUsuarioService
+                .agregarPedidoCliente(
+                    this.PedidoModelPost,
+                    this.token,
+                    idCarrito,
+                )
+                .subscribe({
+                    next: (response: any) => {
+                        this._router.navigate(['/pagocreditopedidos']);
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Éxito!',
+                            text: 'Pedido generado exitosamente',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            willClose: () => {
+                                window.location.reload();
+                            }
+                        });
+                    },
+                    error: (error) => {
+                        console.log(<any>error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: "Error al generar el pedido",
+                            footer: '*Ingrese los datos de nuevo*',
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                    }
+                });
         }
-      });
-  }
+    });
+}
 
 }

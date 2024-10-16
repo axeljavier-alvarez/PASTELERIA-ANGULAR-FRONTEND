@@ -40,6 +40,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { VerpedidosclienteComponent } from './components/verpedidoscliente/verpedidoscliente.component';
 import { HistorialpedidoscajeroComponent } from './components/historialpedidoscajero/historialpedidoscajero.component';
+import { PagocreditopedidosComponent } from './components/pagocreditopedidos/pagocreditopedidos.component';
 
 const routes: Routes = [
 
@@ -90,6 +91,7 @@ const routes: Routes = [
   { path: 'rolclientecategorias', component: RolclientecategoriasComponent},
   { path: 'pedidos/:idCarrito', component: PedidosComponent},
   { path: 'verpedidoscliente', component: VerpedidosclienteComponent},
+  { path: 'pagocreditopedidos', component: PagocreditopedidosComponent},
 
 
   // VISTAS PARA EDITAR ROLES DE USUARIO

@@ -25,7 +25,7 @@ export class EditarrolgestorComponent implements OnInit {
     private router: Router
   ) {
     this.titleService.setTitle('Editar perfil gestor');
-    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
     this.token = this._usuariosService.obtenerToken();
   }
 

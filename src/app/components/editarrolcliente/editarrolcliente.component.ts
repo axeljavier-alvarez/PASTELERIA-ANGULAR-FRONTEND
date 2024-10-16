@@ -25,7 +25,7 @@ export class EditarrolclienteComponent implements OnInit {
     private router: Router
   ) {
     this.titleService.setTitle('Editar perfil cliente');
-    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
     this.token = this._usuariosService.obtenerToken()
   }
 

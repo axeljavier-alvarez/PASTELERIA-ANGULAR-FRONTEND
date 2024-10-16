@@ -18,33 +18,22 @@
          autocomplete="off">
       </div>
 
-      <div class="dobleCampo">
-        <!-- Aqui es una lista desplegable -->
-        <div class="mb-3 dobleCampoUnitario">
-          <label for="inputDireccionEnvio" class="form-label">Departamento</label>
-          <input type="text" class="form-control" id="inputDireccionEnvio" name="direccionEnvio" #direccionEnvio="ngModel" [(ngModel)]="PedidoModelPost.direccionEnvio"
-           autocomplete="off">
-        </div>
-        <!-- Aqui tambien es una lista desplegable -->
-        <div class="mb-3 dobleCampoUnitario">
-          <label for="inputDireccionEnvio" class="form-label">Municipio:</label>
-          <input type="text" class="form-control" id="inputDireccionEnvio" name="direccionEnvio" #direccionEnvio="ngModel" [(ngModel)]="PedidoModelPost.direccionEnvio"
-           autocomplete="off">
-        </div>
-      </div>
+
 
       <div class="mb-3">
         <label for="inputDireccionEnvio" class="form-label">Direccion Envio:</label>
         <input type="text" class="form-control" id="inputDireccionEnvio" name="direccionEnvio" #direccionEnvio="ngModel" [(ngModel)]="PedidoModelPost.direccionEnvio"
          autocomplete="off">
+
       </div>
 
       <div class="text-center">
-        <button type="button" class="rounded-pill m-auto" data-bs-dismiss="modal" (click)="postPedido(idCarrito)">
+        <button type="button" class="rounded-pill m-auto" (click)="postPedido(idCarrito)">
           Generar Pedido
         </button>
       </div>
     </form>
+    
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

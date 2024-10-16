@@ -23,9 +23,9 @@ export class EditarrolfacturadorComponent implements OnInit {
     public _usuariosService: UsuarioService,
     private _adminUsuariosService:FacturadorService,
     private router: Router
-  ) { 
+  ) {
     this.titleService.setTitle('Editar perfil facturador');
-    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
     this.token = this._usuariosService.obtenerToken();
   }
 

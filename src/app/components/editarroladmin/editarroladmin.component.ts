@@ -24,7 +24,7 @@ export class EditarroladminComponent implements OnInit {
     private _adminUsuariosService: AdminUsuariosService,
     private router: Router
   ) {
-    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
     this.token = this._usuariosService.obtenerToken();
   }
 

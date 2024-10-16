@@ -48,6 +48,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { VerpedidosclienteComponent } from './components/verpedidoscliente/verpedidoscliente.component';
 import { HistorialpedidoscajeroComponent } from './components/historialpedidoscajero/historialpedidoscajero.component';
+import { PagocreditopedidosComponent } from './components/pagocreditopedidos/pagocreditopedidos.component';
 
 
 
@@ -96,6 +97,7 @@ import { HistorialpedidoscajeroComponent } from './components/historialpedidosca
     PedidosComponent,
     VerpedidosclienteComponent,
     HistorialpedidoscajeroComponent,
+    PagocreditopedidosComponent,
   ],
   imports: [
     BrowserModule,

@@ -37,7 +37,7 @@ export class RoladmingestoresComponent implements OnInit {
   public municipios: String[] = [];
 
   public nombreSucursal: string = ''; // Inicializar como cadena vacía
-  
+
   clasificacion = [
     { tipo: 'Alta Verapaz' },
     { tipo: 'Baja Verapaz' },
@@ -375,9 +375,9 @@ export class RoladmingestoresComponent implements OnInit {
     this.titleService.setTitle('Rol admin gestor');
     this.token = this._usuarioService.obtenerToken();
     //AGREGAR
-    this.UsuarioModelPost = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.UsuarioModelPost = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
     //VER POR ID
-    this.UsuarioModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.UsuarioModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
   }
   //Crar funciones para CRUDs
   //Ver Usuarios
@@ -570,7 +570,7 @@ postUsuariosRolGestor() {
     this.getUsuariosRolGestor();
     this.cargarSucursales(); // Cargar sucursales al iniciar
   }
-  
+
 
 
 
@@ -583,10 +583,10 @@ postUsuariosRolGestor() {
       },
       (error) => {
         console.log('Error al cargar sucursales', error);
-        
+
       }
     );
   }
-  
- 
+
+
 }

@@ -6,6 +6,9 @@ import { Sucursal } from '../models/sucursal.model';
 import { Carrito } from '../models/carrito.model';
 import { Usuario } from '../models/usuarios.model';
 import { Pedido } from '../models/pedido.model';
+import { Factura } from '../models/factura.model';
+import { Tarjeta } from '../models/tarjeta.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +20,9 @@ export class ClienteUsuarioService {
     'Content-Type',
     'application/json'
   );
-    constructor(public _http: HttpClient) {}
+  constructor(public _http: HttpClient) { }
 
-    /*---------------------- SUCURSALES ------------------------*/
+  /*---------------------- SUCURSALES ------------------------*/
 
   //VER CATEGORIAS
   obtenerSucursales(token): Observable<any> {
@@ -43,7 +46,7 @@ export class ClienteUsuarioService {
 
   agregarProductoAlCarrito(modeloProducto: Producto, token): Observable<any> {
     let parametros = JSON.stringify(modeloProducto);
-    let headersToken = this.headersVariable.set('Authorization',token);
+    let headersToken = this.headersVariable.set('Authorization', token);
     return this._http.put(this.url + '/registrarCarritoPorId/' + modeloProducto._id, parametros, { headers: headersToken });
 
   }
@@ -64,9 +67,9 @@ export class ClienteUsuarioService {
     const parametros = JSON.stringify({ cantidad }); // Solo envía la cantidad
     const headersToken = this.headersVariable.set('Authorization', token);
     return this._http.put(
-        this.url + '/registrarCarritoPorId/' + idProducto, parametros, { headers: headersToken }
+      this.url + '/registrarCarritoPorId/' + idProducto, parametros, { headers: headersToken }
     );
-}
+  }
 
   obtenerProductoid(idProducto, token): Observable<any> {
 
@@ -81,14 +84,14 @@ export class ClienteUsuarioService {
 
     let headersToken = this.headersVariable.set('Authorization', token);
 
-    return this._http.get(this.url + '/verCarritosClienteRegistrado', {headers: headersToken});
+    return this._http.get(this.url + '/verCarritosClienteRegistrado', { headers: headersToken });
   };
 
 
-  verCarritoCliente(token): Observable<any>{
-    let headersToken = this.headersVariable.set ('Authorization', token);
+  verCarritoCliente(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
 
-    return this._http.get(this.url + '/verCarritosClienteRegistrado', {headers: headersToken})
+    return this._http.get(this.url + '/verCarritosClienteRegistrado', { headers: headersToken })
   }
 
 
@@ -97,7 +100,7 @@ export class ClienteUsuarioService {
 
     let headersToken = this.headersVariable.set('Authorization', token);
 
-    return this._http.get(this.url + '/getCategoriasRolCliente', {headers: headersToken});
+    return this._http.get(this.url + '/getCategoriasRolCliente', { headers: headersToken });
 
   };
 
@@ -142,7 +145,7 @@ export class ClienteUsuarioService {
 
 
   // PEDIDOS
-  agregarPedidoCliente(modeloPedido: Pedido, token:string, idCarrito:string): Observable<any> {
+  agregarPedidoCliente(modeloPedido: Pedido, token: string, idCarrito: string): Observable<any> {
 
     let headersToken = this.headersVariable.set('Authorization', token);
     let parametros = JSON.stringify(modeloPedido);
@@ -155,5 +158,35 @@ export class ClienteUsuarioService {
     let headersToken = this.headersVariable.set('Authorization', token);
     return this._http.get(this.url + '/verPedidosClienteRegistrado', { headers: headersToken });
   }
+
+
+  // generar todas las facturas
+
+  generarFacturaRolCliente(
+    modeloFactura: Factura,
+    modeloTarjeta: Tarjeta,
+    token: string,
+): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    // Combina los campos en un solo objeto
+    const parametros = {
+        nit: modeloFactura.nit,
+        numeroTarjeta: modeloTarjeta.numeroTarjeta,
+        nombreUsuario: modeloTarjeta.nombreUsuario,
+        mesExpiracion: modeloTarjeta.mesExpiracion,
+        yearExpiracion: modeloTarjeta.yearExpiracion,
+        codigoSeguridad: modeloTarjeta.codigoSeguridad,
+        tipoTarjeta: modeloTarjeta.tipoTarjeta,
+        // Agrega otros campos de modeloFactura si es necesario
+    };
+
+    return this._http.post(this.url + '/crearFacturaCliente', parametros, { headers: headersToken });
+}
+
+
+
+
+
 
 }

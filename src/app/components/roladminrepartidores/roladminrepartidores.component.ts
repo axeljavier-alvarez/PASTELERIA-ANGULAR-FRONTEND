@@ -357,8 +357,8 @@ break;
   ){
     this.titleSevice.setTitle('Rol admin repartidor');
     this.token = this._usuarioService.obtenerToken();
-    this.UsuarioModelPost = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
-    this.UsuarioModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "");
+    this.UsuarioModelPost = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
+    this.UsuarioModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
   }
 
   //VER REPARTIDORES
@@ -394,7 +394,7 @@ break;
       });
       return; // Salir si no hay datos completos
     }
-  
+
     // Crear el objeto de sucursal
     const modeloSucursal = new Sucursal(
       '', // _id, puedes dejarlo vacío o asignar un valor por defecto
@@ -407,13 +407,13 @@ break;
       [], // datosEmpresa
       []  // gestorSucursales
     );
-  
+
     // Combinar usuario y sucursal
     const usuarioConSucursal = {
       ...this.UsuarioModelPost,
       // Puedes agregar más propiedades de modeloSucursal si es necesario
     };
-  
+
     this._adminUsuariosService.agregarUsuarioRolRepartidor(
       usuarioConSucursal, // Pasa el objeto que incluye los datos del usuario
       modeloSucursal, // Pasa el modelo de sucursal
@@ -423,7 +423,7 @@ break;
       (response) => {
         console.log(response);
         this.getUsuariosRolRepartidor();
-  
+
         Swal.fire({
           icon: 'success',
           title: 'Éxito!',
