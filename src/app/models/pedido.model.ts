@@ -13,6 +13,8 @@ export class Pedido{
       public numeroDeOrden: Number,
       public pagoConfirmado: String,
       public incrementoEnvio: Number,
+      public departamentoPedido: String,
+      public municipioPedido: String,
 
       public datosUsuario: [{
         idUsuario: String,
@@ -21,6 +23,17 @@ export class Pedido{
         email: String,
         telefono: Number
       }],
+
+      public repartidorAsignado: [{
+
+        idRepartidor: String,
+        nombre: String,
+        apellido: String,
+        email: String,
+        telefono: Number,
+        rol: String,
+        estadoRepartidor: String
+    }],
 
       public compras:[{
         idProducto: String,
@@ -40,7 +53,9 @@ export class Pedido{
             idSucursal:String,
             nombreSucursal: String,
             direccionSucursal: String,
-            telefonoSucursal: String
+            telefonoSucursal: String,
+            departamento: String,
+            municipio: String
         }]
     }],
 

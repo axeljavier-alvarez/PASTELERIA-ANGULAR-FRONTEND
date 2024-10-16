@@ -4,6 +4,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { ClienteUsuarioService } from 'src/app/services/cliente-usuario.service';
 import { Factura } from 'src/app/models/factura.model';
 import { Tarjeta } from 'src/app/models/tarjeta.model';
+import { Pedido } from 'src/app/models/pedido.model';
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,6 +19,7 @@ export class PagocreditopedidosComponent implements OnInit {
   public token: string;
   public FacturaModelPost: Factura;
   public TarjetaModelPost: Tarjeta; // Nueva variable para el modelo de tarjeta
+  public PedidoModelGet:Pedido;
 
   constructor(
     private titleService: Title,
@@ -114,8 +117,21 @@ export class PagocreditopedidosComponent implements OnInit {
     });
 }
 
+getPedidosEnEspera(){
+  this._clienteUsuarioService.obtenerPedidosEnEspera(this.token).subscribe(
+    (response)=>{
+      this.PedidoModelGet=response.pedidos;
+      console.log(this.PedidoModelGet);
+    },(error)=>{
+      console.log(<any>error);
+    }
+  )
+}
+
 
   ngOnInit(): void {
     // Aquí puedes inicializar cualquier dato adicional si es necesario
+
+    this.getPedidosEnEspera();
   }
 }

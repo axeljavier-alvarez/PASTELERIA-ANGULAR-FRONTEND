@@ -47,12 +47,24 @@ export class PedidosComponent implements OnInit {
       0,
       "",
       0,
+      "",
+      "",
       [{
         idUsuario: "",
         nombre: "",
         apellido: "",
         email: "",
         telefono: 0
+      }],
+
+      [{
+        idRepartidor: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+        telefono: 0,
+        rol: "",
+        estadoRepartidor: ""
       }],
       [{
 
@@ -71,7 +83,9 @@ export class PedidosComponent implements OnInit {
           idSucursal:"",
           nombreSucursal: "",
           direccionSucursal: "",
-          telefonoSucursal: ""
+          telefonoSucursal: "",
+          departamento: "",
+          municipio: ""
       }]
       }],
 

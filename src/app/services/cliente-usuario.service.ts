@@ -185,7 +185,11 @@ export class ClienteUsuarioService {
 }
 
 
-
+// ver pedidos en espera de cliente
+obtenerPedidosEnEspera(token): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+  return this._http.get(this.url + '/pedidoClienteEnEspera', { headers: headersToken });
+}
 
 
 
