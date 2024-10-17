@@ -18,10 +18,11 @@ export class RoladminrepartidoresComponent implements OnInit {
   public UsuarioModelGet: Usuario;
   public UsuarioModelPost: Usuario;
   public UsuarioModelGetId: Usuario;
+  public SucursalesModelGet: Sucursal[] = [];
   public campoBusqueda: string = '';
   public buscar;
   public municipios: String[] = [];
-  public nombreSucursal: string;
+  public nombreSucursal: string = '';
 
   clasificacion = [
     { tipo: 'Alta Verapaz' },
@@ -523,6 +524,18 @@ break;
 
   ngOnInit(): void {
     this.getUsuariosRolRepartidor();
+    this.cargarSucursales();
+  }
+
+  cargarSucursales() {
+    this._adminUsuariosService.obtenerSucursales(this.token).subscribe(
+      (response) => {
+        this.SucursalesModelGet = response.sucursales;
+        console.log(this.SucursalesModelGet)
+      },(error) => {
+        console.log('Error al cargar sucursales', error);
+      }
+    );
   }
 
 }

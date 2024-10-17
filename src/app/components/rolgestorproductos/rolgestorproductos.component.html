@@ -7,10 +7,18 @@
       <button class="btn btn-agregar-usuario mt-3" title="Agregar producto" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarProductos">
         <i class="bi bi-plus-circle"></i>
       </button>
-        <br>
-        <br>
+
+       <!-- Campo de búsqueda -->
+
+       <div class="input-group mb-3">
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="buscar" name="buscar"
+          placeholder="Ingrese el nombre del producto" aria-label="Ingrese el nombre del producto"
+          aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+      </div>
+
         <div class="row">
-          <div class="col-12 col-md-4" *ngFor="let producto of ProductoModelGet">
+          <div class="col-12 col-md-4" *ngFor="let producto of ProductoModelGet | buscarproducto: buscar : campoBusqueda">
             <div class="card text-center mb-3">
               <div class="card-header pink-header fs-4 d-flex flex-column ">
                 {{producto.nombreProducto}}

@@ -20,6 +20,8 @@ export class RolclienteproductosComponent implements OnInit {
   public ProductosModelGet: Producto;
   public ProductosModelGetId: Producto;
   public CarritoModelPost: Carrito;
+  public campoBusqueda: string = 'nombre';
+  public buscar;
 
   constructor(
     public _activatedRoute: ActivatedRoute,

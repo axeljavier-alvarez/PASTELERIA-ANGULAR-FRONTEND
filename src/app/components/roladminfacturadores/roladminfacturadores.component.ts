@@ -22,10 +22,11 @@ export class RoladminfacturadoresComponent implements OnInit {
   public UsuarioModelGet:Usuario;
   public UsuarioModelPost:Usuario;
   public UsuarioModelGetId: Usuario;
+  public SucursalesModelGet: Sucursal[] = [];
   public campoBusqueda: string = '';
   public buscar;
   public municipios: String[] = [];
-  public nombreSucursal: string;
+  public nombreSucursal: string = '';
 
   clasificacion = [
     { tipo: 'Alta Verapaz' },
@@ -536,6 +537,18 @@ putUsuarios(){
 
   ngOnInit(): void {
     this.getUsuariosRolFacturador();
+    this.cargarSucursales();
+  }
+
+  cargarSucursales() {
+    this._adminUsuariosService.obtenerSucursales(this.token).subscribe(
+      (response) => {
+        this.SucursalesModelGet = response.sucursales;
+        console.log(this.SucursalesModelGet)
+      },(error) => {
+        console.log('Error al cargar sucursales', error);
+      }
+    );
   }
 
 }

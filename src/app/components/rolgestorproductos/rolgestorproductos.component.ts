@@ -17,7 +17,8 @@ export class RolgestorproductosComponent implements OnInit {
   public ProductoModelGet: Producto;
   public ProductoModelPost: Producto;
   public ProductoModelGetId: Producto;
-
+  public campoBusqueda: string = 'nombre';
+  public buscar;
   public idSucursal;
   public idCategoria;
 
