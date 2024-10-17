@@ -19,7 +19,9 @@ export class Carrito{
                 idSucursal:String,
                 nombreSucursal: String,
                 direccionSucursal: String,
-                telefonoSucursal: String
+                telefonoSucursal: String,
+                departamento: String,
+                municipio: String
             }]
         }],
         public total: Number

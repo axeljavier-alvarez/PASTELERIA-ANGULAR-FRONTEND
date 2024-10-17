@@ -1,6 +1,7 @@
 <head>
   <link rel="stylesheet" href="pedidos.component.scss">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
@@ -12,26 +13,90 @@
     <form>
 
 
-      <div class="mb-3">
-        <label for="inputTipoPago" class="form-label">Tipo Pago:</label>
-        <input type="text" class="form-control" id="inputTipoPago" name="tipoPago" #tipoPago="ngModel" [(ngModel)]="PedidoModelPost.tipoPago"
-         autocomplete="off">
+
+
+      <div class="mb-3 pt-4">
+        <label for="inputTipoPago" class="form-label"><i class="fas fa-user"></i>Tipo Pago:</label>
+        <select class="form-select" aria-label="Default select example" id="inputTipoPago" name="tipoPago"
+          #tipoPago="ngModel" [(ngModel)]="PedidoModelPost.tipoPago" required>
+          <option *ngFor="let clasificacion of clasificacion" [value]="clasificacion.tipo">{{clasificacion.tipo}}
+          </option>
+        </select>
       </div>
-
-
 
       <div class="mb-3">
         <label for="inputDireccionEnvio" class="form-label">Direccion Envio:</label>
-        <input type="text" class="form-control" id="inputDireccionEnvio" name="direccionEnvio" #direccionEnvio="ngModel" [(ngModel)]="PedidoModelPost.direccionEnvio"
-         autocomplete="off">
+        <input type="text" class="form-control" id="inputDireccionEnvio" name="direccionEnvio" #direccionEnvio="ngModel"
+          [(ngModel)]="PedidoModelPost.direccionEnvio" autocomplete="off">
 
       </div>
+
+
+
+      <div class="mb-3">
+        <label for="inputNombreSucursal" class="form-label"><strong>Nombre sucursal:</strong></label>
+
+
+
+        <div *ngFor="let carritos of CarritosModelGet">
+          <div *ngFor="let compra of carritos.compras">
+
+            <div style="width: 100%;">
+
+              <div>
+                <p> {{ compra.datosSucursal[0]?.nombreSucursal }}</p>
+
+              </div>
+            </div>
+          </div>
+
+      </div>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="inputNombreSucursal" class="form-label">
+          <strong>Departamento sucursal:</strong>
+
+        </label>
+
+
+
+        <div *ngFor="let carritos of CarritosModelGet">
+          <div *ngFor="let compra of carritos.compras">
+
+            <div style="width: 100%;">
+
+              <div>
+                <p> {{ compra.datosSucursal[0]?.departamento }}</p>
+
+              </div>
+            </div>
+          </div>
+
+      </div>
+      </div>
+
 
       <div class="mb-3">
         <label for="inputMunicipioPedido" class="form-label">Municipio Pedido:</label>
-        <input type="text" class="form-control" id="inputMunicipioPedido" name="municipioPedido" #municipioPedido="ngModel" [(ngModel)]="PedidoModelPost.municipioPedido"
-         autocomplete="off">
+
+        <select class="form-select" aria-label="Municipio select" id="inputMunicipio" name="municipio"
+              #municipio="ngModel" [(ngModel)]="PedidoModelPost.municipioPedido" required>
+              <option *ngFor="let numero of municipiosOpciones" [value]="numero">{{numero}}</option>
+            </select>
+
       </div>
+
+
+      <div class="mb-3">
+        <label for="inputHoraEntrega" class="form-label">Hora Entrega:</label>
+        <input type="text" class="form-control" id="inputHoraEntrega" name="horaEntrega" #horaEntrega="ngModel"
+          [(ngModel)]="PedidoModelPost.horaEntrega" autocomplete="off">
+
+      </div>
+
+
 
       <div class="text-center">
         <button type="button" class="rounded-pill m-auto" (click)="postPedido(idCarrito)">
@@ -42,4 +107,5 @@
 
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -27,7 +27,7 @@ export class RoladmingestoresComponent implements OnInit {
   //Ver por Id
   public UsuarioModelGetId: Usuario;
 
-  public SucursalesModelGet: Sucursal;
+  public SucursalesModelGet: Sucursal[] = []; // Cambia a un arreglo
 
   public campoBusqueda: string = ''; // Inicializar como cadena vacía
 

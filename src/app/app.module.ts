@@ -52,6 +52,7 @@ import { PagocreditopedidosComponent } from './components/pagocreditopedidos/pag
 import { RolcajeroversucursalesComponent } from './components/rolcajeroversucursales/rolcajeroversucursales.component';
 import { RolrepartidorversucursalesComponent } from './components/rolrepartidorversucursales/rolrepartidorversucursales.component';
 import { RolfacturadorversucursalesComponent } from './components/rolfacturadorversucursales/rolfacturadorversucursales.component';
+import { BuscarproductoPipe } from './pipes/buscarproducto.pipe';
 
 
 
@@ -104,6 +105,7 @@ import { RolfacturadorversucursalesComponent } from './components/rolfacturadorv
     RolcajeroversucursalesComponent,
     RolrepartidorversucursalesComponent,
     RolfacturadorversucursalesComponent,
+    BuscarproductoPipe,
   ],
   imports: [
     BrowserModule,

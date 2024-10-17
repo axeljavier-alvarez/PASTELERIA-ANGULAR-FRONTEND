@@ -50,7 +50,9 @@ export class RolclienteproductosComponent implements OnInit {
           idSucursal:"",
           nombreSucursal: "",
           direccionSucursal: "",
-          telefonoSucursal: ""
+          telefonoSucursal: "",
+          departamento: "",
+          municipio: ""
       }]
       }],
        0
@@ -124,7 +126,7 @@ export class RolclienteproductosComponent implements OnInit {
             window.location.reload(); // Recargar la página si es necesario
         },
         (error) => {
-          
+
         }
     );
 }
