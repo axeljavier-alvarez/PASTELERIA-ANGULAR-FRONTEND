@@ -71,4 +71,16 @@ export class CajeroService {
     return this._http.get(this.url + '/verSucursalCajeroRegistrado', {headers: headersToken });
   }
 
+
+  obtenerPedidosPendientesPorSucursal(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/pedidoEnEsperaCredito/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
+
+  
+
 }

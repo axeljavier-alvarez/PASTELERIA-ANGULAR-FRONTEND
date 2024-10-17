@@ -53,7 +53,9 @@ import { RolcajeroversucursalesComponent } from './components/rolcajeroversucurs
 import { RolrepartidorversucursalesComponent } from './components/rolrepartidorversucursales/rolrepartidorversucursales.component';
 import { RolfacturadorversucursalesComponent } from './components/rolfacturadorversucursales/rolfacturadorversucursales.component';
 import { BuscarproductoPipe } from './pipes/buscarproducto.pipe';
-
+import { RolcajerotareasComponent } from './components/rolcajerotareas/rolcajerotareas.component';
+import { RolcajeropedidospendientesComponent } from './components/rolcajeropedidospendientes/rolcajeropedidospendientes.component';
+import { RolclienteverfacturaComponent } from './components/rolclienteverfactura/rolclienteverfactura.component';
 
 
 
@@ -106,6 +108,10 @@ import { BuscarproductoPipe } from './pipes/buscarproducto.pipe';
     RolrepartidorversucursalesComponent,
     RolfacturadorversucursalesComponent,
     BuscarproductoPipe,
+    RolcajerotareasComponent,
+    RolcajeropedidospendientesComponent,
+    RolclienteverfacturaComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -193,4 +193,15 @@ obtenerPedidosEnEspera(token): Observable<any> {
 
 
 
+obtenerFacturasPorPedido(idPedido: string, token: string): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+  return this._http.get(
+    this.url + '/verFacturaPorPedido/' + idPedido,
+    { headers: headersToken }
+  );
+}
+
+
+
 }

@@ -16,6 +16,7 @@
         }
       },
       "root": "",
+      
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -24,7 +25,9 @@
           "options": {
             "allowedCommonJsDependencies": [
               "chart.js",
-              "sweetalert2"
+              "sweetalert2",
+              "html2canvas"
+
             ],
             "outputPath": "dist/angular-in6-bm2022",
             "index": "src/index.html",
@@ -41,7 +44,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-             
+
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]

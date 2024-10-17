@@ -44,6 +44,9 @@ import { PagocreditopedidosComponent } from './components/pagocreditopedidos/pag
 import { RolcajeroversucursalesComponent } from './components/rolcajeroversucursales/rolcajeroversucursales.component';
 import { RolrepartidorversucursalesComponent } from './components/rolrepartidorversucursales/rolrepartidorversucursales.component';
 import { RolfacturadorversucursalesComponent } from './components/rolfacturadorversucursales/rolfacturadorversucursales.component';
+import { RolcajerotareasComponent } from './components/rolcajerotareas/rolcajerotareas.component';
+import { RolcajeropedidospendientesComponent } from './components/rolcajeropedidospendientes/rolcajeropedidospendientes.component';
+import { RolclienteverfacturaComponent } from './components/rolclienteverfactura/rolclienteverfactura.component';
 
 const routes: Routes = [
 
@@ -95,6 +98,7 @@ const routes: Routes = [
   { path: 'pedidos/:idCarrito', component: PedidosComponent},
   { path: 'verpedidoscliente', component: VerpedidosclienteComponent},
   { path: 'pagocreditopedidos', component: PagocreditopedidosComponent},
+  { path: 'rolclienteverfactura/:idPedido', component: RolclienteverfacturaComponent},
 
 
   // VISTAS PARA EDITAR ROLES DE USUARIO
@@ -108,6 +112,9 @@ const routes: Routes = [
   // VISTAS DEL ROL CAJERO
   { path: 'historialpedidoscajero', component: HistorialpedidoscajeroComponent},
   { path: 'rolcajeroversucursales', component: RolcajeroversucursalesComponent },
+
+  {path: 'rolcajerotareas/:idSucursal', component: RolcajerotareasComponent},
+  {path: 'rolcajeropedidospendientes', component: RolcajeropedidospendientesComponent},
 
   // VISTAS DEL ROL REPARTIDOR
   { path: 'rolrepartidorversucursales', component: RolrepartidorversucursalesComponent },

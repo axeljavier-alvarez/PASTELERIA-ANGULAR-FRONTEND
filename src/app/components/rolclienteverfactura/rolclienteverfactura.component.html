@@ -1,0 +1,27 @@
+<div class="container" id="content">
+  <img src="../../../assets/img/flecha-izquierda.png" routerLink="/vistarolcajero" routerLinkActive="active"
+      alt="retroceder" width="50px" class="mt-3">
+
+  <h2 class="text-center" style="color: #f39c12; border:#f39c12 ;">FACTURA</h2>
+
+  <!-- Botón para imprimir PDF -->
+  <button (click)="imprimirPDF()" class="btn btn-primary mb-3">Imprimir PDF</button>
+
+  <div class="row">
+      <div class="col-12 col-md-4" *ngFor="let factura of FacturaModelGet">
+          <div class="card text-center mb-3">
+
+              <div class="card-body">
+
+                  <h5 class="card-title"> Nit: {{factura.nit}} </h5>
+
+                  <h5 class="card-title"> {{ factura.datosUsuario[0].nombre }} {{ factura.datosUsuario[0].apellido }} </h5>
+
+                  <h5 class="card-title"> {{ factura.datosUsuario[0].email }} </h5>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
