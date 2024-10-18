@@ -11,8 +11,13 @@
   border-radius: 15px;
 }
 
-.container-fluid {
+// .container-fluid {
+//   background: linear-gradient(135deg, #ffffff , #dce3f0 );
+// }
+
+.contenedor {
   background: linear-gradient(135deg, #ffffff , #dce3f0 );
+  height: 100vh;
 }
 
 button {
@@ -105,3 +110,5 @@ button:active {
 .dobleCampoUnitario {
   width: 49%;
 }
+
+
