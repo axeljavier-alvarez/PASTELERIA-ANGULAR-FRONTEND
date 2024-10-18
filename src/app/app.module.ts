@@ -56,6 +56,7 @@ import { BuscarproductoPipe } from './pipes/buscarproducto.pipe';
 import { RolcajerotareasComponent } from './components/rolcajerotareas/rolcajerotareas.component';
 import { RolcajeropedidospendientesComponent } from './components/rolcajeropedidospendientes/rolcajeropedidospendientes.component';
 import { RolclienteverfacturaComponent } from './components/rolclienteverfactura/rolclienteverfactura.component';
+import { BuscarsucursalPipe } from './pipes/buscarsucursal.pipe';
 
 
 
@@ -111,6 +112,7 @@ import { RolclienteverfacturaComponent } from './components/rolclienteverfactura
     RolcajerotareasComponent,
     RolcajeropedidospendientesComponent,
     RolclienteverfacturaComponent,
+    BuscarsucursalPipe,
 
   ],
   imports: [

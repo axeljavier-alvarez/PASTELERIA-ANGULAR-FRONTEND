@@ -20,8 +20,13 @@ export class RolclienteproductosComponent implements OnInit {
   public ProductosModelGet: Producto;
   public ProductosModelGetId: Producto;
   public CarritoModelPost: Carrito;
-  public campoBusqueda: string = 'nombre';
+  public campoBusqueda: string = 'nombreProducto';
   public buscar;
+  clasificacion = [
+    { tipo: 'Pequeño' },
+    { tipo: 'Mediano' },
+    { tipo: 'Grande' },
+  ];
 
   constructor(
     public _activatedRoute: ActivatedRoute,

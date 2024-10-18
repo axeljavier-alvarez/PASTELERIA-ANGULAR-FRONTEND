@@ -31,6 +31,10 @@ export class RoladminsucursalesComponent implements OnInit {
   // Administrar usuarios
   public UsuarioModelGet: Usuario;
   public UsuarioModelGetId: Usuario;
+
+  public campoBusqueda: string = 'nombreSucursal';
+  public buscar;
+  
   public idEmpresa: string;
   // public idEmpresa;
   // public idUsuario;

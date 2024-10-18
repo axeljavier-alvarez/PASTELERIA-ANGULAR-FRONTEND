@@ -21,6 +21,11 @@ export class RolgestorproductosComponent implements OnInit {
   public buscar;
   public idSucursal;
   public idCategoria;
+  clasificacion = [
+    { tipo: 'Pequeño' },
+    { tipo: 'Mediano' },
+    { tipo: 'Grande' },
+  ];
 
   constructor(
     public _activatedRoute: ActivatedRoute,

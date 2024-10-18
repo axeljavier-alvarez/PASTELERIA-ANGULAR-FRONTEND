@@ -15,6 +15,8 @@ export class RolclientesucursalesComponent implements OnInit {
 
   public token;
   public SucursalesModelGet: Sucursal;
+  public campoBusqueda: string = 'nombreSucursal';
+  public buscar;
 
   constructor(
     private titleService: Title,
