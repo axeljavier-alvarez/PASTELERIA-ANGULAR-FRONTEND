@@ -47,6 +47,8 @@ import { RolfacturadorversucursalesComponent } from './components/rolfacturadorv
 import { RolcajerotareasComponent } from './components/rolcajerotareas/rolcajerotareas.component';
 import { RolcajeropedidospendientesComponent } from './components/rolcajeropedidospendientes/rolcajeropedidospendientes.component';
 import { RolclienteverfacturaComponent } from './components/rolclienteverfactura/rolclienteverfactura.component';
+import { VerpedidosclientesinconfirmarComponent } from './components/verpedidosclientesinconfirmar/verpedidosclientesinconfirmar.component';
+import { ManualusuarioComponent } from './components/manualusuario/manualusuario.component';
 
 const routes: Routes = [
 
@@ -99,7 +101,9 @@ const routes: Routes = [
   { path: 'verpedidoscliente', component: VerpedidosclienteComponent},
   { path: 'pagocreditopedidos', component: PagocreditopedidosComponent},
   { path: 'rolclienteverfactura/:idPedido', component: RolclienteverfacturaComponent},
+  { path: 'verpedidosclientessinconfirmar', component: VerpedidosclientesinconfirmarComponent},
 
+  { path: 'manualusuario', component: ManualusuarioComponent},
 
   // VISTAS PARA EDITAR ROLES DE USUARIO
   { path: 'editarroladmin', component: EditarroladminComponent},

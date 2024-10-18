@@ -159,6 +159,10 @@ export class ClienteUsuarioService {
     return this._http.get(this.url + '/verPedidosClienteRegistrado', { headers: headersToken });
   }
 
+  verPedidosSinConfirmarCliente(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verPedidosSinConfirmarCliente', { headers: headersToken });
+  }
 
   // generar todas las facturas
 
@@ -188,7 +192,7 @@ export class ClienteUsuarioService {
 // ver pedidos en espera de cliente
 obtenerPedidosEnEspera(token): Observable<any> {
   let headersToken = this.headersVariable.set('Authorization', token);
-  return this._http.get(this.url + '/pedidoClienteEnEspera', { headers: headersToken });
+  return this._http.get(this.url + '/pedidoClienteSinConfirmar', { headers: headersToken });
 }
 
 

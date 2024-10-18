@@ -28,9 +28,8 @@
           <h5 class="card-title"> Categoria: {{ productos.descripcionCategoria[0].nombreCategoria }}</h5>
           <h5 class="card-title"> Stock: {{ productos.stock }} </h5>
 
-          <button type="button" class="btn btn-aceptar" data-bs-toggle="offcanvas"
-            data-bs-target="#editarProductosApp" aria-controls="offcanvasExample"
-            (click)="getProductoid(productos._id)">
+          <button type="button" class="btn btn-aceptar" data-bs-toggle="offcanvas" data-bs-target="#editarProductosApp"
+            aria-controls="offcanvasExample" (click)="getProductoid(productos._id)">
             Agregar al carrito
           </button>
         </div>
@@ -55,12 +54,14 @@
         <div class="mb-3">
           <label for="inputCantidad" class="form-label">Cantidad</label>
           <input type="number" class="form-control" id="inputCantidad" name="cantidad"
-            [(ngModel)]="CarritoModelPost.compras[0].cantidad" min="1" required autocomplete="off">
-        </div>
+              [(ngModel)]="CarritoModelPost.compras[0].cantidad" min="0" required autocomplete="off"
+              (input)="validarCantidad($event)">
+      </div>
 
         <button class="btn btn-aceptar" data-bs-dismiss="offcanvas"
-          (click)="putCarrito(ProductosModelGetId._id, CarritoModelPost.compras[0].cantidad)">Agregar al
+          (click)="agregarAlCarrito($event, ProductosModelGetId._id, CarritoModelPost.compras[0].cantidad)">Agregar al
           carrito</button>
+
       </form>
     </div>
   </div>

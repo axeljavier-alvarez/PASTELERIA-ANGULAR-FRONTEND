@@ -57,6 +57,8 @@ import { RolcajerotareasComponent } from './components/rolcajerotareas/rolcajero
 import { RolcajeropedidospendientesComponent } from './components/rolcajeropedidospendientes/rolcajeropedidospendientes.component';
 import { RolclienteverfacturaComponent } from './components/rolclienteverfactura/rolclienteverfactura.component';
 import { BuscarsucursalPipe } from './pipes/buscarsucursal.pipe';
+import { VerpedidosclientesinconfirmarComponent } from './components/verpedidosclientesinconfirmar/verpedidosclientesinconfirmar.component';
+import { ManualusuarioComponent } from './components/manualusuario/manualusuario.component';
 
 
 
@@ -113,6 +115,8 @@ import { BuscarsucursalPipe } from './pipes/buscarsucursal.pipe';
     RolcajeropedidospendientesComponent,
     RolclienteverfacturaComponent,
     BuscarsucursalPipe,
+    VerpedidosclientesinconfirmarComponent,
+    ManualusuarioComponent,
 
   ],
   imports: [

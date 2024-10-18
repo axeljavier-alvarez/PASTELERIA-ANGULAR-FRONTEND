@@ -4,13 +4,15 @@ import { Pedido } from 'src/app/models/pedido.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ClienteUsuarioService } from 'src/app/services/cliente-usuario.service';
 
+
 @Component({
-  selector: 'app-verpedidoscliente',
-  templateUrl: './verpedidoscliente.component.html',
-  styleUrls: ['./verpedidoscliente.component.scss'],
+  selector: 'app-verpedidosclientesinconfirmar',
+  templateUrl: './verpedidosclientesinconfirmar.component.html',
+  styleUrls: ['./verpedidosclientesinconfirmar.component.scss'],
   providers: [UsuarioService,ClienteUsuarioService]
+
 })
-export class VerpedidosclienteComponent implements OnInit {
+export class VerpedidosclientesinconfirmarComponent implements OnInit {
 
   public token;
   public PedidosModelGet: Pedido;
@@ -20,16 +22,18 @@ export class VerpedidosclienteComponent implements OnInit {
     private _clienteUsuarioService: ClienteUsuarioService,
     private _usuarioService: UsuarioService
   ) {
-    this.titleService.setTitle('Mis pedidos');
+    this.titleService.setTitle('Pedidos sin confirmar');
     this.token = this._usuarioService.obtenerToken();
-  }
+   }
 
   ngOnInit(): void {
-    this.getPedidos();
+
+    this.getPedidosSinConfirmar();
   }
 
-  getPedidos(){
-    this._clienteUsuarioService.obtenerPedidos(this.token).subscribe(
+
+  getPedidosSinConfirmar(){
+    this._clienteUsuarioService.verPedidosSinConfirmarCliente(this.token).subscribe(
       (response) => {
         this.PedidosModelGet = response.pedidos;
         console.log(this.PedidosModelGet);

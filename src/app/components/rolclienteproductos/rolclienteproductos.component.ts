@@ -53,16 +53,16 @@ export class RolclienteproductosComponent implements OnInit {
           idCategoria: "",
           nombreCategoria: ""
         }],
-        datosSucursal:[{
-          idSucursal:"",
+        datosSucursal: [{
+          idSucursal: "",
           nombreSucursal: "",
           direccionSucursal: "",
           telefonoSucursal: "",
           departamento: "",
           municipio: ""
-      }]
+        }]
       }],
-       0
+      0
     );
 
     this.ProductosModelGetId = new Producto("", "", "", "", 0, 0, 0, "", "", "",
@@ -84,7 +84,7 @@ export class RolclienteproductosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._activatedRoute.paramMap.subscribe((dataRuta)=>{
+    this._activatedRoute.paramMap.subscribe((dataRuta) => {
       console.log(dataRuta.get('idSucursal'));
 
       this.getProductosPorSucursal(dataRuta.get('idSucursal'))
@@ -111,32 +111,62 @@ export class RolclienteproductosComponent implements OnInit {
 
   getProductoid(idProducto) {
     this._clienteUsuarioService.obtenerProductoid(idProducto, this.token).subscribe(
-        (response) => {
-            console.log(response);
-            this.ProductosModelGetId = response.productos;
+      (response) => {
+        console.log(response);
+        this.ProductosModelGetId = response.productos;
 
-        },
-        (error) => {
-            console.log(error);
-        }
+      },
+      (error) => {
+        console.log(error);
+      }
     );
+  }
+
+
+  agregarAlCarrito(event: Event, idProducto: String, cantidad: Number) {
+    event.preventDefault(); // Evita el envío del formulario
+    this.putCarrito(idProducto, cantidad); // Llama a la función existente
 }
 
 
-  putCarrito(idProducto: String, cantidad: Number) {
-    this._clienteUsuarioService.putProductoCarrito(
-        idProducto,   // Envía el idProducto
-        cantidad,     // Envía la cantidad
-        this.token    // Verifica que el token no sea nulo o indefinido
-    ).subscribe(
-        (response) => {
-            window.location.reload(); // Recargar la página si es necesario
-        },
-        (error) => {
-
-        }
-    );
+putCarrito(idProducto: String, cantidad: Number) {
+  this._clienteUsuarioService.putProductoCarrito(
+      idProducto,
+      cantidad,
+      this.token
+  ).subscribe(
+      (response) => {
+          Swal.fire({
+              icon: 'success',
+              title: 'Producto agregado correctamente',
+              showConfirmButton: false,
+              timer: 1500 // Alerta se mostrará durante 1.5 segundos
+          }).then(() => {
+              window.location.reload(); // Recargar la página después de que la alerta se cierra
+          });
+      },
+      (error) => {
+          // Captura y muestra el mensaje de error
+          const errorMessage = error.error?.message || 'Sobrepasa el stock o está agregando un producto de otra sucursal';
+          Swal.fire({
+              icon: 'error',
+              title: 'Error al agregar el producto',
+              text: errorMessage,
+              showConfirmButton: true
+          });
+      }
+  );
 }
 
+
+
+validarCantidad(event: Event) {
+  const input = event.target as HTMLInputElement;
+  const valor = Number(input.value);
+  if (valor < 0) {
+      input.value = '0'; // Restablece el valor a 0 si es menor que 0
+      this.CarritoModelPost.compras[0].cantidad = 0; // Asegúrate de actualizar el modelo
+  }
+}
 
 }

@@ -5,9 +5,14 @@
             <div>
                 <div class="logo">Pasteleria <span class="wheat">Click&Cake</span></div>
                 <div class="factura-details">
+
+                  <tbody *ngFor="let compra of factura.compras">
                     <p><strong>De:</strong><br>
-                        {{ factura.compras[1].datosSucursal[0].nombreSucursal }}<br>
-                    </p>
+                      {{ compra.datosSucursal[0]?.nombreSucursal }}<br>
+                   </p>
+                  </tbody>
+
+
                     <p><strong>Para:</strong><br>
                         {{ factura.datosUsuario[0].nombre }} {{ factura.datosUsuario[0].apellido }}<br>
                         Email: {{ factura.datosUsuario[0].email }}<br>
@@ -71,8 +76,16 @@
         <p><strong>Gracias por su Compra!</strong></p>
 
         <div class="footer">
-            <span>Télefono: {{ factura.compras[1].datosSucursal[0].telefonoSucursal }}</span>
-            <span>Dirección: {{ factura.compras[1].datosSucursal[0].direccionSucursal }}</span>
+          <tbody *ngFor="let compra of factura.compras">
+            <span>Télefono:
+            {{ compra.datosSucursal[0]?.telefonoSucursal }}<br>
+          </span>
+
+          <span>Dirección:
+            {{ compra.datosSucursal[0]?.direccionSucursal }}<br>
+          </span>
+            
+            </tbody>
         </div>
     </div>
 
