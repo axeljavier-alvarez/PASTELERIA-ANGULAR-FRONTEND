@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Producto } from '../models/productos.model';
-import { Sucursal } from '../models/sucursal.model';
+import { Efectivo } from '../models/efectivo.model';
 import { Carrito } from '../models/carrito.model';
 import { Usuario } from '../models/usuarios.model';
 import { Pedido } from '../models/pedido.model';
@@ -204,6 +204,42 @@ obtenerFacturasPorPedido(idPedido: string, token: string): Observable<any> {
     this.url + '/verFacturaPorPedido/' + idPedido,
     { headers: headersToken }
   );
+}
+
+
+confirmarPedidoEfectivo(
+  modeloPedido: Pedido,
+  token: string,
+): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+
+
+  // Obtiene el primer elemento del array pagoEfectivo
+  const pagoEfectivo = modeloPedido.pagoEfectivo[0];
+
+  // Combina los campos en un solo objeto
+  const parametros = {
+      efectivoCliente: pagoEfectivo.efectivoCliente,
+      nit: pagoEfectivo.nit,
+      // Agrega otros campos de modeloFactura si es necesario
+  };
+
+  return this._http.post(this.url + '/confirmarPedidoEfectivo', parametros, { headers: headersToken });
+
+}
+
+
+// ver pedidos en espera de cliente
+verPedidosConfirmadosEfectivo(token): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+  return this._http.get(this.url + '/verPedidosConfirmadosEfectivo', { headers: headersToken });
+}
+
+
+obtenerPedidosSinConfirmarEfectivo(token): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+  return this._http.get(this.url + '/pedidoClienteEfectivoSinConfirmar', { headers: headersToken });
 }
 
 

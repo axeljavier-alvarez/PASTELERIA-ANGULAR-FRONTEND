@@ -50,6 +50,9 @@ import { VerpedidosclientesinconfirmarComponent } from './components/verpedidosc
 import { ManualusuarioComponent } from './components/manualusuario/manualusuario.component';
 import { RolcajeropedidosconfirmadosComponent } from './components/rolcajeropedidosconfirmados/rolcajeropedidosconfirmados.component';
 import { RolcajerorepartidoresComponent } from './components/rolcajerorepartidores/rolcajerorepartidores.component';
+import { PagoefectivopedidosComponent } from './components/pagoefectivopedidos/pagoefectivopedidos.component';
+import { VerpedidosefectivoclienteComponent } from './components/verpedidosefectivocliente/verpedidosefectivocliente.component';
+import { VerpedidossinconfirmarefectivoComponent } from './components/verpedidossinconfirmarefectivo/verpedidossinconfirmarefectivo.component';
 
 const routes: Routes = [
 
@@ -103,8 +106,11 @@ const routes: Routes = [
   { path: 'pagocreditopedidos', component: PagocreditopedidosComponent},
   { path: 'rolclienteverfactura/:idPedido', component: RolclienteverfacturaComponent},
   { path: 'verpedidosclientessinconfirmar', component: VerpedidosclientesinconfirmarComponent},
-
   { path: 'manualusuario', component: ManualusuarioComponent},
+
+  { path: 'pagoefectivopedidos', component: PagoefectivopedidosComponent},
+  { path: 'verpedidosefectivocliente', component:VerpedidosefectivoclienteComponent},
+  { path: 'verpedidossinconfirmarefectivo', component: VerpedidossinconfirmarefectivoComponent},
 
   // VISTAS PARA EDITAR ROLES DE USUARIO
   { path: 'editarroladmin', component: EditarroladminComponent},

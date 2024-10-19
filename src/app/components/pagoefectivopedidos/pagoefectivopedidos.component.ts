@@ -1,36 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UsuarioService } from 'src/app/services/usuario.service';
-import { CajeroService } from 'src/app/services/cajero.service';
-import { Usuario } from 'src/app/models/usuarios.model';
-import { Pedido } from 'src/app/models/pedido.model';
 import { Title } from '@angular/platform-browser';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { ClienteUsuarioService } from 'src/app/services/cliente-usuario.service';
+import { Factura } from 'src/app/models/factura.model';
+import { Tarjeta } from 'src/app/models/tarjeta.model';
+import { Pedido } from 'src/app/models/pedido.model';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-rolcajerorepartidores',
-  templateUrl: './rolcajerorepartidores.component.html',
-  styleUrls: ['./rolcajerorepartidores.component.scss'],
-  providers: [UsuarioService, CajeroService]
+  selector: 'app-pagoefectivopedidos',
+  templateUrl: './pagoefectivopedidos.component.html',
+  styleUrls: ['./pagoefectivopedidos.component.scss'],
+  providers: [UsuarioService, ClienteUsuarioService]
 })
-export class RolcajerorepartidoresComponent implements OnInit {
+export class PagoefectivopedidosComponent implements OnInit {
+
   public token: string;
-  public idSucursal: string;
-  public UsuarioModelGet: Usuario[] = [];
-  public UsuarioModelGetId: Usuario;
-  public PedidoModelPost: Pedido;
-  public UsuarioModelPost: Usuario;
+  public PedidoModelPost:Pedido;
+  public PedidoModelGet: Pedido;
 
   constructor(
-    public _activatedRoute: ActivatedRoute,
     private titleService: Title,
     private _usuarioService: UsuarioService,
-    private _cajeroService: CajeroService
+    private _clienteUsuarioService: ClienteUsuarioService
+
   ) {
-    this.titleService.setTitle('Pedidos pendientes');
+    this.titleService.setTitle('Pagar con efectivo');
     this.token = this._usuarioService.obtenerToken();
-    this.UsuarioModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
-    this.UsuarioModelPost = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
 
     this.PedidoModelPost = new Pedido(
       "",
@@ -97,52 +93,24 @@ export class RolcajerorepartidoresComponent implements OnInit {
       }],
       0
     );
+
   }
+
 
 
   ngOnInit(): void {
-    this._activatedRoute.paramMap.subscribe(() => {
-      this.idSucursal = localStorage.getItem('idSucursal');
-      if (this.idSucursal) {
-        this.getRepartidoresPorSucursal(this.idSucursal, this.token);
-      }
-    });
-  }
 
-  getRepartidoresPorSucursal(idSucursal: string, token: string) {
-    this._cajeroService.obtenerRepartidoresPorSucursal(idSucursal, token).subscribe(
-      (response) => {
-        this.UsuarioModelGet = response.usuarios;
-      },
-      (error) => {
-        console.error('Error al obtener repartidores:', error);
-      }
-    );
+    this.getPedidosSinConfirmar();
   }
 
 
-
-  getUsuarioId(idUsuario: string) {
-    this._cajeroService.obtenerRolRepartidorId(idUsuario, this.token).subscribe(
-      (response) => {
-        this.UsuarioModelGetId = response.usuario;
-      },
-      (error) => {
-        console.error('Error al obtener usuario por ID:', error);
-      }
-    );
-  }
-
-
-  postAsignarPedido() {
+  postConfirmarPedido() {
     // Verifica los datos de la tarjeta y de la factura
-    console.log(this.UsuarioModelGetId);
     console.log(this.PedidoModelPost); // Verifica los datos de la factura
 
     // Aquí podrías agregar validaciones adicionales si es necesario
 
-    this._cajeroService.asignarPedidoRepartidor(
-      this.UsuarioModelGetId,
+    this._clienteUsuarioService.confirmarPedidoEfectivo(
       this.PedidoModelPost,
       this.token
     ).subscribe({
@@ -150,7 +118,7 @@ export class RolcajerorepartidoresComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Éxito!',
-          text: 'Orden asignada exitosamente',
+          text: 'Pedido confirmado exitosamente',
           showConfirmButton: false,
           timer: 1500,
 
@@ -160,7 +128,7 @@ export class RolcajerorepartidoresComponent implements OnInit {
         console.log(<any>error);
         Swal.fire({
           icon: 'error',
-          title: "Error al asignar la orden",
+          title: "Error al confirmar el pedido",
           text: error.error.mensaje || 'Datos incompletos. Por favor, revisa la información.',
           footer: '*Ingrese los datos de nuevo*',
           showConfirmButton: false,
@@ -168,6 +136,18 @@ export class RolcajerorepartidoresComponent implements OnInit {
         });
       }
     });
+  }
+
+
+  getPedidosSinConfirmar() {
+    this._clienteUsuarioService.obtenerPedidosSinConfirmarEfectivo(this.token).subscribe(
+      (response) => {
+        this.PedidoModelGet = response.pedidos;
+        console.log(this.PedidoModelGet);
+      }, (error) => {
+        console.log(<any>error);
+      }
+    )
   }
 
 }

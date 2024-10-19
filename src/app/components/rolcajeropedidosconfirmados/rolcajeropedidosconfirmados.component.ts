@@ -31,6 +31,13 @@ export class RolcajeropedidosconfirmadosComponent implements OnInit {
     this.PedidoModelGetId = new Pedido(
       "",
       "",
+      [{
+        idEfectivo: "",
+        efectivoCliente: 0,
+        cambioCliente:0,
+        totalPedido: 0,
+        nit: "",
+      }],
       null,
       "",
       "",

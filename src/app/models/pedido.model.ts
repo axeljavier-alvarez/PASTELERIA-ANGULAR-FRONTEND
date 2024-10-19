@@ -2,6 +2,15 @@ export class Pedido{
   constructor(
       public _id: String,
       public idUsuario: String,
+
+      public pagoEfectivo: [{
+        idEfectivo: String,
+        efectivoCliente: Number,
+        cambioCliente:Number,
+        totalPedido: Number,
+        nit: String,
+    }],
+
       public fecha: Date,
       public tiempoEstimado: String,
       public tipoPago: String,

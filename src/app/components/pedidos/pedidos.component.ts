@@ -37,6 +37,13 @@ export class PedidosComponent implements OnInit {
     this.PedidoModelPost = new Pedido(
       "",
       "",
+      [{
+        idEfectivo: "",
+        efectivoCliente: 0,
+        cambioCliente:0,
+        totalPedido: 0,
+        nit: "",
+      }],
       null,
       "",
       "",
@@ -482,7 +489,17 @@ export class PedidosComponent implements OnInit {
           )
           .subscribe({
             next: (response: any) => {
-              this._router.navigate(['/pagocreditopedidos']);
+              // Determina la ruta según el tipo de pago
+              const tipoPago = this.PedidoModelPost.tipoPago;
+              let redirectUrl = '';
+
+              if (tipoPago === 'Tarjeta de crédito') {
+                redirectUrl = '/pagocreditopedidos';
+              } else if (tipoPago === 'Efectivo') {
+                redirectUrl = '/pagoefectivopedidos';
+              }
+
+              this._router.navigate([redirectUrl]);
               Swal.fire({
                 icon: 'success',
                 title: 'Éxito!',
@@ -508,4 +525,5 @@ export class PedidosComponent implements OnInit {
       }
     });
   }
+
 }
