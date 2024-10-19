@@ -50,6 +50,9 @@ export class PedidosComponent implements OnInit {
       0,
       "",
       "",
+      "",
+      null,
+      null,
       [{
         idUsuario: "",
         nombre: "",

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuarios.model';
+import { Pedido } from '../models/pedido.model';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +82,84 @@ export class CajeroService {
     );
   }
 
-  
+  obtenerPedidosConfirmadosPorSucursal(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/pedidoConfirmadoCredito/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
+
+
+  /* nuevas funciones */
+  obtenerRepartidoresPorSucursal(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/getRepartidoresPorIdSucursal/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
+
+
+  obtenerPedidoPorId(idPedido, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(this.url + '/getPedidoPorId/' + idPedido, { headers: headersToken });
+
+  }
+
+
+  editarPedido(modeloPedido: Pedido, token): Observable<any> {
+
+    let parametros = JSON.stringify(modeloPedido);
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.put(this.url + '/editarPedidosRolCajero/' + modeloPedido._id, parametros, { headers: headersToken })
+
+  }
+
+
+
+  obtenerRolRepartidorId(idUsuario, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(this.url + '/getRepartidorId/' + idUsuario, { headers: headersToken });
+
+  }
+
+  putAsignarRepartidor(idRepartidor: String, numeroDeOrden: Number, token): Observable<any> {
+    const parametros = JSON.stringify({ numeroDeOrden }); // Enviar solo el numeroDeOrden
+    const headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.put(
+        this.url + '/asignarPedidoRepartidor/' + idRepartidor,
+        parametros,
+        { headers: headersToken }
+    );
+}
+
+
+asignarPedidoRepartidor(
+  modeloUsuario: Usuario,
+  modeloPedido: Pedido,
+  token: string,
+): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+  // Combina los campos en un solo objeto
+  const parametros = {
+      email: modeloUsuario.email,
+      numeroDeOrden: modeloPedido.numeroDeOrden,
+      // Agrega otros campos de modeloFactura si es necesario
+  };
+
+  return this._http.post(this.url + '/asignarPedidoRepartidor', parametros, { headers: headersToken });
+}
+
 
 }

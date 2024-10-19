@@ -47,7 +47,6 @@ import { VistarolcajeroComponent } from './components/vistarolcajero/vistarolcaj
 import { InicioComponent } from './components/inicio/inicio.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { VerpedidosclienteComponent } from './components/verpedidoscliente/verpedidoscliente.component';
-import { HistorialpedidoscajeroComponent } from './components/historialpedidoscajero/historialpedidoscajero.component';
 import { PagocreditopedidosComponent } from './components/pagocreditopedidos/pagocreditopedidos.component';
 import { RolcajeroversucursalesComponent } from './components/rolcajeroversucursales/rolcajeroversucursales.component';
 import { RolrepartidorversucursalesComponent } from './components/rolrepartidorversucursales/rolrepartidorversucursales.component';
@@ -59,6 +58,8 @@ import { RolclienteverfacturaComponent } from './components/rolclienteverfactura
 import { BuscarsucursalPipe } from './pipes/buscarsucursal.pipe';
 import { VerpedidosclientesinconfirmarComponent } from './components/verpedidosclientesinconfirmar/verpedidosclientesinconfirmar.component';
 import { ManualusuarioComponent } from './components/manualusuario/manualusuario.component';
+import { RolcajeropedidosconfirmadosComponent } from './components/rolcajeropedidosconfirmados/rolcajeropedidosconfirmados.component';
+import { RolcajerorepartidoresComponent } from './components/rolcajerorepartidores/rolcajerorepartidores.component';
 
 
 
@@ -105,7 +106,6 @@ import { ManualusuarioComponent } from './components/manualusuario/manualusuario
     InicioComponent,
     PedidosComponent,
     VerpedidosclienteComponent,
-    HistorialpedidoscajeroComponent,
     PagocreditopedidosComponent,
     RolcajeroversucursalesComponent,
     RolrepartidorversucursalesComponent,
@@ -117,6 +117,8 @@ import { ManualusuarioComponent } from './components/manualusuario/manualusuario
     BuscarsucursalPipe,
     VerpedidosclientesinconfirmarComponent,
     ManualusuarioComponent,
+    RolcajeropedidosconfirmadosComponent,
+    RolcajerorepartidoresComponent,
 
   ],
   imports: [

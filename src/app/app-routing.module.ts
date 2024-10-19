@@ -39,7 +39,6 @@ import { EditarrolrepartidorComponent } from './components/editarrolrepartidor/e
 import { InicioComponent } from './components/inicio/inicio.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { VerpedidosclienteComponent } from './components/verpedidoscliente/verpedidoscliente.component';
-import { HistorialpedidoscajeroComponent } from './components/historialpedidoscajero/historialpedidoscajero.component';
 import { PagocreditopedidosComponent } from './components/pagocreditopedidos/pagocreditopedidos.component';
 import { RolcajeroversucursalesComponent } from './components/rolcajeroversucursales/rolcajeroversucursales.component';
 import { RolrepartidorversucursalesComponent } from './components/rolrepartidorversucursales/rolrepartidorversucursales.component';
@@ -49,6 +48,8 @@ import { RolcajeropedidospendientesComponent } from './components/rolcajeropedid
 import { RolclienteverfacturaComponent } from './components/rolclienteverfactura/rolclienteverfactura.component';
 import { VerpedidosclientesinconfirmarComponent } from './components/verpedidosclientesinconfirmar/verpedidosclientesinconfirmar.component';
 import { ManualusuarioComponent } from './components/manualusuario/manualusuario.component';
+import { RolcajeropedidosconfirmadosComponent } from './components/rolcajeropedidosconfirmados/rolcajeropedidosconfirmados.component';
+import { RolcajerorepartidoresComponent } from './components/rolcajerorepartidores/rolcajerorepartidores.component';
 
 const routes: Routes = [
 
@@ -114,11 +115,12 @@ const routes: Routes = [
   { path: 'editarrolrepartidor', component: EditarrolrepartidorComponent},
 
   // VISTAS DEL ROL CAJERO
-  { path: 'historialpedidoscajero', component: HistorialpedidoscajeroComponent},
   { path: 'rolcajeroversucursales', component: RolcajeroversucursalesComponent },
-
   {path: 'rolcajerotareas/:idSucursal', component: RolcajerotareasComponent},
   {path: 'rolcajeropedidospendientes', component: RolcajeropedidospendientesComponent},
+  { path: 'rolcajeropedidosconfirmados', component: RolcajeropedidosconfirmadosComponent},
+  { path: 'rolcajerorepartidores', component: RolcajerorepartidoresComponent},
+
 
   // VISTAS DEL ROL REPARTIDOR
   { path: 'rolrepartidorversucursales', component: RolrepartidorversucursalesComponent },

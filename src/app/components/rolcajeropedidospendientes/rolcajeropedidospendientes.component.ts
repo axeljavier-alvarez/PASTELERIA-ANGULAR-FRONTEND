@@ -33,7 +33,7 @@ export class RolcajeropedidospendientesComponent implements OnInit {
       this.idSucursal = localStorage.getItem('idSucursal'); // Obtener el idSucursal
 
       if (this.idSucursal) {
-        this.getProductosPorRolGestor(this.idSucursal, this.token); // Llamar al nuevo método
+        this.getPedidosSinConfirmar(this.idSucursal, this.token); // Llamar al nuevo método
       }
 
       console.log(this.idSucursal);  // Verificar el idSucursal
@@ -42,7 +42,7 @@ export class RolcajeropedidospendientesComponent implements OnInit {
   }
 
 
-  getProductosPorRolGestor(idSucursal: string, token: string) {
+  getPedidosSinConfirmar(idSucursal: string, token: string) {
     this._cajeroService
       .obtenerPedidosPendientesPorSucursal(idSucursal, token)
       .subscribe(

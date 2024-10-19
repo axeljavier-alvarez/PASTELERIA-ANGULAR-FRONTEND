@@ -16,6 +16,10 @@ export class Pedido{
       public departamentoPedido: String,
       public municipioPedido: String,
 
+      public estadoOrden:String,
+      public horaRepartidorAsignado: Date,
+      public horaPedidoEntregado: Date,
+
       public datosUsuario: [{
         idUsuario: String,
         nombre: String,
