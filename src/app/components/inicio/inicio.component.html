@@ -30,7 +30,7 @@
 <!-- categorias -->
 
   <h1 class="text-center mt-5">Categorias</h1>
-  <div class="row container m-auto ">
+  <div class="row container-fluid  m-auto " style="width: 90%;">
     <div class="col-12 col-md-4" *ngFor="let categorias of categoriasModelGet">
       <div class="card text-center mb-3 tarjeta-productos">
         <div class="">
@@ -50,12 +50,10 @@
 </div>
 
 <!--PRODUCTOS-->
-<div class="container">
-
   <h1 class="text-center mt-3">Productos</h1>
-  <div class="row container  m-auto">
+  <div class="row  m-auto container-fluid" style="width: 90%;">
     <div class="col-12 col-md-4" *ngFor="let productos of productosModelGet">
-      <div class="card text-center mb-3 tarjeta-productos">
+      <div class="card text-center mb-3">
         <div class="">
           <div class="aspect-ratio">
             <img *ngIf="productos.imagen" [src]="'http://localhost:3000/imagenes/' + productos.imagen">
@@ -73,13 +71,10 @@
     </div>
   </div>
   <hr>
-</div>
 
 <!--SUCURSALES-->
-<div class="container">
-
-  <h1 class="text-center mt-3">Sucursales</h1>
-  <div class="row container  m-auto">
+  <h1 class="text-center mt-3" >Sucursales</h1>
+  <div class="row container-fluid  m-auto " style="width: 90%;">
     <div class="col-12 col-md-4" *ngFor="let sucursales of sucursalesModelGet">
       <div class="card text-center mb-3 tarjeta-productos">
         <div class="">
@@ -97,10 +92,9 @@
     </div>
   </div>
   <hr>
-</div>
 
 <!--EMPRESA-->
-<div class="container" *ngFor="let empresas of empresaModelGet">
+<div class="container-fluide m-auto" style="width: 90%;" *ngFor="let empresas of empresaModelGet">
 
   <h1 class="text-center mt-3">Sobre la Empresa</h1>
 
@@ -111,7 +105,7 @@
     <div class="col-12 col-md-4" >
       <div class="card text-center mb-3">
         <div class="m-4">
-          <h2>MISIÓN</h2>
+          <h2>MISIÓN</h2> 
           <p> {{ empresas.mision }} </p>
         </div>
       </div>

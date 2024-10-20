@@ -13,7 +13,7 @@
   </div>
 
   <div class="row">
-    <div class="col-12 col-md-4" *ngFor="let productos of ProductosModelGet | buscarproducto: buscar : campoBusqueda">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let productos of ProductosModelGet | buscarproducto: buscar : campoBusqueda">
       <div class="card text-center mb-3">
         <div class="card-header pink-header">
           {{ productos.nombreProducto }}

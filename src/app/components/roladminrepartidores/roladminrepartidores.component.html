@@ -20,7 +20,7 @@
 
     <!-- CONTENEDORES -->
     <div class="row py-5">
-        <div class="col-12 col-md-4" *ngFor="let repartidor of UsuarioModelGet | buscarusuariopormunicipio: buscar : campoBusqueda">
+        <div class="col-12 col-md-6 col-lg-4" *ngFor="let repartidor of UsuarioModelGet | buscarusuariopormunicipio: buscar : campoBusqueda">
             <div class="card text-center mb-3 ">
                 <div class="card-header pink-header">
                     {{repartidor.nombre}} {{ repartidor.apellido}}

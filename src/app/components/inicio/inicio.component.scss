@@ -1,24 +1,22 @@
-.tarjeta-productos{
-    border-radius: 10px;
-    // transform: scale(0.9);
+.tarjeta-productos {
+  border-radius: 10px;
 }
 
-
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding-top: 60px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding-top: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
   
-  .footer {
-    background-color: #F4D9D0;
-    color: black;
-    padding: 20px;
-    text-align: center;
-  }
+.footer {
+  background-color: #F4D9D0;
+  color: black;
+  padding: 20px;
+  text-align: center;
+}
   
   .footer-content {
     display: flex;
@@ -65,7 +63,7 @@ body {
     .footer-content {
       flex-direction: column;
       align-items: center;
-    }
+  }
   
     .footer-section {
       width: 100%;
