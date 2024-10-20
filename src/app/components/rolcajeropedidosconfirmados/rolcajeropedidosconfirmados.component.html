@@ -9,35 +9,117 @@
           No Orden: {{pedidos.numeroDeOrden}}
         </div>
         <div class="card-body">
+          <div class="contenido">
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="2" class="text-center">INFORMACIÓN DEL CLIENTE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nombre</td>
+                  <td>{{pedidos.datosUsuario[0].nombre}}</td>
+                </tr>
+                <tr>
+                  <td>Apellido</td>
+                  <td>{{pedidos.datosUsuario[0].apellido}}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{{pedidos.datosUsuario[0].email}}</td>
+                </tr>
+                <tr>
+                  <td>Telefono</td>
+                  <td>{{pedidos.datosUsuario[0].telefono}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="4" class="text-center">PRODUCTOS</th>
+                </tr>
+                <tr>
+                  <th>Articulo</th>
+                  <th>Precio</th>
+                  <th>Cant.</th>
+                  <th>SubTotal</th>
+                </tr>
+              </thead>
 
+              <tbody>
+                <tr *ngFor="let producto of pedidos.compras">
+                  <td>{{ producto.nombreProducto }}</td>
+                  <td>{{ producto.precio | currency:'Q' }}</td>
+                  <td>{{ producto.cantidad }}</td>
+                  <td>{{ producto.subTotal | currency:'Q' }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="2" class="text-center">DATOS DEL PEDIDO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fecha</td>
+                  <td>{{pedidos.fecha}}</td>
+                </tr>
+                <tr>
+                  <td>Tiempo estimado</td>
+                  <td>{{pedidos.tiempoEstimado}}</td>
+                </tr>
+                <tr>
+                  <td>Tipo de pago</td>
+                  <td>{{pedidos.tipoPago}}</td>
+                </tr>
+                <tr>
+                  <td>Estado del pedido</td>
+                  <td>{{pedidos.estadoPedido}}</td>
+                </tr>
+                <tr>
+                  <td>Dirección envio</td>
+                  <td>{{pedidos.direccionEnvio}}</td>
+                </tr>
+                <tr>
+                  <td>Departamento</td>
+                  <td>{{pedidos.departamentoPedido}}</td>
+                </tr>
+                <tr>
+                  <td>Municipio</td>
+                  <td>{{pedidos.municipioPedido}}</td>
+                </tr>
+                <tr>
+                  <td>Hora de entrega</td>
+                  <td>{{pedidos.horaEntrega}}</td>
+                </tr>
+                <tr>
+                  <td>Método de envío</td>
+                  <td>{{pedidos.metodoEnvio}}</td>
+                </tr>
+                <tr>
+                  <td>Estado de la orden</td>
+                  <td>{{pedidos.estadoOrden}}</td>
+                </tr>
+                <tr>
+                  <td>Hora repartidor asignado</td>
+                  <td>{{pedidos.horaRepartidorAsignado}}</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td>{{pedidos.total | currency:'Q'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <h5 class="card-title"> ID Usuario: {{pedidos.idUsuario}}</h5>
-          <h5 class="card-title"> Nombre Cliente : {{pedidos.datosUsuario[0].nombre}} {{pedidos.datosUsuario[0].apellido}}</h5>
-          <h5 class="card-title"> Email: {{pedidos.datosUsuario[0].email}}</h5>
-          <h5 class="card-title"> Telefono: {{pedidos.datosUsuario[0].telefono}}</h5>
-          <h5 class="card-title"> Fecha: {{pedidos.fecha}} </h5>
-          <h5 class="card-title"> Tiempo estimado: {{pedidos.tiempoEstimado}} </h5>
-          <h5 class="card-title"> Tipo pago: {{pedidos.tipoPago}}</h5>
-          <h5 class="card-title"> Estado pedido: {{pedidos.estadoPedido}}</h5>
-          <h5 class="card-title"> Dirección envio: {{pedidos.direccionEnvio}}</h5>
-          <h5 class="card-title"> Hora de entrega: {{pedidos.horaEntrega}}</h5>
-          <h5 class="card-title"> Método de envío: {{pedidos.metodoEnvio}}</h5>
-          <h5 class="card-title"> Incremento envio: {{pedidos.incrementoEnvio}}</h5>
-          <h5 class="card-title"> Departamento: {{pedidos.departamentoPedido}}</h5>
-          <h5 class="card-title"> Municipio: {{pedidos.municipioPedido}}</h5>
-
-          <h5 class="card-title"> Estado de la orden: {{pedidos.estadoOrden}}</h5>
-          <h5 class="card-title"> Hora repartidor asignado: {{pedidos.horaRepartidorAsignado}}</h5>
-
-          <h5 class="card-title"> Total: {{pedidos.total | currency:'Q'}}</h5>
-
-
-
-
-          <button class="btn btn-agregar-usuario rounded-pill" type="button" title="Agregar usuario" data-bs-toggle="modal"
-          data-bs-target="#modalEditarPedido" (click)="getPedidoId(pedidos._id)">
-          Editar
-        </button>
+          <button class="btn btn-agregar-usuario rounded-pill" type="button" title="Agregar usuario"
+            data-bs-toggle="modal" data-bs-target="#modalEditarPedido" (click)="getPedidoId(pedidos._id)">
+            Editar
+          </button>
 
         </div>
       </div>
@@ -49,7 +131,8 @@
 
 
 <!--Editar -->
-<div class="modal fade" id="modalEditarPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #modal>
+<div class="modal fade" id="modalEditarPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  #modal>
   <div class="modal-dialog">
     <div class="modal-content bk-form">
       <div class="modal-header pink-header">
@@ -60,8 +143,8 @@
         <form>
           <div class="mb-3">
             <label for="editarNombre" class="form-label">Tiempo Estimado:</label>
-            <input type="text" id="editarNombre" class="form-control" autocomplete="off"
-              name="tiempoEstimado" #tiempoEstimado="ngModel" [(ngModel)]="PedidoModelGetId.tiempoEstimado">
+            <input type="text" id="editarNombre" class="form-control" autocomplete="off" name="tiempoEstimado"
+              #tiempoEstimado="ngModel" [(ngModel)]="PedidoModelGetId.tiempoEstimado">
           </div>
 
           <div class="mb-3">
@@ -77,9 +160,8 @@
 
           <div class="mb-3" style="display: none;">
             <label for="inputestadoOrden" class="form-label">Estado orden:</label>
-            <input type="text" id="inputestadoOrden" class="form-control" autocomplete="off"
-                   name="estadoOrden" #estadoOrden="ngModel"
-                   [(ngModel)]="PedidoModelGetId.estadoOrden">
+            <input type="text" id="inputestadoOrden" class="form-control" autocomplete="off" name="estadoOrden"
+              #estadoOrden="ngModel" [(ngModel)]="PedidoModelGetId.estadoOrden">
           </div>
           <button class="btn btn-aceptar" data-bs-dismiss="modal" (click)="putPedidos()">Editar pedidos</button>
 

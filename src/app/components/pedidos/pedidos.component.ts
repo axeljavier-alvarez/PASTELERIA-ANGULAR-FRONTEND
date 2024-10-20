@@ -24,7 +24,8 @@ export class PedidosComponent implements OnInit {
   clasificacion = [
     { tipo: 'Tarjeta de crédito' },
     { tipo: 'Efectivo' },
-  ]
+  ];
+  horario: any[] = [];
   constructor(
     public _activatedRoute: ActivatedRoute,
     private titleService: Title,
@@ -106,7 +107,7 @@ export class PedidosComponent implements OnInit {
       this.idCarrito = dataRuta.get('idCarrito');
       console.log(this.idCarrito);
     });
-
+    this.horario = this.generateHorarios();
     this.getClienteCarrito();
   }
 
@@ -526,4 +527,29 @@ export class PedidosComponent implements OnInit {
     });
   }
 
+  generateHorarios(): any[] {
+    const horarios = [];
+    let startHour = 8;
+    let startMinute = 0;
+
+    while (startHour < 18) {
+      const endHour = startMinute === 0 ? startHour : startHour + 1;
+      const endMinute = startMinute === 0 ? 30 : 0;
+
+      const startTime = `${startHour.toString().padStart(2, '0')}:${startMinute === 0 ? '00' : '30'}`;
+      const endTime = `${endHour.toString().padStart(2, '0')}:${endMinute === 0 ? '00' : '30'}`;
+
+      horarios.push({ hora: `${startTime} - ${endTime}` });
+
+      // Incremento de 30 minutos
+      if (startMinute === 0) {
+        startMinute = 30;
+      } else {
+        startMinute = 0;
+        startHour++;
+      }
+    }
+
+    return horarios;
+  }
 }

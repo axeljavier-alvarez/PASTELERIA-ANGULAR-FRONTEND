@@ -5,14 +5,9 @@
             <div>
                 <div class="logo">Pasteleria <span class="wheat">Click&Cake</span></div>
                 <div class="factura-details">
-
-                  <tbody *ngFor="let compra of factura.compras">
                     <p><strong>De:</strong><br>
-                      {{ compra.datosSucursal[0]?.nombreSucursal }}<br>
-                   </p>
-                  </tbody>
-
-
+                        {{ factura.compras[0]?.datosSucursal[0]?.nombreSucursal }}<br>
+                    </p>
                     <p><strong>Para:</strong><br>
                         {{ factura.datosUsuario[0].nombre }} {{ factura.datosUsuario[0].apellido }}<br>
                         Email: {{ factura.datosUsuario[0].email }}<br>
@@ -22,7 +17,7 @@
             </div>
             <div>
                 <div class="logo-empresa">
-                    <img src="../../../assets/img/logoEmpresa.webp" alt="">
+                    <img src="../../../assets/img/logo_empresa3.jpg" alt="">
                 </div>
                 <p><strong>Orden</strong></p>
                 <p>No. {{ factura.datosPedido[0].numeroDeOrden }}<br>
@@ -33,7 +28,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Nombre del Artirulo</th>
+                    <th>Nombre del Articulo</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
                     <th>Sub total</th>
@@ -76,16 +71,13 @@
         <p><strong>Gracias por su Compra!</strong></p>
 
         <div class="footer">
-          <tbody *ngFor="let compra of factura.compras">
             <span>Télefono:
-            {{ compra.datosSucursal[0]?.telefonoSucursal }}<br>
-          </span>
-
-          <span>Dirección:
-            {{ compra.datosSucursal[0]?.direccionSucursal }}<br>
-          </span>
-            
-            </tbody>
+                {{ factura.compras[0]?.datosSucursal[0]?.telefonoSucursal }}<br>
+              </span>
+    
+              <span>Dirección:
+                {{ factura.compras[0]?.datosSucursal[0]?.direccionSucursal }}<br>
+              </span>
         </div>
     </div>
 

@@ -10,21 +10,112 @@
         </div>
         <div class="card-body">
 
-          <img src="../../../assets/img/horneando.png" class="card-img-top" id="iconos">
+          <div class="contenido">
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="2" class="text-center">INFORMACIÓN DEL CLIENTE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nombre</td>
+                  <td>{{pedidos.datosUsuario[0].nombre}}</td>
+                </tr>
+                <tr>
+                  <td>Apellido</td>
+                  <td>{{pedidos.datosUsuario[0].apellido}}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{{pedidos.datosUsuario[0].email}}</td>
+                </tr>
+                <tr>
+                  <td>Telefono</td>
+                  <td>{{pedidos.datosUsuario[0].telefono}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="4" class="text-center">PRODUCTOS</th>
+                </tr>
+                <tr>
+                  <th>Articulo</th>
+                  <th>Precio</th>
+                  <th>Cant.</th>
+                  <th>SubTotal</th>
+                </tr>
+              </thead>
 
-          <h5 class="card-title"> ID Usuario: {{pedidos.idUsuario}}</h5>
-          <h5 class="card-title"> Nombre Cliente : {{pedidos.datosUsuario[0].nombre}} {{pedidos.datosUsuario[0].apellido}}</h5>
-          <h5 class="card-title"> Email: {{pedidos.datosUsuario[0].email}}</h5>
-          <h5 class="card-title"> Telefono: {{pedidos.datosUsuario[0].telefono}}</h5>
-          <h5 class="card-title"> Fecha: {{pedidos.fecha}} </h5>
-          <h5 class="card-title"> Tiempo estimado: {{pedidos.tiempoEstimado}} </h5>
-          <h5 class="card-title"> Tipo pago: {{pedidos.tipoPago}}</h5>
-          <h5 class="card-title"> Estado pedido: {{pedidos.estadoPedido}}</h5>
-          <h5 class="card-title"> Dirección envio: {{pedidos.direccionEnvio}}</h5>
-          <h5 class="card-title"> Hora de entrega: {{pedidos.horaEntrega}}</h5>
-          <h5 class="card-title"> Método de envío: {{pedidos.metodoEnvio}}</h5>
-          <h5 class="card-title"> Incremento envio: {{pedidos.incrementoEnvio}}</h5>
-          <h5 class="card-title"> Total: {{pedidos.total | currency:'Q'}}</h5>
+              <tbody>
+                <tr *ngFor="let producto of pedidos.compras">
+                  <td>{{ producto.nombreProducto }}</td>
+                  <td>{{ producto.precio | currency:'Q' }}</td>
+                  <td>{{ producto.cantidad }}</td>
+                  <td>{{ producto.subTotal | currency:'Q' }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="2" class="text-center">DATOS DEL PEDIDO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fecha</td>
+                  <td>{{pedidos.fecha}}</td>
+                </tr>
+                <tr>
+                  <td>Tiempo estimado</td>
+                  <td>{{pedidos.tiempoEstimado}}</td>
+                </tr>
+                <tr>
+                  <td>Tipo de pago</td>
+                  <td>{{pedidos.tipoPago}}</td>
+                </tr>
+                <tr>
+                  <td>Estado del pedido</td>
+                  <td>{{pedidos.estadoPedido}}</td>
+                </tr>
+                <tr>
+                  <td>Dirección envio</td>
+                  <td>{{pedidos.direccionEnvio}}</td>
+                </tr>
+                <tr>
+                  <td>Departamento</td>
+                  <td>{{pedidos.departamentoPedido}}</td>
+                </tr>
+                <tr>
+                  <td>Municipio</td>
+                  <td>{{pedidos.municipioPedido}}</td>
+                </tr>
+                <tr>
+                  <td>Hora de entrega</td>
+                  <td>{{pedidos.horaEntrega}}</td>
+                </tr>
+                <tr>
+                  <td>Método de envío</td>
+                  <td>{{pedidos.metodoEnvio}}</td>
+                </tr>
+                <tr>
+                  <td>Estado de la orden</td>
+                  <td>{{pedidos.estadoOrden}}</td>
+                </tr>
+                <tr>
+                  <td>Hora repartidor asignado</td>
+                  <td>{{pedidos.horaRepartidorAsignado}}</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td>{{pedidos.total | currency:'Q'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
         </div>
       </div>

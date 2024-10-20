@@ -8,12 +8,9 @@
   <div class="circle circle1"></div>
   <div class="circle circle2"></div>
   <div class="circle circle3"></div>
-  <div class="form-container">
+  <div class="form-container" *ngFor="let carritos of CarritosModelGet">
     <h2 class="text-center">Pedido</h2>
     <form>
-
-
-
 
       <div class="mb-3 pt-4">
         <label for="inputTipoPago" class="form-label"><i class="fas fa-user"></i>Tipo Pago:</label>
@@ -28,75 +25,38 @@
         <label for="inputDireccionEnvio" class="form-label">Direccion Envio:</label>
         <input type="text" class="form-control" id="inputDireccionEnvio" name="direccionEnvio" #direccionEnvio="ngModel"
           [(ngModel)]="PedidoModelPost.direccionEnvio" autocomplete="off">
-
       </div>
-
-
 
       <div class="mb-3">
         <label for="inputNombreSucursal" class="form-label"><strong>Nombre sucursal:</strong></label>
-
-
-
-        <div *ngFor="let carritos of CarritosModelGet">
-          <div *ngFor="let compra of carritos.compras">
-
-            <div style="width: 100%;">
-
-              <div>
-                <p> {{ compra.datosSucursal[0]?.nombreSucursal }}</p>
-
-              </div>
-            </div>
-          </div>
-
+        <div style="width: 100%;">
+          <p> {{ carritos.compras[0]?.datosSucursal[0]?.nombreSucursal }}</p>
+        </div>
       </div>
-      </div>
-
 
       <div class="mb-3">
-        <label for="inputNombreSucursal" class="form-label">
-          <strong>Departamento sucursal:</strong>
-
-        </label>
-
-
-
-        <div *ngFor="let carritos of CarritosModelGet">
-          <div *ngFor="let compra of carritos.compras">
-
-            <div style="width: 100%;">
-
-              <div>
-                <p> {{ compra.datosSucursal[0]?.departamento }}</p>
-
-              </div>
-            </div>
-          </div>
-
+        <label for="inputNombreSucursal" class="form-label"><strong>Departamento sucursal:</strong></label>
+        <div style="width: 100%;">
+          <p> {{ carritos.compras[0]?.datosSucursal[0]?.departamento }}</p>
+        </div>
       </div>
-      </div>
-
 
       <div class="mb-3">
-        <label for="inputMunicipioPedido" class="form-label">Municipio Pedido:</label>
-
+        <label for="inputMunicipioPedido" class="form-label"><strong>Municipio Pedido:</strong></label>
         <select class="form-select" aria-label="Municipio select" id="inputMunicipio" name="municipio"
-              #municipio="ngModel" [(ngModel)]="PedidoModelPost.municipioPedido" required>
-              <option *ngFor="let numero of municipiosOpciones" [value]="numero">{{numero}}</option>
-            </select>
-
+          #municipio="ngModel" [(ngModel)]="PedidoModelPost.municipioPedido" required>
+          <option *ngFor="let numero of municipiosOpciones" [value]="numero">{{numero}}</option>
+        </select>
       </div>
-
 
       <div class="mb-3">
         <label for="inputHoraEntrega" class="form-label">Hora Entrega:</label>
-        <input type="text" class="form-control" id="inputHoraEntrega" name="horaEntrega" #horaEntrega="ngModel"
-          [(ngModel)]="PedidoModelPost.horaEntrega" autocomplete="off">
-
+        <select class="form-select" aria-label="Default select example" id="inputHoraEntrega" name="horaEntrega"
+          #horaEntrega="ngModel" [(ngModel)]="PedidoModelPost.horaEntrega" required>
+          <option *ngFor="let horario of horario" [value]="horario.hora">{{horario.hora}}
+          </option>
+        </select>
       </div>
-
-
 
       <div class="text-center">
         <button type="button" class="rounded-pill m-auto" (click)="postPedido(idCarrito)">
