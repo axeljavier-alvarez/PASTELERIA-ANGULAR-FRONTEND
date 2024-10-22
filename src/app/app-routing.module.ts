@@ -65,6 +65,10 @@ import { InicioRepartidorComponent } from './components/inicio-repartidor/inicio
 import { GuardrepartidorGuard } from './services/guardrepartidor.guard';
 import { InicioFacturadorComponent } from './components/inicio-facturador/inicio-facturador.component';
 import { GuardfacturadorGuard } from './services/guardfacturador.guard';
+import { RolcajeroefectivopedidosconfirmadosComponent } from './components/rolcajeroefectivopedidosconfirmados/rolcajeroefectivopedidosconfirmados.component';
+import { RolcajerogenerarfacturaefectivoComponent } from './components/rolcajerogenerarfacturaefectivo/rolcajerogenerarfacturaefectivo.component';
+import { ManualadminComponent } from './components/manualadmin/manualadmin.component';
+import { ManualgestorComponent } from './components/manualgestor/manualgestor.component';
 
 const routes: Routes = [
 
@@ -91,6 +95,7 @@ const routes: Routes = [
       { path: 'roladminsucursales/:idEmpresa', component: RoladminsucursalesComponent },
 
       { path: 'roladmincategorias', component: RoladmincateComponent },
+      { path: 'manualadmin', component: ManualadminComponent},
 
     ],
   },
@@ -107,6 +112,8 @@ const routes: Routes = [
       { path: 'rolgestorproductos/:idCategoria', component: RolgestorproductosComponent },
       { path: 'editarrolgestor', component: EditarrolgestorComponent },
       { path: 'verganancias', component: VerGananciasComponent },
+      { path: 'manualgestor', component: ManualgestorComponent},
+      
 
     ],
   },
@@ -144,6 +151,8 @@ const routes: Routes = [
       { path: 'rolcajeropedidospendientes', component: RolcajeropedidospendientesComponent },
       { path: 'rolcajeropedidosconfirmados', component: RolcajeropedidosconfirmadosComponent },
       { path: 'rolcajerorepartidores', component: RolcajerorepartidoresComponent },
+      { path: 'rolcajeroefetivopedidosconfirmados', component: RolcajeroefectivopedidosconfirmadosComponent },
+      { path: 'rolcajerogenerarfacturaefectivo', component: RolcajerogenerarfacturaefectivoComponent}
 
     ]
   },

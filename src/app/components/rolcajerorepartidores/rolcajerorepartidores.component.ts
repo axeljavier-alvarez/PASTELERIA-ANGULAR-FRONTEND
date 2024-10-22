@@ -20,6 +20,7 @@ export class RolcajerorepartidoresComponent implements OnInit {
   public UsuarioModelGetId: Usuario;
   public PedidoModelPost: Pedido;
   public UsuarioModelPost: Usuario;
+  public UsuarioModelGet2: Usuario[] = [];
 
   constructor(
     public _activatedRoute: ActivatedRoute,
@@ -105,6 +106,7 @@ export class RolcajerorepartidoresComponent implements OnInit {
       this.idSucursal = localStorage.getItem('idSucursal');
       if (this.idSucursal) {
         this.getRepartidoresPorSucursal(this.idSucursal, this.token);
+        this.getRepartidoresOcupadosPorIdSucursal(this.idSucursal, this.token);
       }
     });
   }
@@ -113,6 +115,18 @@ export class RolcajerorepartidoresComponent implements OnInit {
     this._cajeroService.obtenerRepartidoresPorSucursal(idSucursal, token).subscribe(
       (response) => {
         this.UsuarioModelGet = response.usuarios;
+      },
+      (error) => {
+        console.error('Error al obtener repartidores:', error);
+      }
+    );
+  }
+
+
+  getRepartidoresOcupadosPorIdSucursal(idSucursal: string, token: string) {
+    this._cajeroService.obtenerRepartidoresOcupadosPorIdSucursal(idSucursal, token).subscribe(
+      (response) => {
+        this.UsuarioModelGet2 = response.usuarios;
       },
       (error) => {
         console.error('Error al obtener repartidores:', error);

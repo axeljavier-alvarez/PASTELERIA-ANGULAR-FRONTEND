@@ -69,6 +69,10 @@ import { InicioClienteComponent } from './components/inicio-cliente/inicio-clien
 import { InicioCajeroComponent } from './components/inicio-cajero/inicio-cajero.component';
 import { InicioRepartidorComponent } from './components/inicio-repartidor/inicio-repartidor.component';
 import { InicioFacturadorComponent } from './components/inicio-facturador/inicio-facturador.component';
+import { RolcajeroefectivopedidosconfirmadosComponent } from './components/rolcajeroefectivopedidosconfirmados/rolcajeroefectivopedidosconfirmados.component';
+import { RolcajerogenerarfacturaefectivoComponent } from './components/rolcajerogenerarfacturaefectivo/rolcajerogenerarfacturaefectivo.component';
+import { ManualgestorComponent } from './components/manualgestor/manualgestor.component';
+import { ManualadminComponent } from './components/manualadmin/manualadmin.component';
 
 
 
@@ -137,6 +141,10 @@ import { InicioFacturadorComponent } from './components/inicio-facturador/inicio
     InicioCajeroComponent,
     InicioRepartidorComponent,
     InicioFacturadorComponent,
+    RolcajeroefectivopedidosconfirmadosComponent,
+    RolcajerogenerarfacturaefectivoComponent,
+    ManualgestorComponent,
+    ManualadminComponent,
 
   ],
   imports: [

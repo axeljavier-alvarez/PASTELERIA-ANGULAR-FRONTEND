@@ -135,7 +135,7 @@ export class PagoefectivopedidosComponent implements OnInit {
               showConfirmButton: false,
               timer: 1500,
               willClose: () => {
-                this.router.navigate(['/cliente/verpedidoscliente']); // Redirigir a la nueva vista
+                this.router.navigate(['/cliente/verpedidosefectivocliente']); // Redirigir a la nueva vista
               }
             });
           },

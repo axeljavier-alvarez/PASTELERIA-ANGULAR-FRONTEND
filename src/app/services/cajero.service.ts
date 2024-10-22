@@ -162,4 +162,51 @@ asignarPedidoRepartidor(
 }
 
 
+/* VER PEDIDOS DEPENDIENDO DEL CASO */
+
+verPedidosSinConfirmarEfectivo(idSucursal: string, token: string): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+  return this._http.get(
+    this.url + '/verPedidosSinConfirmarEfectivo/' + idSucursal,
+    { headers: headersToken }
+  );
+}
+
+
+verPedidosSinConfirmarCredito(idSucursal: string, token: string): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+  return this._http.get(
+    this.url + '/verPedidosSinConfirmarCredito/' + idSucursal,
+    { headers: headersToken }
+  );
+}
+
+
+verPedidosConfirmadosEfectivo(idSucursal: string, token: string): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+  return this._http.get(
+    this.url + '/pedidoConfirmadoEfectivo/' + idSucursal,
+    { headers: headersToken }
+  );
+}
+
+
+/* repartidores ocupados */
+obtenerRepartidoresOcupadosPorIdSucursal(idSucursal: string, token: string): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+  return this._http.get(
+    this.url + '/getRepartidoresOcupadosPorIdSucursal/' + idSucursal,
+    { headers: headersToken }
+  );
+}
+
+
+
+
+
+
 }
