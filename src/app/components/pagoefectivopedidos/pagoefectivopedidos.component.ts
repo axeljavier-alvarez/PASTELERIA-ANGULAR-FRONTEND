@@ -6,6 +6,7 @@ import { Factura } from 'src/app/models/factura.model';
 import { Tarjeta } from 'src/app/models/tarjeta.model';
 import { Pedido } from 'src/app/models/pedido.model';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagoefectivopedidos',
@@ -22,7 +23,8 @@ export class PagoefectivopedidosComponent implements OnInit {
   constructor(
     private titleService: Title,
     private _usuarioService: UsuarioService,
-    private _clienteUsuarioService: ClienteUsuarioService
+    private _clienteUsuarioService: ClienteUsuarioService,
+    private router: Router // Inyección del Router
 
   ) {
     this.titleService.setTitle('Pagar con efectivo');
@@ -105,34 +107,58 @@ export class PagoefectivopedidosComponent implements OnInit {
 
 
   postConfirmarPedido() {
-    // Verifica los datos de la tarjeta y de la factura
-    console.log(this.PedidoModelPost); // Verifica los datos de la factura
+    // Mensaje de confirmación antes de proceder
+    Swal.fire({
+      title: '¿Está seguro?',
+      text: '¿Desea confirmar esta orden?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, confirmar',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      // Si el usuario confirma, proceder con la confirmación del pedido
+      if (result.isConfirmed) {
+        // Verifica los datos del pedido
+        console.log(this.PedidoModelPost); // Verifica los datos del pedido
 
-    // Aquí podrías agregar validaciones adicionales si es necesario
+        // Aquí podrías agregar validaciones adicionales si es necesario
 
-    this._clienteUsuarioService.confirmarPedidoEfectivo(
-      this.PedidoModelPost,
-      this.token
-    ).subscribe({
-      next: (response: any) => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Éxito!',
-          text: 'Pedido confirmado exitosamente',
-          showConfirmButton: false,
-          timer: 1500,
-
+        this._clienteUsuarioService.confirmarPedidoEfectivo(
+          this.PedidoModelPost,
+          this.token
+        ).subscribe({
+          next: (response: any) => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Éxito!',
+              text: 'Pedido confirmado exitosamente',
+              showConfirmButton: false,
+              timer: 1500,
+              willClose: () => {
+                this.router.navigate(['/cliente/verpedidoscliente']); // Redirigir a la nueva vista
+              }
+            });
+          },
+          error: (error) => {
+            console.log(<any>error);
+            Swal.fire({
+              icon: 'error',
+              title: "Error al confirmar el pedido",
+              text: error.error.mensaje || 'Datos incompletos. Por favor, revisa la información.',
+              footer: '*Ingrese los datos de nuevo*',
+              showConfirmButton: false,
+              timer: 2500
+            });
+          }
         });
-      },
-      error: (error) => {
-        console.log(<any>error);
+      } else {
+        // Si el usuario cancela, puedes mostrar un mensaje opcional o simplemente hacer nada
         Swal.fire({
-          icon: 'error',
-          title: "Error al confirmar el pedido",
-          text: error.error.mensaje || 'Datos incompletos. Por favor, revisa la información.',
-          footer: '*Ingrese los datos de nuevo*',
+          icon: 'info',
+          title: 'Cancelado',
+          text: 'La confirmación del pedido ha sido cancelada.',
           showConfirmButton: false,
-          timer: 2500
+          timer: 1500
         });
       }
     });

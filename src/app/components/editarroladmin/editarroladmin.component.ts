@@ -88,7 +88,7 @@ export class EditarroladminComponent implements OnInit {
         ).subscribe(
           (response) => {
             console.log(response);
-            this.router.navigate(['/vistaroladmin']);
+            this.router.navigate(['/admin/vistaroladmin']);
             Swal.fire({
               icon: 'success',
               title: 'Éxito!',

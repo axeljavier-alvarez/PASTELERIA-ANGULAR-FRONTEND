@@ -1,5 +1,5 @@
 <div class="container">
-    <img src="../../../assets/img/flecha-izquierda.png" routerLink="/vistarolcliente" routerLinkActive="active" alt="retroceder" width="50px" class="mt-3">
+    <img src="../../../assets/img/flecha-izquierda.png" routerLink="/cliente/vistarolcliente" routerLinkActive="active" alt="retroceder" width="50px" class="mt-3">
     <h1 class="text-center mt-3" style="color: #f39c12; border:#f39c12 ;">Sucursales</h1>
 
     <!-- Campo de búsqueda -->
@@ -25,10 +25,10 @@
                     <h5 class="card-title"> Nombre Empresa: {{sucursales.datosEmpresa[0].nombreEmpresa}}</h5>
 
                     <button type="button" class="btn btn-aceptar"
-                        [routerLink]="['/rolclienteproductos', sucursales._id]">
+                        [routerLink]="['/cliente/rolclienteproductos', sucursales._id]">
                         Ver productos
                     </button>
-                    <a  class="btn" style="background-color: #e67e22; color: white;" routerLink="/rolclientecategorias" routerLinkActive="active" >Ver Categorias</a>
+                    <a  class="btn" style="background-color: #e67e22; color: white;" routerLink="/cliente/rolclientecategorias" routerLinkActive="active" >Ver Categorias</a>
 
                 </div>
             </div>

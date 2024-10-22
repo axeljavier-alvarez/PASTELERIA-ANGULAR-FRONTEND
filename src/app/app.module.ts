@@ -63,6 +63,12 @@ import { RolcajerorepartidoresComponent } from './components/rolcajerorepartidor
 import { PagoefectivopedidosComponent } from './components/pagoefectivopedidos/pagoefectivopedidos.component';
 import { VerpedidosefectivoclienteComponent } from './components/verpedidosefectivocliente/verpedidosefectivocliente.component';
 import { VerpedidossinconfirmarefectivoComponent } from './components/verpedidossinconfirmarefectivo/verpedidossinconfirmarefectivo.component';
+import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.component';
+import { InicioGestorComponent } from './components/inicio-gestor/inicio-gestor.component';
+import { InicioClienteComponent } from './components/inicio-cliente/inicio-cliente.component';
+import { InicioCajeroComponent } from './components/inicio-cajero/inicio-cajero.component';
+import { InicioRepartidorComponent } from './components/inicio-repartidor/inicio-repartidor.component';
+import { InicioFacturadorComponent } from './components/inicio-facturador/inicio-facturador.component';
 
 
 
@@ -125,6 +131,12 @@ import { VerpedidossinconfirmarefectivoComponent } from './components/verpedidos
     PagoefectivopedidosComponent,
     VerpedidosefectivoclienteComponent,
     VerpedidossinconfirmarefectivoComponent,
+    InicioAdminComponent,
+    InicioGestorComponent,
+    InicioClienteComponent,
+    InicioCajeroComponent,
+    InicioRepartidorComponent,
+    InicioFacturadorComponent,
 
   ],
   imports: [

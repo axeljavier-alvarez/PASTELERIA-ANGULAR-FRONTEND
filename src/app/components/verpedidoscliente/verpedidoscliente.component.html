@@ -1,5 +1,5 @@
 <div class="container">
-    <img src="../../../assets/img/flecha-izquierda.png" routerLink="/vistarolcliente" routerLinkActive="active"
+    <img src="../../../assets/img/flecha-izquierda.png" routerLink="/cliente/vistarolcliente" routerLinkActive="active"
         alt="retroceder" width="50px" class="mt-3">
     <h1 class="text-center mt-3 mb-5" style="color: #f39c12; border:#f39c12 ;">Pedidos</h1>
 
@@ -153,7 +153,7 @@
                     </tbody>
                 </table>
             </div>
-            <button type="button" class="btn-pagar mt-4" [routerLink]="['/rolclienteverfactura', pedidos._id]">
+            <button type="button" class="btn-pagar mt-4" [routerLink]="['/cliente/rolclienteverfactura', pedidos._id]">
                 Ver factura
             </button>
         </div>

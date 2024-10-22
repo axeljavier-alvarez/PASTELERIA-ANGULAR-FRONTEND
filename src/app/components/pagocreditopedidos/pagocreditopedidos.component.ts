@@ -81,38 +81,60 @@ export class PagocreditopedidosComponent implements OnInit {
   }
 
   postFactura() {
-    // Verifica los datos de la tarjeta y de la factura
-    console.log(this.TarjetaModelPost);
-    console.log(this.FacturaModelPost); // Verifica los datos de la factura
+    // Mensaje de confirmación antes de proceder
+    Swal.fire({
+      title: '¿Está seguro?',
+      text: '¿Desea pagar este pedido?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, pagar',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      // Si el usuario confirma, proceder con la generación de la factura
+      if (result.isConfirmed) {
+        // Verifica los datos de la tarjeta y de la factura
+        console.log(this.TarjetaModelPost);
+        console.log(this.FacturaModelPost); // Verifica los datos de la factura
 
-    // Aquí podrías agregar validaciones adicionales si es necesario
+        // Aquí podrías agregar validaciones adicionales si es necesario
 
-    this._clienteUsuarioService.generarFacturaRolCliente(
-      this.FacturaModelPost,
-      this.TarjetaModelPost,
-      this.token
-    ).subscribe({
-      next: (response: any) => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Éxito!',
-          text: 'Factura generada exitosamente',
-          showConfirmButton: false,
-          timer: 1500,
-          willClose: () => {
-            this.router.navigate(['/verpedidoscliente']); // Redirigir a la nueva vista
+        this._clienteUsuarioService.generarFacturaRolCliente(
+          this.FacturaModelPost,
+          this.TarjetaModelPost,
+          this.token
+        ).subscribe({
+          next: (response: any) => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Éxito!',
+              text: 'Factura generada exitosamente',
+              showConfirmButton: false,
+              timer: 1500,
+              willClose: () => {
+                this.router.navigate(['/cliente/verpedidoscliente']); // Redirigir a la nueva vista
+              }
+            });
+          },
+          error: (error) => {
+            console.log(<any>error);
+            Swal.fire({
+              icon: 'error',
+              title: "Error al generar la factura",
+              text: error.error.mensaje || 'Datos incompletos. Por favor, revisa la información.',
+              footer: '*Ingrese los datos de nuevo*',
+              showConfirmButton: false,
+              timer: 2500
+            });
           }
         });
-      },
-      error: (error) => {
-        console.log(<any>error);
+      } else {
+        // Si el usuario cancela, puedes mostrar un mensaje opcional o simplemente hacer nada
         Swal.fire({
-          icon: 'error',
-          title: "Error al generar la factura",
-          text: error.error.mensaje || 'Datos incompletos. Por favor, revisa la información.',
-          footer: '*Ingrese los datos de nuevo*',
+          icon: 'info',
+          title: 'Cancelado',
+          text: 'El pago ha sido cancelado.',
           showConfirmButton: false,
-          timer: 2500
+          timer: 1500
         });
       }
     });

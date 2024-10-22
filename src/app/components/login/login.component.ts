@@ -74,16 +74,33 @@ export class LoginComponent implements OnInit {
       (response) => {
         this.getTokenPromesa().then(respuesta => {
           console.log(response);
-          this._router.navigate(['/vistarolgestor']);
           localStorage.setItem("identidad", JSON.stringify(response.usuario));
-        });
 
-        Swal.fire({
-          icon: 'success',
-          title: 'Bienvenido',
-          text: 'Logueado exitosamente',
-          showConfirmButton: false,
-          timer: 1500
+          // Aquí asumimos que response.usuario.rol contiene el rol del usuario
+          if (response.usuario.rol === 'ROL_ADMIN') {
+            this._router.navigate(['admin/vistaroladmin']);
+          } else if (response.usuario.rol === 'ROL_GESTOR') {
+            this._router.navigate(['gestor/vistarolgestor']);
+          } else if (response.usuario.rol === 'ROL_CLIENTE') {
+            this._router.navigate(['cliente/vistarolcliente']);
+          } else if (response.usuario.rol === 'ROL_CAJERO') {
+            this._router.navigate(['cajero/vistarolcajero']);
+          } else if (response.usuario.rol === 'ROL_REPARTIDOR') {
+            this._router.navigate(['repartidor/vistarolrepartidor']);
+          } else if (response.usuario.rol === 'ROL_FACTURADOR') {
+            this._router.navigate(['facturador/vistarolfacturador']);
+          }   else {
+            // Puedes manejar otros roles o redirigir a una página por defecto
+            console.log('Rol no reconocido');
+          }
+
+          Swal.fire({
+            icon: 'success',
+            title: 'Bienvenido',
+            text: 'Logueado exitosamente',
+            showConfirmButton: false,
+            timer: 1500
+          });
         });
       },
       (error) => {

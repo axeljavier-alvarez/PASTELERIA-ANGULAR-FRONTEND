@@ -89,7 +89,7 @@ export class EditarrolcajeroComponent implements OnInit {
         ).subscribe(
           (response) => {
             console.log(response);
-            this.router.navigate(['/vistarolcajero']);
+            this.router.navigate(['/cajero/vistarolcajero']);
             Swal.fire({
               icon: 'success',
               title: 'Éxito!',

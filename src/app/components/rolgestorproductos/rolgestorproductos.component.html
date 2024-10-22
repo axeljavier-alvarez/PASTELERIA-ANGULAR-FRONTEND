@@ -1,5 +1,5 @@
 <div class="container">
-  <img src="../../../assets/img/flecha-izquierda.png" routerLink="/rolgestorsucursales" routerLinkActive="active" alt="retroceder" width="50px" class="mt-3">
+  <img src="../../../assets/img/flecha-izquierda.png" routerLink="/gestor/rolgestorsucursales" routerLinkActive="active" alt="retroceder" width="50px" class="mt-3">
   <h1 class="text-center mt-3" style="color: #f39c12; border:#f39c12 ;">Productos de esta Sucursal</h1>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
@@ -22,7 +22,7 @@
             <div class="card text-center mb-3">
               <div class="card-header pink-header fs-4 d-flex flex-column ">
                 {{producto.nombreProducto}}
-              
+
               </div>
 
               <div class="card-body">
@@ -36,7 +36,7 @@
                 <h5 class="card-title">Tamaño: {{producto.size}} </h5>
                 <h5 class="card-title">Vendido: {{producto.vendido}} </h5>
                 <h5 class="card-title">Estado: {{producto.estado}} </h5>
-                
+
                 <br>
 
                 <button type="button" class="btn btn-outline-warning w-25" data-bs-toggle="offcanvas"
@@ -65,12 +65,12 @@
           <div class="modal-body">
             <form>
 
-              
+
                <div class="mb-3">
               <label for="inputImagen" class="form-label">Imagen:</label>
               <input type="file" class="form-control" id="inputImagen" (change)="onImageSelected($event)">
             </div>
-            
+
               <div class="mb-3">
                 <label for="inputNombreProducto" class="form-label">Nombre Producto:</label>
                 <input type="text" class="form-control" id="inputNombreProducto" name="nombre" #nombre="ngModel" [(ngModel)]="ProductoModelPost.nombreProducto"
@@ -107,7 +107,7 @@
                   </option>
                 </select>
               </div>
-              
+
             </form>
           </div>
           <div class="modal-footer">

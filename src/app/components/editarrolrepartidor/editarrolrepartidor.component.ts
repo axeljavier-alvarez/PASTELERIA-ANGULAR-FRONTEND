@@ -89,7 +89,7 @@ export class EditarrolrepartidorComponent implements OnInit {
         ).subscribe(
           (response) => {
             console.log(response);
-            this.router.navigate(['/vistarolrepartidor']);
+            this.router.navigate(['/repartidor/vistarolrepartidor']);
             Swal.fire({
               icon: 'success',
               title: 'Éxito!',

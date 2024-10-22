@@ -89,7 +89,7 @@ export class EditarrolfacturadorComponent implements OnInit {
         ).subscribe(
           (response) => {
             console.log(response);
-            this.router.navigate(['/vistarolfacturador']);
+            this.router.navigate(['/facturador/vistarolfacturador']);
             Swal.fire({
               icon: 'success',
               title: 'Éxito!',

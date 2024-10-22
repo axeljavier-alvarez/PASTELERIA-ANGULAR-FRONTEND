@@ -89,7 +89,7 @@ export class EditarrolclienteComponent implements OnInit {
         ).subscribe(
           (response) => {
             console.log(response);
-            this.router.navigate(['/vistarolcliente']);
+            this.router.navigate(['/cliente/vistarolcliente']);
             Swal.fire({
               icon: 'success',
               title: 'Éxito!',

@@ -14,8 +14,9 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public _usuarioService: UsuarioService
-  ) 
+  )
   {
+    
     /* para mostrar el nombre del usuario jajajajaja */
     /* this.identidad = JSON.parse(localStorage.getItem('identidad')); */
     // cada vez que inicie un valor el componente sera nuevo :)

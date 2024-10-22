@@ -1,5 +1,5 @@
 <div class="container">
-  <img src="../../../assets/img/flecha-izquierda.png" routerLink="/vistarolcajero" routerLinkActive="active"
+  <img src="../../../assets/img/flecha-izquierda.png" routerLink="/cajero/vistarolcajero" routerLinkActive="active"
       alt="retroceder" width="50px" class="mt-3">
 
   <h2 class="text-center" style="color: #f39c12; border:#f39c12 ;">Vista de Sucursales</h2>
@@ -20,7 +20,7 @@
                   <h5 class="card-title"> Nombre de la empresa: {{ sucursales.datosEmpresa[0].nombreEmpresa }} </h5>
 
 
-                  <button type="button" class="btn btn-agregar-sucursal my-25 w-8" [routerLink]="['/rolcajerotareas', sucursales._id]">
+                  <button type="button" class="btn btn-agregar-sucursal my-25 w-8" [routerLink]="['/cajero/rolcajerotareas', sucursales._id]">
                      Administración tareas
                   </button>
 

@@ -2,7 +2,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
-    <img src="../../../assets/img/flecha-izquierda.png" routerLink="/vistaroladmin" routerLinkActive="active" alt="retroceder" width="50px" class="mt-3">
+    <img src="../../../assets/img/flecha-izquierda.png" routerLink="/admin/vistaroladmin" routerLinkActive="active" alt="retroceder" width="50px" class="mt-3">
 
     <h2 class="text-center" style="color: #f39c12; border:#f39c12 ;">Administrar Empresas</h2>
     <button class="btn btn-agregar-usuario mt-3" title="Agregar empresa" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarEmpresas">
@@ -42,7 +42,7 @@
               <img src="../../../assets/img/trash.svg" alt="" class="icono">
             </button>
             <br>
-            <button type="button" class="btn btn-agregar-sucursal my-2 w-25" (click)="getEmpresaId(empresa._id)" [routerLink]="['/roladminsucursales', empresa._id]">
+            <button type="button" class="btn btn-agregar-sucursal my-2 w-25" (click)="getEmpresaId(empresa._id)" [routerLink]="['/admin/roladminsucursales', empresa._id]">
               <i class="bi bi-building-add"></i>
             </button>
           </div>
@@ -146,7 +146,7 @@
               <input type="text" class="form-control" id="editarHistoria" name="historia" #historia="ngModel" [(ngModel)]="EmpresaModelGetId.historia"
                autocomplete="off">
             </div>
-            
+
             <br>
             <button class="btn btn-aceptar" data-bs-dismiss="offcanvas" (click)="putEmpresas()">Editar empresa</button>
 

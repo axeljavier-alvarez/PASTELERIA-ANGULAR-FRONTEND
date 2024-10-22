@@ -89,7 +89,7 @@ export class EditarrolgestorComponent implements OnInit {
         ).subscribe(
           (response) => {
             console.log(response);
-            this.router.navigate(['/vistarolgestor']);
+            this.router.navigate(['/gestor/vistarolgestor']);
             Swal.fire({
               icon: 'success',
               title: 'Éxito!',

@@ -495,9 +495,9 @@ export class PedidosComponent implements OnInit {
               let redirectUrl = '';
 
               if (tipoPago === 'Tarjeta de crédito') {
-                redirectUrl = '/pagocreditopedidos';
+                redirectUrl = '/cliente/pagocreditopedidos';
               } else if (tipoPago === 'Efectivo') {
-                redirectUrl = '/pagoefectivopedidos';
+                redirectUrl = '/cliente/pagoefectivopedidos';
               }
 
               this._router.navigate([redirectUrl]);

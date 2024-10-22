@@ -53,89 +53,133 @@ import { RolcajerorepartidoresComponent } from './components/rolcajerorepartidor
 import { PagoefectivopedidosComponent } from './components/pagoefectivopedidos/pagoefectivopedidos.component';
 import { VerpedidosefectivoclienteComponent } from './components/verpedidosefectivocliente/verpedidosefectivocliente.component';
 import { VerpedidossinconfirmarefectivoComponent } from './components/verpedidossinconfirmarefectivo/verpedidossinconfirmarefectivo.component';
+import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.component';
+import { GuardadminGuard } from './services/guardadmin.guard';
+import { InicioGestorComponent } from './components/inicio-gestor/inicio-gestor.component';
+import { GuardgestorGuard } from './services/guardgestor.guard';
+import { InicioClienteComponent } from './components/inicio-cliente/inicio-cliente.component';
+import { GuardclienteGuard } from './services/guardcliente.guard';
+import { InicioCajeroComponent } from './components/inicio-cajero/inicio-cajero.component';
+import { GuardcajeroGuard } from './services/guardcajero.guard';
+import { InicioRepartidorComponent } from './components/inicio-repartidor/inicio-repartidor.component';
+import { GuardrepartidorGuard } from './services/guardrepartidor.guard';
+import { InicioFacturadorComponent } from './components/inicio-facturador/inicio-facturador.component';
+import { GuardfacturadorGuard } from './services/guardfacturador.guard';
 
 const routes: Routes = [
 
 
-  //Vistas principales
-  { path: 'vistarolgestor', component: VistarolgestorComponent},
-  { path: 'vistaroladmin', component: VistaroladminComponent},
-  { path: 'vistarolfacturador', component: VistarolfacturadorComponent },
-  { path: 'vistarolcliente', component: VistarolclienteComponent},
-  { path: 'vistarolcajero', component: VistarolcajeroComponent},
-  { path: 'vistarolrepartidor', component: VistarolrepartidorComponent},
+  /* VISTAS SIN ROL */
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
+  { path: 'inicio', component: InicioComponent },
 
-  { path: 'login', component: LoginComponent},
-  { path: 'registro', component: RegistroComponent},
-  { path: 'ejemplo', component: EjemploComponent},
+  /* VISTAS DEL ROL ADMIN*/
+  {
+    path: 'admin', component: InicioAdminComponent, canActivate: [GuardadminGuard],
+    children: [
+      { path: 'vistaroladmin', component: VistaroladminComponent },
+      { path: 'roladminusuarios', component: RoladminusuariosComponent },
+      { path: 'roladminempresas', component: RoladminempresasComponent },
+      { path: 'roladmincategoriasyproductos', component: RoladmincategoriasyproductosComponent },
+      { path: 'editarroladmin', component: EditarroladminComponent },
+      { path: 'roladmingestores', component: RoladmingestoresComponent },
+      { path: 'roladminfacturadores', component: RoladminfacturadoresComponent },
+      { path: 'roladminclientes', component: RoladminclientesComponent },
+      { path: 'roladminrepartidores', component: RoladminrepartidoresComponent },
+      { path: 'roladmincajeros', component: RoladmincajerosComponent },
+      { path: 'roladminsucursales/:idEmpresa', component: RoladminsucursalesComponent },
 
-  { path: 'roladmingestores', component: RoladmingestoresComponent},
-  { path: 'roladminfacturadores', component: RoladminfacturadoresComponent},
-  { path: 'roladminclientes', component: RoladminclientesComponent},
-  { path: 'roladminempresas', component: RoladminempresasComponent},
-  { path: 'roladminrepartidores', component: RoladminrepartidoresComponent},
-  { path: 'roladmincajeros', component: RoladmincajerosComponent},
+      { path: 'roladmincategorias', component: RoladmincateComponent },
 
-  /* VISTAS EXCLUSIVAMENTE PARA ADMINISTRAR SUCURSALES Y AGREGARLAS */
-  { path: 'roladminsucursales/:idEmpresa', component: RoladminsucursalesComponent},
-  { path: 'roladminfinalsucursales/:idUsuario', component: RoladminfinalsucursalesComponent},
-
-  //Categorias
-  { path: 'roladminusuarios', component: RoladminusuariosComponent},
-  { path: 'roladmincategoriasyproductos', component: RoladmincategoriasyproductosComponent},
-  { path: 'roladmincategorias', component: RoladmincateComponent},
+    ],
+  },
 
 
+  /* VISTAS DEL ROL GESTOR */
+  {
+    path: 'gestor', component: InicioGestorComponent, canActivate: [GuardgestorGuard],
+    children: [
+      { path: 'vistarolgestor', component: VistarolgestorComponent },
+      { path: 'rolgestorempresas', component: RolgestorempresasComponent },
+      { path: 'rolgestorsucursales', component: RolgestorsucursalesComponent },
+      { path: 'rolgestorcategorias/:idSucursal', component: RolgestorcategoriasComponent },
+      { path: 'rolgestorproductos/:idCategoria', component: RolgestorproductosComponent },
+      { path: 'editarrolgestor', component: EditarrolgestorComponent },
+      { path: 'verganancias', component: VerGananciasComponent },
 
-  // VISTAS DEL ROL GESTOR
-  { path: 'rolgestorempresas', component: RolgestorempresasComponent},
-  // para agregar productos
-  { path: 'rolgestorsucursales', component: RolgestorsucursalesComponent},
-  { path: 'rolgestorcategorias/:idSucursal', component: RolgestorcategoriasComponent},
-  { path: 'rolgestorproductos/:idCategoria', component: RolgestorproductosComponent},
-  // para ver la grafica de ganancias
-  { path: 'verganancias', component: VerGananciasComponent},
-
-  // VISTAS DEL ROL CLIENTE
-  { path: 'rolclientesucursales', component: RolclientesucursalesComponent},
-  { path: 'rolclienteproductos/:idSucursal', component: RolclienteproductosComponent},
-  { path: 'rolclientecarrito', component: RolclientecarritoComponent },
-  { path: 'rolclientecategorias', component: RolclientecategoriasComponent},
-  { path: 'pedidos/:idCarrito', component: PedidosComponent},
-  { path: 'verpedidoscliente', component: VerpedidosclienteComponent},
-  { path: 'pagocreditopedidos', component: PagocreditopedidosComponent},
-  { path: 'rolclienteverfactura/:idPedido', component: RolclienteverfacturaComponent},
-  { path: 'verpedidosclientessinconfirmar', component: VerpedidosclientesinconfirmarComponent},
-  { path: 'manualusuario', component: ManualusuarioComponent},
-
-  { path: 'pagoefectivopedidos', component: PagoefectivopedidosComponent},
-  { path: 'verpedidosefectivocliente', component:VerpedidosefectivoclienteComponent},
-  { path: 'verpedidossinconfirmarefectivo', component: VerpedidossinconfirmarefectivoComponent},
-
-  // VISTAS PARA EDITAR ROLES DE USUARIO
-  { path: 'editarroladmin', component: EditarroladminComponent},
-  { path: 'editarrolcajero', component: EditarrolcajeroComponent },
-  { path: 'editarrolcliente', component: EditarrolclienteComponent},
-  { path: 'editarrolfacturador', component: EditarrolfacturadorComponent},
-  { path: 'editarrolgestor', component: EditarrolgestorComponent},
-  { path: 'editarrolrepartidor', component: EditarrolrepartidorComponent},
-
-  // VISTAS DEL ROL CAJERO
-  { path: 'rolcajeroversucursales', component: RolcajeroversucursalesComponent },
-  {path: 'rolcajerotareas/:idSucursal', component: RolcajerotareasComponent},
-  {path: 'rolcajeropedidospendientes', component: RolcajeropedidospendientesComponent},
-  { path: 'rolcajeropedidosconfirmados', component: RolcajeropedidosconfirmadosComponent},
-  { path: 'rolcajerorepartidores', component: RolcajerorepartidoresComponent},
+    ],
+  },
 
 
-  // VISTAS DEL ROL REPARTIDOR
-  { path: 'rolrepartidorversucursales', component: RolrepartidorversucursalesComponent },
+  /* VISTAS DEL ROL CLIENTE */
+  { path: 'cliente', component: InicioClienteComponent, canActivate: [GuardclienteGuard],
+    children:[
+      { path: 'vistarolcliente', component: VistarolclienteComponent },
+      { path: 'editarrolcliente', component: EditarrolclienteComponent },
+      { path: 'rolclientesucursales', component: RolclientesucursalesComponent },
+      { path: 'rolclienteproductos/:idSucursal', component: RolclienteproductosComponent },
+      { path: 'rolclientecategorias', component: RolclientecategoriasComponent },
+      { path: 'manualusuario', component: ManualusuarioComponent },
+      { path: 'rolclientecarrito', component: RolclientecarritoComponent },
+      { path: 'pedidos/:idCarrito', component: PedidosComponent },
+      { path: 'pagocreditopedidos', component: PagocreditopedidosComponent },
+      { path: 'verpedidosclientessinconfirmar', component: VerpedidosclientesinconfirmarComponent },
+      { path: 'verpedidoscliente', component: VerpedidosclienteComponent },
+      { path: 'rolclienteverfactura/:idPedido', component: RolclienteverfacturaComponent },
+      { path: 'pagoefectivopedidos', component: PagoefectivopedidosComponent },
+      { path: 'verpedidosefectivocliente', component: VerpedidosefectivoclienteComponent },
+      { path: 'verpedidossinconfirmarefectivo', component: VerpedidossinconfirmarefectivoComponent },
 
-  // VISTAS DEL ROL FACTURADOR
-  { path: 'rolfacturadorversucursales', component: RolfacturadorversucursalesComponent },
+    ]
+  },
 
-  // INICIO
-  { path: 'inicio', component: InicioComponent}
+  /* VISTAS ROL CAJERO */
+  { path: 'cajero', component: InicioCajeroComponent, canActivate: [GuardcajeroGuard],
+    children: [
+      { path: 'vistarolcajero', component: VistarolcajeroComponent },
+      { path: 'editarrolcajero', component: EditarrolcajeroComponent },
+      { path: 'rolcajeroversucursales', component: RolcajeroversucursalesComponent },
+      { path: 'rolcajerotareas/:idSucursal', component: RolcajerotareasComponent },
+      { path: 'rolcajeropedidospendientes', component: RolcajeropedidospendientesComponent },
+      { path: 'rolcajeropedidosconfirmados', component: RolcajeropedidosconfirmadosComponent },
+      { path: 'rolcajerorepartidores', component: RolcajerorepartidoresComponent },
+
+    ]
+  },
+
+
+  /* VISTA ROL REPARTIDOR */
+
+  { path: 'repartidor', component: InicioRepartidorComponent, canActivate: [GuardrepartidorGuard],
+    children: [
+      { path: 'vistarolrepartidor', component: VistarolrepartidorComponent },
+      { path: 'editarrolrepartidor', component: EditarrolrepartidorComponent },
+      { path: 'rolrepartidorversucursales', component: RolrepartidorversucursalesComponent },
+
+    ]
+  },
+
+  /* VISTAS DEL FACTURADOR */
+
+  { path: 'facturador', component: InicioFacturadorComponent, canActivate: [GuardfacturadorGuard],
+    children: [
+      { path: 'vistarolfacturador', component: VistarolfacturadorComponent },
+      { path: 'editarrolfacturador', component: EditarrolfacturadorComponent },
+      { path: 'rolfacturadorversucursales', component: RolfacturadorversucursalesComponent },
+
+    ]
+  },
+
+  /* RUTAS SIN USAR */
+  { path: 'roladminfinalsucursales/:idUsuario', component: RoladminfinalsucursalesComponent },
+  { path: 'ejemplo', component: EjemploComponent },
+
+
+  // redirigir al login
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: "**", component: LoginComponent },
+
 ];
 
 
