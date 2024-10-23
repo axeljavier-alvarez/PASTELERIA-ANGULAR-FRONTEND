@@ -112,15 +112,91 @@
                   <td>Total</td>
                   <td>{{pedidos.total | currency:'Q'}}</td>
                 </tr>
+
+
               </tbody>
+
+              <tbody  *ngFor="let datoPagoEfectivo of pedidos.pagoEfectivo">
+                <tr>
+                  <td>Nit</td>
+                  <td>{{ datoPagoEfectivo.nit }}</td>
+                </tr>
+                  <tr>
+                    <td>Efectivo cliente</td>
+                    <td>             {{ datoPagoEfectivo.efectivoCliente }}                </td>
+                  </tr>
+
+
+                  <tr>
+                    <td>Cambio cliente</td>
+                    <td>{{ datoPagoEfectivo.cambioCliente }}</td>
+                  </tr>
+
+
+
+              </tbody>
+
             </table>
+
+
           </div>
-          <button class="btn btn-agregar-usuario rounded-pill" type="button">
-          Generar Factura
-        </button>
+          <button type="button" class="btn btn-agregar-sucursal my-2 w-25"
+            (click)="confirmarGenerarFactura(pedidos._id)" (click)="getPedidoId(pedidos._id)">
+            Generar factura
+          </button>
+
+
+          <button class="btn btn-agregar-usuario rounded-pill" type="button" title="Agregar usuario"
+            data-bs-toggle="modal" data-bs-target="#modalEditarPedido" (click)="getPedidoId(pedidos._id)">
+            Editar
+          </button>
 
 
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--Editar -->
+<div class="modal fade" id="modalEditarPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  #modal>
+  <div class="modal-dialog">
+    <div class="modal-content bk-form">
+      <div class="modal-header pink-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Pedido</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="editarNombre" class="form-label">Tiempo Estimado:</label>
+            <input type="text" id="editarNombre" class="form-control" autocomplete="off" name="tiempoEstimado"
+              #tiempoEstimado="ngModel" [(ngModel)]="PedidoModelGetId.tiempoEstimado">
+          </div>
+
+          <div class="mb-3">
+            <label for="estadoSelect" class="form-label">Seleccionar nuevo estado:</label>
+            <select id="estadoSelect" class="form-select" (change)="actualizarEstado($event)">
+              <option value="" disabled selected>Seleccionar estado</option>
+              <option value="no asignado">No asignado</option>
+              <option value="en proceso">En proceso</option>
+              <option value="preparando su pedido">Preparando su pedido</option>
+              <!-- Agregar más opciones según sea necesario -->
+            </select>
+          </div>
+
+          <div class="mb-3" style="display: none;">
+            <label for="inputestadoOrden" class="form-label">Estado orden:</label>
+            <input type="text" id="inputestadoOrden" class="form-control" autocomplete="off" name="estadoOrden"
+              #estadoOrden="ngModel" [(ngModel)]="PedidoModelGetId.estadoOrden">
+          </div>
+          <button class="btn btn-aceptar" data-bs-dismiss="modal" (click)="putPedidos()">Editar pedidos</button>
+
+        </form>
       </div>
     </div>
   </div>

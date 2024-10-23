@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuarios.model';
 import { Pedido } from '../models/pedido.model';
+import { Factura } from '../models/factura.model';
+import { Sucursal } from '../models/sucursal.model';
+import { Caja } from '../models/caja.model';
 
 @Injectable({
   providedIn: 'root'
@@ -204,8 +207,42 @@ obtenerRepartidoresOcupadosPorIdSucursal(idSucursal: string, token: string): Obs
   );
 }
 
+/* generar factura */
+generarFacturaPagoEfectivo(
+  modeloFactura: Factura,
+  modeloSucursal: Sucursal,
+  modeloCaja: Caja,
+  token:string,
+  idEmpresa:string
+): Observable<any> {
+
+  let headersToken = this.headersVariable.set('Authorization', token);
 
 
+  const parametros = {
+    nit: modeloFactura.nit,
+    nombreSucursal: modeloSucursal.nombreSucursal,
+    vueltosCliente: modeloCaja.vueltosCliente
+    // Agrega otros campos de modeloFactura si es necesario
+};
+
+  return this._http.post(this.url + '/generarFacturaPagoEfectivo/' + idEmpresa, parametros, { headers: headersToken });
+
+}
+
+
+/* ver factura por id sucu */
+
+
+
+obtenerFacturasPorIdSucursal(idSucursal: string, token: string): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+  return this._http.get(
+    this.url + '/obtenerFacturasPorIdSucursal/' + idSucursal,
+    { headers: headersToken }
+  );
+}
 
 
 

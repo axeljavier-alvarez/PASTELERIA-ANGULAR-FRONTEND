@@ -2,7 +2,7 @@
     <img src="../../../assets/img/flecha-izquierda.png" routerLink="/facturador/vistarolfacturador" routerLinkActive="active"
         alt="retroceder" width="50px" class="mt-3">
 
-    <h2 class="text-center" style="color: #f39c12; border:#f39c12 ;">Vista de Sucursales</h2>
+    <h2 class="text-center" style="color: #f39c12; border:#f39c12 ;">Vista de Sucursal</h2>
 
     <div class="row">
         <div class="col-12 col-md-4" *ngFor="let sucursales of SucursalModelGet">
@@ -17,6 +17,10 @@
                     <h5 class="card-title"> Departamento: {{sucursales.telefonoSucursal}} </h5>
                     <h5 class="card-title"> Municipio: {{sucursales.telefonoSucursal}} </h5>
                     <h5 class="card-title"> Nombre de la empresa: {{ sucursales.datosEmpresa[0].nombreEmpresa }} </h5>
+
+                    <button type="button" class="btn btn-agregar-sucursal my-25 w-8" [routerLink]="['/facturador/rolfacturadortareas', sucursales._id]">
+                      Administración tareas
+                   </button>
 
                 </div>
             </div>

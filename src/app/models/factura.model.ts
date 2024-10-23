@@ -41,7 +41,7 @@ export class Factura{
       }],
 
 
-      public total: Number
+      public total: Number,
 
     ){}
 }

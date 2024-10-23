@@ -91,6 +91,15 @@ export class RolcajeropedidosconfirmadosComponent implements OnInit {
           municipio: ""
         }]
       }],
+
+      [{
+
+        idCajero: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+      }],
+
       0
     );
   }

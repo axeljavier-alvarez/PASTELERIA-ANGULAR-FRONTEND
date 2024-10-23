@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 export class PagoefectivopedidosComponent implements OnInit {
 
   public token: string;
-  public PedidoModelPost:Pedido;
+  public PedidoModelPost: Pedido;
   public PedidoModelGet: Pedido;
 
   constructor(
@@ -36,7 +36,7 @@ export class PagoefectivopedidosComponent implements OnInit {
       [{
         idEfectivo: "",
         efectivoCliente: 0,
-        cambioCliente:0,
+        cambioCliente: 0,
         totalPedido: 0,
         nit: "",
       }],
@@ -92,6 +92,14 @@ export class PagoefectivopedidosComponent implements OnInit {
           departamento: "",
           municipio: ""
         }]
+      }],
+
+      [{
+
+        idCajero: "",
+        nombre: "",
+        apellido: "",
+        email: "",
       }],
       0
     );

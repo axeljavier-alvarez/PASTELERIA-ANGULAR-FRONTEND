@@ -61,4 +61,16 @@ export class FacturadorService {
     return this._http.get(this.url + '/verSucursalFacturadorRegistrado', {headers: headersToken });
   }
 
+  // ver facturas que genero el cajero
+
+  obtenerFacturasPorIdSucursal(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/obtenerFacturasPorIdSucursal/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
+  
+
 }

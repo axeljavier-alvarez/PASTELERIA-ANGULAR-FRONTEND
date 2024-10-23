@@ -5,6 +5,7 @@ import { Usuario } from '../models/usuarios.model';
 import { Empresa } from '../models/empresa.model';
 import { Sucursal } from '../models/sucursal.model';
 import { Categoria } from '../models/categoria.model';
+import { Caja } from '../models/caja.model';
 
 @Injectable({
   providedIn: 'root'
@@ -567,6 +568,35 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     return this._http.get(this.url + '/obtenerSucursalesTodas', {
       headers: headersToken,
     });
+  }
+
+
+   // VER caja
+   obtenerTodasCajas(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/ObtenerTodasCajas', { headers: headersToken });
+  }
+
+
+  // agregar caja
+
+
+
+  agregarCajaSucursal(
+    modeloSucursal: Sucursal,
+    modeloCaja: Caja,
+    token: string,
+  ): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    // Combina los campos en un solo objeto
+    const parametros = {
+        nombreSucursal: modeloSucursal.nombreSucursal,
+        efectivoGeneral: modeloCaja.efectivoGeneral,
+        // Agrega otros campos de modeloFactura si es necesario
+    };
+
+    return this._http.post(this.url + '/agregarCaja', parametros, { headers: headersToken });
   }
 
 

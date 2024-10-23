@@ -48,6 +48,8 @@ export class Pedido{
         estadoRepartidor: String
     }],
 
+
+
       public compras:[{
         idProducto: String,
         nombreProducto: String,
@@ -72,6 +74,12 @@ export class Pedido{
         }]
     }],
 
+    public  datosCajero: [{
+      idCajero: String,
+      nombre: String,
+      apellido: String,
+      email: String,
+    }],
       public total: Number
 
 

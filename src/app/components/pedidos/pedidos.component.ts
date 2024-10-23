@@ -98,6 +98,15 @@ export class PedidosComponent implements OnInit {
           municipio: ""
         }]
       }],
+
+      [{
+
+        idCajero: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+      }],
+      
       0
     );
   }
@@ -236,7 +245,7 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
         "San Benito",
         "La Libertad",
-        "San Andrés" 
+        "San Andrés"
       ];
     }
 
@@ -326,7 +335,7 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
         "Totonicapán",
           "San Cristóbal Totonicapán",
-          "San Francisco El Alto" 
+          "San Francisco El Alto"
       ];
     }
 

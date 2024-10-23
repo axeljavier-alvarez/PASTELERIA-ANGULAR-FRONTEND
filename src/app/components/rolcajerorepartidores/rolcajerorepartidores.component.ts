@@ -39,7 +39,7 @@ export class RolcajerorepartidoresComponent implements OnInit {
       [{
         idEfectivo: "",
         efectivoCliente: 0,
-        cambioCliente:0,
+        cambioCliente: 0,
         totalPedido: 0,
         nit: "",
       }],
@@ -96,6 +96,15 @@ export class RolcajerorepartidoresComponent implements OnInit {
           municipio: ""
         }]
       }],
+
+      [{
+
+        idCajero: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+      }],
+
       0
     );
   }
@@ -147,41 +156,53 @@ export class RolcajerorepartidoresComponent implements OnInit {
     );
   }
 
-
   postAsignarPedido() {
     // Verifica los datos de la tarjeta y de la factura
     console.log(this.UsuarioModelGetId);
     console.log(this.PedidoModelPost); // Verifica los datos de la factura
 
-    // Aquí podrías agregar validaciones adicionales si es necesario
-
-    this._cajeroService.asignarPedidoRepartidor(
-      this.UsuarioModelGetId,
-      this.PedidoModelPost,
-      this.token
-    ).subscribe({
-      next: (response: any) => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Éxito!',
-          text: 'Orden asignada exitosamente',
-          showConfirmButton: false,
-          timer: 1500,
-
-        });
-      },
-      error: (error) => {
-        console.log(<any>error);
-        Swal.fire({
-          icon: 'error',
-          title: "Error al asignar la orden",
-          text: error.error.mensaje || 'Datos incompletos. Por favor, revisa la información.',
-          footer: '*Ingrese los datos de nuevo*',
-          showConfirmButton: false,
-          timer: 2500
+    // Mostrar el mensaje de confirmación
+    Swal.fire({
+      title: '¿Está seguro que desea asignar este pedido?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, asignar',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Aquí se procede a asignar el pedido
+        this._cajeroService.asignarPedidoRepartidor(
+          this.UsuarioModelGetId,
+          this.PedidoModelPost,
+          this.token
+        ).subscribe({
+          next: (response: any) => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Éxito!',
+              text: 'Orden asignada exitosamente',
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
+              // Refrescar la página después de que se cierre el mensaje de éxito
+              location.reload();
+            });
+          },
+          error: (error) => {
+            console.log(<any>error);
+            Swal.fire({
+              icon: 'error',
+              title: "Error al asignar la orden",
+              text: error.error.mensaje || 'Datos incompletos. Por favor, revisa la información.',
+              footer: '*Ingrese los datos de nuevo*',
+              showConfirmButton: false,
+              timer: 2500
+            });
+          }
         });
       }
     });
   }
+
 
 }
