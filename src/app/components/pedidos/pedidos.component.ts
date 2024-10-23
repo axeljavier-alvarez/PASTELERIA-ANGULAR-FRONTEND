@@ -129,54 +129,35 @@ export class PedidosComponent implements OnInit {
 
     // municipio 1
     if (departamento === 'Alta Verapaz') {
-      this.municipiosOpciones = ["Cobán",
-        "Santa Cruz Verapaz",
-        "San Cristóbal Verapaz",
-        "Tucurú",
-        "Panzós",
-        "Fray Bartolomé de las Casas",
+      this.municipiosOpciones = [
+        "Cobán",
         "San Pedro Carchá",
-        "San Juan Chamelco",
-        "La Tinta",
-        "Purulhá",
-        "Chisec",
-        "Raxruhá",
-        "San Miguel Tucurú"];
+        "Chisec"
+      ];
       // municipio 2
     } else if (departamento === 'Baja Verapaz') {
 
-      this.municipiosOpciones = ["Salamá",
-        "Rabinal",
+      this.municipiosOpciones = [
+        "Salamá",
         "San Miguel Chicaj",
-        "Granados",
-        "El Chol",
         "Purulhá"
       ];
       // municipio 3
     } else if (departamento === 'Chimaltenango') {
 
-      this.municipiosOpciones = ["Chimaltenango",
-        "San José Poaquil",
-        "San Martín Jilotepeque",
+      this.municipiosOpciones = [
+        "Chimaltenango",
         "Parramos",
-        "El Tejar",
-        "Yupiltepeque",
-        "Acatenango",
-        "Sumpango"
+        "El Tejar"
       ];
     }
     // municipio 4
     else if (departamento === 'Chiquimula') {
 
       this.municipiosOpciones = [
-        "Chiquimula",
-        "San José la Arada",
-        "Camotán",
+        "Esquipulas",
         "Olopa",
-        "Quezaltepeque",
-        "San Juan Ermita",
-        "Concepción Las Minas",
-        "Cabañas"
+        "Quezaltepeque"
       ];
     }
 
@@ -184,13 +165,9 @@ export class PedidosComponent implements OnInit {
     else if (departamento === 'El progreso') {
 
       this.municipiosOpciones = [
-        "El Progreso",
         "Guastatoya",
-        "San Antonio La Paz",
         "Sanarate",
-        "Morazán",
-        "Santa María Ixhuatán",
-        "San Miguel La Paz"
+        "Morazán"
       ];
     }
 
@@ -198,17 +175,9 @@ export class PedidosComponent implements OnInit {
     else if (departamento === 'Escuintla') {
 
       this.municipiosOpciones = [
-        "Escuintla",
-        "Santa Lucía Cotzumalguapa",
         "La Democracia",
         "San José",
-        "Siquinala",
-        "El Guamuchil",
-        "Tiquisate",
-        "Palín",
-        "San Vicente Pacaya",
-        "Nueva Concepción",
-        "San Juan Alotenango"
+        "Masagua"
       ];
     }
 
@@ -218,33 +187,16 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
         "Guatemala",
         "Mixco",
-        "Villa Nueva",
-        "San Miguel Petapa",
-        "Santa Catarina Pinula",
-        "San José del Golfo",
-        "San Pedro Ayampuc",
-        "Chinautla",
-        "Palencia",
-        "Fraijanes",
-        "Villa Canales"
+        "Villa Nueva"
       ];
     }
     // municipio 8
     else if (departamento === 'Huehuetenango') {
 
       this.municipiosOpciones = [
-        "Huehuetenango",
         "Chiantla",
-        "Cuilco",
-        "Jacaltenango",
-        "Santa Bárbara",
-        "La Libertad",
         "San Sebastián Huehuetenango",
-        "San Juan Atitlán",
-        "San Antonio Huista",
-        "Todos Santos Cuchumatán",
-        "San Rafael La Independencia",
-        "Nenton"
+        "San Juan Atitlán"
       ];
     }
 
@@ -254,10 +206,7 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
         "Puerto Barrios",
         "Morales",
-        "San Antonio",
-        "Los Amates",
-        "El Estor",
-        "Livingston"
+        "Los Amates"
       ];
     }
 
@@ -267,10 +216,7 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
         "Jalapa",
         "San Pedro Pinula",
-        "Mataquescuintla",
-        "San Luis Jilotepeque",
-        "El Rosario",
-        "Concepción Las Minas"
+        "Mataquescuintla"
       ];
     }
 
@@ -280,16 +226,7 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
         "Jutiapa",
         "El Adelanto",
-        "Agua Blanca",
-        "Asunción Mita",
-        "Conguaco",
-        "Jerez",
-        "Moyuta",
-        "Pasaco",
-        "San José Acatempa",
-        "San Juan Bautista",
-        "Santa Catarina Mita",
-        "Yupiltepeque"
+        "Asunción Mita"
       ];
     }
 
@@ -297,17 +234,9 @@ export class PedidosComponent implements OnInit {
     else if (departamento === 'Petén') {
 
       this.municipiosOpciones = [
-        "Flores",
-        "Santa Elena",
         "San Benito",
         "La Libertad",
-        "San Andrés",
-        "San Francisco",
-        "El Chal",
-        "Melchor de Mencos",
-        "Dolores",
-        "Poptún",
-        "San Luis"
+        "San Andrés" 
       ];
     }
 
@@ -316,15 +245,8 @@ export class PedidosComponent implements OnInit {
 
       this.municipiosOpciones = [
         "Quetzaltenango",
-        "Salcajá",
-        "San Mateo",
-        "San Martín Sacatepéquez",
         "Almolonga",
-        "Zunil",
-        "Coatepeque",
-        "La Esperanza",
-        "Cantel",
-        "Sibilia"
+        "Cantel"
       ];
     }
 
@@ -332,18 +254,9 @@ export class PedidosComponent implements OnInit {
     else if (departamento === 'Quiché') {
 
       this.municipiosOpciones = [
-        "Santa Cruz del Quiché",
-        "Chiché",
-        "Zunil",
-        "San Bartolomé Jocotenango",
         "San Juan Cotzal",
-        "San Andrés Sajcabajá",
         "Nebaj",
-        "Chajul",
-        "Canillá",
-        "Sacapulas",
-        "Acambal",
-        "Patzité"
+        "Chajul"
       ];
     }
 
@@ -352,9 +265,6 @@ export class PedidosComponent implements OnInit {
 
       this.municipiosOpciones = [
         "Retalhuleu",
-        "San Sebastián",
-        "San Martín Zapotitlán",
-        "Nuevo San Carlos",
         "El Asintal",
         "Champerico"
       ];
@@ -366,10 +276,6 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
         "Antigua Guatemala",
         "Ciudad Vieja",
-        "San Lucas Sacatepéquez",
-        "San Bartolomé Milpas Altas",
-        "Santo Domingo Xenacoj",
-        "San Pedro Las Huertas",
         "Alotenango"
       ];
     }
@@ -380,14 +286,7 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
         "San Marcos",
         "San Pedro Sacatepéquez",
-        "San Antonio Sacatepéquez",
-        "San Miguel Ixtahuacán",
-        "Concepción Tutuapa",
-        "Tejutla",
-        "El Tumbador",
-        "Nuevo Progreso",
-        "Pajapita",
-        "San Rafael Pie de la Cuesta"
+        "San Antonio Sacatepéquez"
       ];
     }
 
@@ -395,12 +294,8 @@ export class PedidosComponent implements OnInit {
     else if (departamento === 'Santa Rosa') {
 
       this.municipiosOpciones = [
-        "Santa Rosa de Lima",
         "Barberena",
         "Cuilapa",
-        "San Juan Tecuaco",
-        "San Rafael Las Flores",
-        "Casillas",
         "Pueblo Nuevo Viñas"
       ];
     }
@@ -409,10 +304,7 @@ export class PedidosComponent implements OnInit {
     else if (departamento === 'Sololá') {
 
       this.municipiosOpciones = [
-        "Solalá",
-        "Panajachel",
         "San Andrés Semetabaj",
-        "San José Chacayá",
         "Santa Catarina Palopó",
         "San Antonio Palopó"
       ];
@@ -423,12 +315,8 @@ export class PedidosComponent implements OnInit {
 
       this.municipiosOpciones = [
         "Mazatenango",
-        "Cuyotenango",
-        "San Bernardino",
-        "Santo Domingo Suchitepéquez",
         "San Gabriel",
-        "Samayac",
-        "San Antonio Suchitepéquez"
+        "Samayac"
       ];
     }
 
@@ -438,10 +326,7 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
         "Totonicapán",
           "San Cristóbal Totonicapán",
-          "San Francisco El Alto",
-          "Momostenango",
-          "San Andrés Xecul",
-          "Santa María Chiquimula"
+          "San Francisco El Alto" 
       ];
     }
 
@@ -452,14 +337,7 @@ export class PedidosComponent implements OnInit {
       this.municipiosOpciones = [
           "Zacapa ",
           "Cabañas",
-          "Chiquimula",
-          "Estanzuela",
-          "Gualán",
-          "La Unión",
-          "Río Hondo",
-          "San Diego",
-          "San Jorge",
-          "Teculután"
+          "Estanzuela"
       ];
     }
 

@@ -71,6 +71,11 @@ header {
     margin-top: 0;
 }
 
+.responsive-image {
+    max-width: 100%; /* La imagen no superará el 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
 @media (max-width: 600px) {
     .contenedor {
         width: 95%;
