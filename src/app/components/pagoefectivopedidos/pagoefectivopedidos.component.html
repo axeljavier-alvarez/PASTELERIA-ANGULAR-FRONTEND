@@ -57,15 +57,26 @@
           [(ngModel)]="PedidoModelPost.pagoEfectivo[0].efectivoCliente" autocomplete="off">
       </div>
 
-      <div class="mb-3">
-        <label for="inputNit" class="form-label">Nit:</label>
-        <input type="text" class="form-control" id="inputNit" name="nit" #nit="ngModel"
-          [(ngModel)]="PedidoModelPost.pagoEfectivo[0].nit" autocomplete="off">
+      <div style="display: flex; justify-content: space-around;">
+        <label>
+          <input type="radio" name="option" value="ingresarNit" (change)="onOptionChange('ingresarNit')"
+            [checked]="selectedOption === 'ingresarNit'">
+          Ingresar NIT
+        </label>
+
+        <label>
+          <input type="radio" name="option" value="consumidorFinal" (change)="onOptionChange('consumidorFinal')"
+            [checked]="selectedOption === 'consumidorFinal'">
+          Consumidor Final
+        </label>
       </div>
 
-
-
-
+      <div class="mb-3">
+        <input type="text" [(ngModel)]="inputValue" [hidden]="selectedOption === 'consumidorFinal'"
+          class="form-control" id="inputNit" name="nit" #nit="ngModel"
+          [(ngModel)]="PedidoModelPost.pagoEfectivo[0].nit" autocomplete="">
+      </div>
+      
       <div class="text-center">
         <button type="button" class="rounded-pill m-auto" (click)="postConfirmarPedido()">
          Confirmar el pedido

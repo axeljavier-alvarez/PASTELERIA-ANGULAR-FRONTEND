@@ -28,7 +28,7 @@ export class RolcajerorepartidoresComponent implements OnInit {
     private _usuarioService: UsuarioService,
     private _cajeroService: CajeroService
   ) {
-    this.titleService.setTitle('Pedidos pendientes');
+    this.titleService.setTitle('Repartidores');
     this.token = this._usuarioService.obtenerToken();
     this.UsuarioModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
     this.UsuarioModelPost = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");

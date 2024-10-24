@@ -26,7 +26,7 @@ export class RolcajeropedidosconfirmadosComponent implements OnInit {
     private _usuarioService: UsuarioService,
     private _cajeroService: CajeroService
   ) {
-    this.titleService.setTitle('Pedidos pendientes');
+    this.titleService.setTitle('Pedidos confirmados');
     this.token = this._usuarioService.obtenerToken();
     this.PedidoModelGetId = new Pedido(
       "",

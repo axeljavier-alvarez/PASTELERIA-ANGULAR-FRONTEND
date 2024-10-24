@@ -1,21 +1,42 @@
-<div class="container">
-  <img src="../../../assets/img/flecha-izquierda.png" routerLink="/facturador/vistarolfacturador" routerLinkActive="active"
-    alt="retroceder" width="50px" class="mt-3">
-  <h1 class="text-center mt-3" style="color: #f39c12; border:#f39c12 ;">Categorias</h1>
+<div class="container" *ngFor="let caja of CajaModelGet">
+  <img src="../../../assets/img/flecha-izquierda.png" routerLink="/facturador/vistarolfacturador"
+    routerLinkActive="active" alt="retroceder" width="50px" class="mt-3">
+  <h1 class="text-center mt-3" style="color: #f39c12; border:#f39c12 ;">Historial de pedidos en efectivo</h1>
+  <div class="caja-chica text-end mt-4">
+    <h4>Efectivo general</h4>
+    <p><b>{{ caja.efectivoGeneral | currency:'Q' }}</b></p>
+    <h4>Total efectivo factura</h4>
+    <p><b>{{ caja.totalEfectivoFactura | currency:'Q' }}</b></p>
+  </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4" *ngFor="let caja of CajaModelGet">
+    <div class="col-12">
       <div class="card text-center mb-3">
-
+        <div class="card-header pink-header">
+          <h4>Pedidos</h4>
+        </div>
         <div class="card-body">
-
-          <h5 class="card-title"> Efectivo general: {{ caja.efectivoGeneral }} </h5>
-          <h5 class="card-title"> Total efectivo factura: {{ caja.totalEfectivoFactura }} </h5>
-
-          <button type="button" class="btn" style="background-color: #e67e22; color: white;">
-         Ver Productos
-        </button>
-
+          <div class="contenido">
+            <table>
+              <thead>
+                <tr>
+                  <th>No. Orden</th>
+                  <th>Fecha</th>
+                  <th>Total</th>
+                  <th>Cambio</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let pedidos of caja.historialPedidosEfectivo">
+                <tr>
+                  <td>{{pedidos.numeroDeOrden}}</td>
+                  <td>{{pedidos.fecha}}</td>
+                  <td>{{pedidos.pagoEfectivo[0]?.totalPedido | currency:'Q'}}</td>
+                  <td>{{pedidos.pagoEfectivo[0]?.cambioCliente | currency:'Q'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

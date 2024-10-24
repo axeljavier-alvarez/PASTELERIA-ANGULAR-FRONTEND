@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-vistarolcajero',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VistarolcajeroComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private titleService: Title
+  ) {
+    this.titleService.setTitle('ROL CAJERO');
+  }
 
   ngOnInit(): void {
   }

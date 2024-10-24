@@ -117,7 +117,7 @@ export class RolcajerogenerarfacturaefectivoComponent implements OnInit {
 
 
     this.CajaModelPost = new Caja(
-      0, 0, 0,
+      "", 0, 0, 0,
       [{
         idSucursal: "",
         nombreSucursal: "",

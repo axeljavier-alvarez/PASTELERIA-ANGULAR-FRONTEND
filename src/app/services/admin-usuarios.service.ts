@@ -599,5 +599,20 @@ editarRolFacturador(modeloUsuario: Usuario, token): Observable<any> {
     return this._http.post(this.url + '/agregarCaja', parametros, { headers: headersToken });
   }
 
+  eliminarCajaSucursal(idCaja,token) {
+    let headersToken = this.headersVariable.set('Authorization',token);
+    return this._http.delete(this.url + '/eliminarCaja/' + idCaja, { headers: headersToken });
+  }
+
+  obtenerCajaId(idCaja,token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization',token);
+    return this._http.get(this.url + '/getCajaPorId/' + idCaja, { headers: headersToken });
+  }
+
+  editarCajaSucursal(modeloCaja: Caja, token): Observable<any> {
+    let parametros = JSON.stringify(modeloCaja);
+    let headersToken = this.headersVariable.set('Authorization',token);
+    return this._http.put(this.url + '/editarCaja/' + modeloCaja._id, parametros, { headers: headersToken });
+  }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { TareaslibresService } from 'src/app/services/tareaslibres.service';
 import { Usuario } from 'src/app/models/usuarios.model';
@@ -18,9 +19,11 @@ export class RegistroComponent implements OnInit {
   passwordVisible: boolean = false; // Para mostrar/ocultar la contraseña
 
   constructor(
+    private titleService: Title,
     private _tareasLibresService: TareaslibresService,
     private _router: Router
   ) {
+    this.titleService.setTitle('Registro');
     this.UsuarioModelPost = new Usuario('', '', '', '', '', '', 0, '', '', '', '', '', '');
   }
 

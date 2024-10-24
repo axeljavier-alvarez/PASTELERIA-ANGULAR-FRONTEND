@@ -20,10 +20,12 @@ export class EditarroladminComponent implements OnInit {
   previewUrl: string | ArrayBuffer | null = null; // Propiedad para la vista previa de la imagen
 
   constructor(
+    private titleService: Title,
     public _usuariosService: UsuarioService,
     private _adminUsuariosService: AdminUsuariosService,
     private router: Router
   ) {
+    this.titleService.setTitle('Editar perfil administrador');
     this.usuariosModelGetId = new Usuario("", "", "", "", "", "", 0, "", "", "", "", "", "");
     this.token = this._usuariosService.obtenerToken();
   }

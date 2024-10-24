@@ -19,7 +19,6 @@
           <img  src="../../../assets/img/empresas.png" id="imagen-usuario">
 
           <div class="card-body">
-            <h5 class="card-title">ID: {{empresa._id}}</h5>
 
             <h5 class="card-title"> Direccion: {{empresa.direccion}} </h5>
 
@@ -30,9 +29,6 @@
             <h5 class="card-title">  Visión: {{empresa.vision}}  </h5>
 
             <h5 class="card-title">  Historia: {{empresa.historia}}  </h5>
-
-            <h5 class="card-title">  Id usuario: {{empresa.idUsuario}}  </h5>
-
 
             <button type="button" class="btn btn-outline-warning mx-3 my-2 w-25" data-bs-toggle="offcanvas" data-bs-target="#editarEmpresaApp"
             aria-controls="offcanvasExample" (click)="getEmpresaId(empresa._id)">

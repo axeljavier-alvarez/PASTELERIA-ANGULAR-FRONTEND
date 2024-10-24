@@ -22,6 +22,18 @@
           <h5 class="card-title">Efectivo general: {{caja.efectivoGeneral}}</h5>
 
           <h5 class="card-title">Total efectivo: {{caja.totalEfectivoFactura}}</h5>
+
+          <button type="button" class="btn btn-outline-warning " data-bs-toggle="offcanvas"
+                        data-bs-target="#editarCajasApp" aria-controls="offcanvasExample"
+                        (click)="getCajaId(caja._id)">
+
+                        <img src="../../../assets/img/editaricono.png" alt="" class="icono">
+                    </button>
+
+          <button type="button" class="btn btn-outline-danger ms-3"
+                        (click)="deleteCaja(caja._id)"> <img src="../../../assets/img/trash.svg"
+                            alt="" class="icono">
+                    </button>
         </div>
       </div>
     </div>
@@ -72,4 +84,28 @@
             </div>
         </div>
     </div>
+</div>
+<!--Editar-->
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="editarCajasApp"
+aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas-header pink-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Editar caja</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body bk-form">
+    <form>
+
+        <div class="mb-3">
+            <label for="editarEfectivo" class="form-label">Efectivo General:</label>
+            <input type="number" id="editarEfectivo" class="form-control" autocomplete="off"
+                placeholder="Ingrese el efectivo" name="efectivoGeneral" #efectivoGeneral="ngModel"
+                [(ngModel)]="CajaModelGetId.efectivoGeneral">
+        </div>
+
+        <button class="btn btn-aceptar" data-bs-dismiss="offcanvas" (click)="putCaja()">Editar
+            caja</button>
+
+    </form>
+</div>
 </div>

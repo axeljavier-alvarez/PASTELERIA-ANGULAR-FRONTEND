@@ -11,8 +11,9 @@
   border-radius: 15px;
 }
 
-.container-fluid {
+.contenedor {
   background: linear-gradient(135deg, #ffffff , #dce3f0 );
+  height: 100vh;
 }
 
 button {
@@ -104,4 +105,15 @@ button:active {
 
 .dobleCampoUnitario {
   width: 49%;
+}
+
+.nit-input {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: white;
+  color: black;
+}
+
+.nit-input:disabled {
+  background-color: #f0f0f0; /* Color de fondo cuando está desactivado */
+  color: #999; /* Color del texto cuando está desactivado */
 }

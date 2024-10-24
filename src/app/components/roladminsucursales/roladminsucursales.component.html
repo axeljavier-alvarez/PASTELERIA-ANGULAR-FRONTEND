@@ -26,8 +26,10 @@
           </div>
           <div class="card-body">
 
-            <h5 class="card-title">ID: {{sucursal._id}}</h5>
-            <h5 class="card-title">Nombre sucursal: {{sucursal.nombreSucursal}}</h5>
+            <h5 class="card-title">Dirección: {{sucursal.direccionSucursal}}</h5>
+            <h5 class="card-title">Télefono: {{sucursal.telefonoSucursal}}</h5>
+            <h5 class="card-title">Departamento: {{sucursal.departamento}}</h5>
+            <h5 class="card-title">Municipio: {{sucursal.municipio}}</h5>
             <button type="button" class="btn btn-outline-warning mx-3 my-2 w-25" data-bs-toggle="offcanvas"
                         data-bs-target="#editarSucursalesApp" aria-controls="offcanvasExample"
                         (click)="getSucursalIdRolAdmin(sucursal._id)">

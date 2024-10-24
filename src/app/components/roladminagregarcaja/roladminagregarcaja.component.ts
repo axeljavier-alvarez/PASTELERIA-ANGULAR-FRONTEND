@@ -20,6 +20,7 @@ export class RoladminagregarcajaComponent implements OnInit {
   public token;
   public CajaModelGet: Caja;
   public CajaModelPost: Caja;
+  public CajaModelGetId: Caja;
   public SucursalModelPost: Sucursal;
   public nombreSucursal: string = '';
   public SucursalesModelGet: Sucursal[] = []; // Inicializa como un arreglo vacío
@@ -57,8 +58,57 @@ export class RoladminagregarcajaComponent implements OnInit {
       }],
     );
 
+    this.CajaModelGetId = new Caja(
+      "", 0, 0, 0,
+      [{
+        idSucursal: "",
+        nombreSucursal: "",
+        direccionSucursal: "",
+        telefonoSucursal: "",
+        departamento: "",
+        municipio: ""
+      }],
+      [{
+
+        idPedido: "",
+        fecha: null,
+        tipoPago: "",
+        direccionEnvio: "",
+        horaEntrega: "",
+        metodoEnvio: "",
+        descuentos: 0,
+        numeroDeOrden: 0,
+        estadoPedido: "",
+        incrementoEnvio: 0,
+        estadoOrden: "",
+        horaRepartidorAsignado: null,
+        horaPedidoEntregado: null,
+
+        pagoEfectivo: [{
+          idEfectivo: "",
+          efectivoCliente: 0,
+          cambioCliente: 0,
+          totalPedido: 0
+        }],
+
+        repartidorAsignado: [{
+
+          idRepartidor: "",
+          nombre: "",
+          apellido: "",
+          email: "",
+          telefono: 0,
+          rol: "",
+          estadoRepartidor: ""
+        }],
+
+
+
+      }]
+    )
+
     this.CajaModelPost = new Caja(
-      0, 0, 0,
+      "", 0, 0, 0,
       [{
         idSucursal: "",
         nombreSucursal: "",
@@ -190,5 +240,81 @@ export class RoladminagregarcajaComponent implements OnInit {
     );
   }
 
+  deleteCaja(idCaja) {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario confirma, se llama al servicio para eliminar
+        this._adminUsuariosService.eliminarCajaSucursal(idCaja, this.token).subscribe(
+          (response) => {
+            console.log(response);
+            this.getCajasGeneral(); // Actualiza la lista después de eliminar
+            Swal.fire({
+              icon: 'success',
+              title: 'Eliminada',
+              text: 'La caja ha sido eliminada exitosamente.',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          },
+          (error) => {
+            console.log(<any>error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se pudo eliminar la caja.',
+              showConfirmButton: false,
+              timer: 2500
+            });
+          }
+        );
+      }
+    });
+  }
+
+  //BUSCAR CAJA POR ID
+  getCajaId(idCaja){
+    this._adminUsuariosService.obtenerCajaId(idCaja,this.token).subscribe(
+      (response) => {
+        console.log(response);
+        this.CajaModelGetId = response.caja;
+      },(error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  //EDITAR CAJA
+  putCaja(){
+    this._adminUsuariosService.editarCajaSucursal(this.CajaModelGetId, this.token).subscribe(
+      (response)=>{
+        console.log(response);
+        this.getCajasGeneral();
+        Swal.fire({
+          icon: 'success',
+          title: 'Exito!',
+          text: 'Caja editada correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      },
+      (error) => {
+        console.log(<any>error);
+        Swal.fire({
+          icon: 'error',
+          title: "Datos incorrectos",
+          footer: '*Ingrese los datos nuevamente*',
+          showConfirmButton: false,
+          timer: 2500
+        });
+      }
+    )
+  }
 
 }

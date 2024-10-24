@@ -1,5 +1,6 @@
 export class Caja{
   constructor(
+    public _id: string,
     public efectivoGeneral: Number,
     public vueltosCliente: Number,
     public totalEfectivoFactura: Number,

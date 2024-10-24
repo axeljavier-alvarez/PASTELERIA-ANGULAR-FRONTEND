@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-roladminusuarios',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoladminusuariosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private titleService: Title
+
+  ) {
+    this.titleService.setTitle('Usuarios');
+  }
 
   ngOnInit(): void {
   }

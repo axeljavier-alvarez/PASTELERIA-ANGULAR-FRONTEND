@@ -15,6 +15,19 @@ import { Router } from '@angular/router';
   providers: [UsuarioService, ClienteUsuarioService]
 })
 export class PagoefectivopedidosComponent implements OnInit {
+  
+  selectedOption: string = 'ingresarNit'; // Opción por defecto
+  inputValue: string = ''; // Inicialmente vacío
+
+  onOptionChange(option: string) {
+    this.selectedOption = option;
+
+    if (option === 'consumidorFinal') {
+      this.inputValue = 'consumidor final'; // Asigna el valor cuando seleccionas esta opción
+    } else {
+      this.inputValue = ''; // Limpia el input al seleccionar "Ingresar NIT"
+    }
+  }
 
   public token: string;
   public PedidoModelPost: Pedido;
@@ -128,9 +141,14 @@ export class PagoefectivopedidosComponent implements OnInit {
       if (result.isConfirmed) {
         // Verifica los datos del pedido
         console.log(this.PedidoModelPost); // Verifica los datos del pedido
-
+  
+        // Asegúrate de que el arreglo 'pagoEfectivo' no esté vacío antes de asignar el valor
+        if (this.PedidoModelPost.pagoEfectivo && this.PedidoModelPost.pagoEfectivo.length > 0) {
+          this.PedidoModelPost.pagoEfectivo[0].nit = this.selectedOption === 'ingresarNit' ? this.inputValue : 'consumidor final';
+        }
+  
         // Aquí podrías agregar validaciones adicionales si es necesario
-
+  
         this._clienteUsuarioService.confirmarPedidoEfectivo(
           this.PedidoModelPost,
           this.token
@@ -171,6 +189,7 @@ export class PagoefectivopedidosComponent implements OnInit {
       }
     });
   }
+  
 
 
   getPedidosSinConfirmar() {
