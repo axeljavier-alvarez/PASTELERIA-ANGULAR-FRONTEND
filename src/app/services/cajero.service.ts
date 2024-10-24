@@ -245,5 +245,26 @@ obtenerFacturasPorIdSucursal(idSucursal: string, token: string): Observable<any>
 }
 
 
+// metodo para ver caja en tareas
+
+
+verCajaPorSucursal(idSucursal: string, token: string): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+  return this._http.get(
+    this.url + '/verCajaPorSucursal/' + idSucursal,
+    { headers: headersToken }
+  );
+}
+
+
+
+// metodo para ver caja pero que coincida con mi id
+
+verCajaPorUsuario(token): Observable<any> {
+  let headersToken = this.headersVariable.set('Authorization',token);
+  return this._http.get(this.url + '/verCajaPorUsuario', { headers: headersToken });
+}
+
 
 }

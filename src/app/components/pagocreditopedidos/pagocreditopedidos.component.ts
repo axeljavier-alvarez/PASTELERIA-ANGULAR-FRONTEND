@@ -32,6 +32,12 @@ export class PagocreditopedidosComponent implements OnInit {
 
     this.FacturaModelPost = new Factura("", null,
       [{
+        idCajero: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+      }],
+      [{
         idUsuario: "",
         nombre: "",
         apellido: "",

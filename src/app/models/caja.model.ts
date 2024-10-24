@@ -5,32 +5,32 @@ export class Caja{
     public totalEfectivoFactura: Number,
 
     public datosSucursal: [{
-      idSucursal: String,
-      nombreSucursal: String,
-      direccionSucursal: String,
-      telefonoSucursal: String,
-      departamento: String,
-      municipio: String
+      idSucursal: string,
+      nombreSucursal: string,
+      direccionSucursal: string,
+      telefonoSucursal: string,
+      departamento: string,
+      municipio: string
   }],
 
   public historialPedidosEfectivo: [{
 
-      idPedido: String,
+      idPedido: string,
       fecha: Date,
-      tipoPago: String,
-      direccionEnvio: String,
-      horaEntrega: String,
-      metodoEnvio: String,
+      tipoPago: string,
+      direccionEnvio: string,
+      horaEntrega: string,
+      metodoEnvio: string,
       descuentos: Number,
       numeroDeOrden: Number,
-      estadoPedido:String,
+      estadoPedido:string,
       incrementoEnvio: Number,
-      estadoOrden:String,
+      estadoOrden:string,
       horaRepartidorAsignado: Date,
       horaPedidoEntregado: Date,
 
       pagoEfectivo: [{
-          idEfectivo: String,
+          idEfectivo: string,
           efectivoCliente: Number,
           cambioCliente:Number,
           totalPedido: Number
@@ -38,13 +38,13 @@ export class Caja{
 
       repartidorAsignado: [{
 
-          idRepartidor: String,
-          nombre: String,
-          apellido: String,
-          email: String,
+          idRepartidor: string,
+          nombre: string,
+          apellido: string,
+          email: string,
           telefono: Number,
-          rol: String,
-          estadoRepartidor: String
+          rol: string,
+          estadoRepartidor: string
       }],
 
 

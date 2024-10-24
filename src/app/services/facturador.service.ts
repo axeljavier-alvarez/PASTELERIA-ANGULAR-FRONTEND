@@ -71,6 +71,18 @@ export class FacturadorService {
       { headers: headersToken }
     );
   }
+
+  // ver caja por sucursal
+
+  verCajaPorSucursal(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/verCajaPorSucursal/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
+
   
 
 }

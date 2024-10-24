@@ -3,12 +3,20 @@ export class Factura{
     constructor(
       public nit: String,
       public fecha: Date,
+
+     public datosCajero: [{
+        idCajero: String,
+        nombre: String,
+        apellido: String,
+        email: String,
+    }],
       public  datosUsuario: [{
         idUsuario: String,
         nombre: String,
         apellido: String,
         email: String
       }],
+
 
       public datosPedido: [{
 

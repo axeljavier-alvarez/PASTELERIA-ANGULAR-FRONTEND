@@ -77,6 +77,9 @@ import { RoladminagregarcajaComponent } from './components/roladminagregarcaja/r
 import { RolcajeroverfacturasgeneradasComponent } from './components/rolcajeroverfacturasgeneradas/rolcajeroverfacturasgeneradas.component';
 import { RolfacturadorverfacturasefectivoComponent } from './components/rolfacturadorverfacturasefectivo/rolfacturadorverfacturasefectivo.component';
 import { RolfacturadortareasComponent } from './components/rolfacturadortareas/rolfacturadortareas.component';
+import { RolcajerovercajaComponent } from './components/rolcajerovercaja/rolcajerovercaja.component';
+import { RolfacturadorvercajaComponent } from './components/rolfacturadorvercaja/rolfacturadorvercaja.component';
+import { ManualcajeroComponent } from './components/manualcajero/manualcajero.component';
 
 
 
@@ -153,6 +156,9 @@ import { RolfacturadortareasComponent } from './components/rolfacturadortareas/r
     RolcajeroverfacturasgeneradasComponent,
     RolfacturadorverfacturasefectivoComponent,
     RolfacturadortareasComponent,
+    RolcajerovercajaComponent,
+    RolfacturadorvercajaComponent,
+    ManualcajeroComponent,
 
   ],
   imports: [

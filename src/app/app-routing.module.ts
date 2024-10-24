@@ -73,6 +73,9 @@ import { RoladminagregarcajaComponent } from './components/roladminagregarcaja/r
 import { RolcajeroverfacturasgeneradasComponent } from './components/rolcajeroverfacturasgeneradas/rolcajeroverfacturasgeneradas.component';
 import { RolfacturadorverfacturasefectivoComponent } from './components/rolfacturadorverfacturasefectivo/rolfacturadorverfacturasefectivo.component';
 import { RolfacturadortareasComponent } from './components/rolfacturadortareas/rolfacturadortareas.component';
+import { RolcajerovercajaComponent } from './components/rolcajerovercaja/rolcajerovercaja.component';
+import { RolfacturadorvercajaComponent } from './components/rolfacturadorvercaja/rolfacturadorvercaja.component';
+import { ManualcajeroComponent } from './components/manualcajero/manualcajero.component';
 
 const routes: Routes = [
 
@@ -159,7 +162,10 @@ const routes: Routes = [
       { path: 'rolcajeroefetivopedidosconfirmados', component: RolcajeroefectivopedidosconfirmadosComponent },
       { path: 'rolcajerogenerarfacturaefectivo/:idPedido', component: RolcajerogenerarfacturaefectivoComponent},
 
+      
       { path: 'rolcajeroverfacturasgeneradas', component: RolcajeroverfacturasgeneradasComponent},
+      { path: 'rolcajerovercaja', component: RolcajerovercajaComponent},
+      { path: 'manualcajero', component: ManualcajeroComponent}
 
     ]
   },
@@ -186,7 +192,9 @@ const routes: Routes = [
 
       { path: 'rolfacturadorverfacturasefectivo', component: RolfacturadorverfacturasefectivoComponent},
 
-      { path: 'rolfacturadortareas/:idSucursal', component: RolfacturadortareasComponent}
+      { path: 'rolfacturadortareas/:idSucursal', component: RolfacturadortareasComponent},
+
+      { path: 'rolfacturadorvercaja', component: RolfacturadorvercajaComponent}
     ]
   },
 

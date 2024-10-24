@@ -4,6 +4,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { CajeroService } from 'src/app/services/cajero.service';
 import { Factura } from 'src/app/models/factura.model';
 import { Sucursal } from 'src/app/models/sucursal.model';
+import { Pedido } from 'src/app/models/pedido.model';
 
 import { Caja } from 'src/app/models/caja.model';
 
@@ -25,7 +26,10 @@ export class RolcajerogenerarfacturaefectivoComponent implements OnInit {
   public FacturaModelPost: Factura;
   public SucursalModelPost: Sucursal;
 
+  public PedidoModelPost: Pedido;
   public CajaModelPost: Caja;
+
+  public CajaModelGet: Caja;
 
 
   constructor(
@@ -40,6 +44,14 @@ export class RolcajerogenerarfacturaefectivoComponent implements OnInit {
     this.token = this._usuarioService.obtenerToken();
 
     this.FacturaModelPost = new Factura("", null,
+
+      [{
+        idCajero: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+      }],
+
       [{
         idUsuario: "",
         nombre: "",
@@ -155,30 +167,110 @@ export class RolcajerogenerarfacturaefectivoComponent implements OnInit {
 
 
 
-  }
+    this.PedidoModelPost = new Pedido(
+      "",
+      "",
+      [{
+        idEfectivo: "",
+        efectivoCliente: 0,
+        cambioCliente: 0,
+        totalPedido: 0,
+        nit: "",
+      }],
+      null,
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      0,
+      0,
+      "",
+      0,
+      "",
+      "",
+      "",
+      null,
+      null,
+      [{
+        idUsuario: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+        telefono: 0
+      }],
+      [{
+        idRepartidor: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+        telefono: 0,
+        rol: "",
+        estadoRepartidor: ""
+      }],
+      [{
+        idProducto: "",
+        nombreProducto: "",
+        marca: "",
+        cantidad: 0,
+        size: "",
+        precio: 0,
+        subTotal: 0,
+        descripcionCategoria: [{
+          idCategoria: "",
+          nombreCategoria: ""
+        }],
+        datosSucursal: [{
+          idSucursal: "",
+          nombreSucursal: "",
+          direccionSucursal: "",
+          telefonoSucursal: "",
+          departamento: "",
+          municipio: ""
+        }]
+      }],
 
+      [{
+
+        idCajero: "",
+        nombre: "",
+        apellido: "",
+        email: "",
+      }],
+
+      0
+    );
+
+
+  }
   ngOnInit(): void {
-
     this._activatedRoute.paramMap.subscribe((dataRuta) => {
-      //this.idEmpresa = localStorage.getItem('idEmpresa'); // Asignar correctamente
-      this.idPedido = dataRuta.get('idPedido'); // Asignar el idUsuario a la propiedad de la clase
-      /* if (this.idPedido) {
-              this.getSucursalporIdEmpresa(this.idPedido);
-            } */
+      this.getCajaUsuario();
+      this.idPedido = dataRuta.get('idPedido'); // Recupera el idPedido de la ruta
 
 
-      // console.log(idEmpresa);
 
-      // this.getSucursalporIdEmpresa(dataRuta.get('idEmpresa'));
-      // this.getUsuariosRolGestor();
+      console.log(this.idPedido); // Verifica que el idPedido se haya recuperado correctamente
 
-      console.log(this.idPedido);  // Deberías ver el idEmpresa correcto aquí
+      const pedidoJson = localStorage.getItem('pedido'); // Recupera el objeto del localStorage
+      if (pedidoJson) {
+        this.PedidoModelPost = JSON.parse(pedidoJson); // Parsea el objeto almacenado
+        console.log(this.PedidoModelPost);  // Verifica que el objeto se haya recuperado correctamente
+
+        // Asigna los valores de nit y cambioCliente a los inputs
+        if (this.PedidoModelPost.pagoEfectivo.length > 0) {
+          this.FacturaModelPost.nit = this.PedidoModelPost.pagoEfectivo[0].nit;
+          this.CajaModelPost.vueltosCliente = this.PedidoModelPost.pagoEfectivo[0].cambioCliente;
+        }
+      }
     });
-
   }
+
+
+
 
   postFacturaEfectivo(idEmpresa) {
-    // Mostrar el cuadro de confirmación
     Swal.fire({
       title: '¿Está seguro que desea generar la factura?',
       icon: 'warning',
@@ -189,15 +281,13 @@ export class RolcajerogenerarfacturaefectivoComponent implements OnInit {
       cancelButtonText: 'No, cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Si el usuario confirma, llamar al servicio para generar la factura
         this._cajeroService.generarFacturaPagoEfectivo(
           this.FacturaModelPost,
           this.SucursalModelPost,
           this.CajaModelPost,
           this.token,
           idEmpresa,
-        )
-        .subscribe({
+        ).subscribe({
           next: (response: any) => {
             Swal.fire({
               icon: 'success',
@@ -206,8 +296,8 @@ export class RolcajerogenerarfacturaefectivoComponent implements OnInit {
               showConfirmButton: false,
               timer: 1500,
               willClose: () => {
-                // Redirigir a la nueva ruta después de que Swal se cierre
-                this.router.navigate(['/cajero/vistarolcajero']);
+                localStorage.removeItem('pedido'); // Limpia el objeto del localStorage
+                this.router.navigate(['/cajero/rolcajeroverfacturasgeneradas']);
               }
             });
           },
@@ -225,6 +315,32 @@ export class RolcajerogenerarfacturaefectivoComponent implements OnInit {
         });
       }
     });
+  }
+
+  getCajaUsuario() {
+    this._cajeroService.verCajaPorUsuario(this.token).subscribe(
+      (response) => {
+        this.CajaModelGet = response.cajas;
+        console.log(this.CajaModelGet);
+
+        // Asume que siempre hay al menos una caja y una sucursal
+        const sucursal = this.CajaModelGet[0]?.datosSucursal[0]; // Usa el operador de encadenamiento opcional
+        if (sucursal) {
+          this.SucursalModelPost.nombreSucursal = sucursal.nombreSucursal; // Asigna el nombre de la sucursal
+        }
+      },
+      (error) => {
+        console.log(<any>error);
+      }
+    );
+  }
+
+  seleccionarSucursal(caja: Caja) {
+    if (caja.datosSucursal.length > 0) {
+      const sucursal = caja.datosSucursal[0];
+      console.log(typeof sucursal.nombreSucursal); // Verifica el tipo
+      this.SucursalModelPost.nombreSucursal = sucursal.nombreSucursal; // Esto debe ser de tipo string
+    }
   }
 
 }

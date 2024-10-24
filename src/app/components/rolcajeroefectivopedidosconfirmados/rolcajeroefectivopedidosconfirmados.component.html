@@ -109,6 +109,10 @@
                   <td>{{pedidos.horaRepartidorAsignado}}</td>
                 </tr>
                 <tr>
+                  <td>Pago confirmado</td>
+                  <td>{{pedidos.pagoConfirmado}}</td>
+                </tr>
+                <tr>
                   <td>Total</td>
                   <td>{{pedidos.total | currency:'Q'}}</td>
                 </tr>
@@ -141,10 +145,9 @@
 
           </div>
           <button type="button" class="btn btn-agregar-sucursal my-2 w-25"
-            (click)="confirmarGenerarFactura(pedidos._id)" (click)="getPedidoId(pedidos._id)">
-            Generar factura
-          </button>
-
+          (click)="confirmarGenerarFactura(pedidos._id)">
+          Generar factura
+        </button>
 
           <button class="btn btn-agregar-usuario rounded-pill" type="button" title="Agregar usuario"
             data-bs-toggle="modal" data-bs-target="#modalEditarPedido" (click)="getPedidoId(pedidos._id)">

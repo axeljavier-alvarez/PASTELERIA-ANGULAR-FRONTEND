@@ -168,24 +168,20 @@ export class RolcajeroefectivopedidosconfirmadosComponent implements OnInit {
     );
   }
 
-  getPedidoId(idPedido) {
-
+  getPedidoId(idPedido: string) {
     this._cajeroService.obtenerPedidoPorId(idPedido, this.token).subscribe(
-
       (response) => {
         console.log(response);
-
         this.PedidoModelGetId = response.pedidos;
 
+        // Almacena el objeto del pedido en localStorage
+        localStorage.setItem('pedido', JSON.stringify(this.PedidoModelGetId));
       },
-
       (error) => {
-        console.log(error)
-
+        console.log(error);
       }
-    )
+    );
   }
-
 
   actualizarEstado(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
@@ -196,7 +192,7 @@ export class RolcajeroefectivopedidosconfirmadosComponent implements OnInit {
   confirmarGenerarFactura(pedidoId: string) {
     Swal.fire({
       title: '¿Está seguro?',
-      text: '¿Desea generar una factura, debe tener el estado de la orden como preparando su pedido?',
+      text: '¿Desea generar una factura, debe tener el estao de la orden como preparando su pedido?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Sí, generar',
