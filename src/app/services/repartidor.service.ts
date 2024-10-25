@@ -6,6 +6,7 @@ import { Usuario } from '../models/usuarios.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class RepartidorService {
 
   public url: String = 'http://localhost:3000/api';
