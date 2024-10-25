@@ -72,7 +72,7 @@ export class CajeroService {
   // VER SUCURSAL
   obtenerSucursal(token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization', token);
-    return this._http.get(this.url + '/verSucursalCajeroRegistrado', {headers: headersToken });
+    return this._http.get(this.url + '/verSucursalCajeroRegistrado', { headers: headersToken });
   }
 
 
@@ -140,131 +140,211 @@ export class CajeroService {
     const headersToken = this.headersVariable.set('Authorization', token);
 
     return this._http.put(
-        this.url + '/asignarPedidoRepartidor/' + idRepartidor,
-        parametros,
-        { headers: headersToken }
+      this.url + '/asignarPedidoRepartidor/' + idRepartidor,
+      parametros,
+      { headers: headersToken }
     );
-}
+  }
 
 
-asignarPedidoRepartidor(
-  modeloUsuario: Usuario,
-  modeloPedido: Pedido,
-  token: string,
-): Observable<any> {
-  let headersToken = this.headersVariable.set('Authorization', token);
+  asignarPedidoRepartidor(
+    modeloUsuario: Usuario,
+    modeloPedido: Pedido,
+    token: string,
+  ): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
 
-  // Combina los campos en un solo objeto
-  const parametros = {
+    // Combina los campos en un solo objeto
+    const parametros = {
       email: modeloUsuario.email,
       numeroDeOrden: modeloPedido.numeroDeOrden,
       // Agrega otros campos de modeloFactura si es necesario
-  };
+    };
 
-  return this._http.post(this.url + '/asignarPedidoRepartidor', parametros, { headers: headersToken });
-}
-
-
-/* VER PEDIDOS DEPENDIENDO DEL CASO */
-
-verPedidosSinConfirmarEfectivo(idSucursal: string, token: string): Observable<any> {
-  let headersToken = this.headersVariable.set('Authorization', token);
-
-  return this._http.get(
-    this.url + '/verPedidosSinConfirmarEfectivo/' + idSucursal,
-    { headers: headersToken }
-  );
-}
+    return this._http.post(this.url + '/asignarPedidoRepartidor', parametros, { headers: headersToken });
+  }
 
 
-verPedidosSinConfirmarCredito(idSucursal: string, token: string): Observable<any> {
-  let headersToken = this.headersVariable.set('Authorization', token);
+  /* VER PEDIDOS DEPENDIENDO DEL CASO */
 
-  return this._http.get(
-    this.url + '/verPedidosSinConfirmarCredito/' + idSucursal,
-    { headers: headersToken }
-  );
-}
+  verPedidosSinConfirmarEfectivo(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
 
-
-verPedidosConfirmadosEfectivo(idSucursal: string, token: string): Observable<any> {
-  let headersToken = this.headersVariable.set('Authorization', token);
-
-  return this._http.get(
-    this.url + '/pedidoConfirmadoEfectivo/' + idSucursal,
-    { headers: headersToken }
-  );
-}
+    return this._http.get(
+      this.url + '/verPedidosSinConfirmarEfectivo/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
 
 
-/* repartidores ocupados */
-obtenerRepartidoresOcupadosPorIdSucursal(idSucursal: string, token: string): Observable<any> {
-  let headersToken = this.headersVariable.set('Authorization', token);
+  verPedidosSinConfirmarCredito(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
 
-  return this._http.get(
-    this.url + '/getRepartidoresOcupadosPorIdSucursal/' + idSucursal,
-    { headers: headersToken }
-  );
-}
-
-/* generar factura */
-generarFacturaPagoEfectivo(
-  modeloFactura: Factura,
-  modeloSucursal: Sucursal,
-  modeloCaja: Caja,
-  token:string,
-  idEmpresa:string
-): Observable<any> {
-
-  let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(
+      this.url + '/verPedidosSinConfirmarCredito/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
 
 
-  const parametros = {
-    nit: modeloFactura.nit,
-    nombreSucursal: modeloSucursal.nombreSucursal,
-    vueltosCliente: modeloCaja.vueltosCliente
-    // Agrega otros campos de modeloFactura si es necesario
-};
+  verPedidosConfirmadosEfectivo(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
 
-  return this._http.post(this.url + '/generarFacturaPagoEfectivo/' + idEmpresa, parametros, { headers: headersToken });
-
-}
+    return this._http.get(
+      this.url + '/pedidoConfirmadoEfectivo/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
 
 
-/* ver factura por id sucu */
+  /* repartidores ocupados */
+  obtenerRepartidoresOcupadosPorIdSucursal(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/getRepartidoresOcupadosPorIdSucursal/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
+
+  /* generar factura */
+  generarFacturaPagoEfectivo(
+    modeloFactura: Factura,
+    modeloSucursal: Sucursal,
+    modeloCaja: Caja,
+    token: string,
+    idEmpresa: string
+  ): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token);
 
 
+    const parametros = {
+      nit: modeloFactura.nit,
+      nombreSucursal: modeloSucursal.nombreSucursal,
+      vueltosCliente: modeloCaja.vueltosCliente
+      // Agrega otros campos de modeloFactura si es necesario
+    };
 
-obtenerFacturasPorIdSucursal(idSucursal: string, token: string): Observable<any> {
-  let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.post(this.url + '/generarFacturaPagoEfectivo/' + idEmpresa, parametros, { headers: headersToken });
 
-  return this._http.get(
-    this.url + '/obtenerFacturasPorIdSucursal/' + idSucursal,
-    { headers: headersToken }
-  );
-}
-
-
-// metodo para ver caja en tareas
+  }
 
 
-verCajaPorSucursal(idSucursal: string, token: string): Observable<any> {
-  let headersToken = this.headersVariable.set('Authorization', token);
-
-  return this._http.get(
-    this.url + '/verCajaPorSucursal/' + idSucursal,
-    { headers: headersToken }
-  );
-}
+  /* ver factura por id sucu */
 
 
 
-// metodo para ver caja pero que coincida con mi id
+  obtenerFacturasPorIdSucursal(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
 
-verCajaPorUsuario(token): Observable<any> {
-  let headersToken = this.headersVariable.set('Authorization',token);
-  return this._http.get(this.url + '/verCajaPorUsuario', { headers: headersToken });
-}
+    return this._http.get(
+      this.url + '/obtenerFacturasPorIdSucursal/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
+
+
+  // metodo para ver caja en tareas
+
+
+  verCajaPorSucursal(idSucursal: string, token: string): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/verCajaPorSucursal/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
+
+
+
+  // metodo para ver caja pero que coincida con mi id
+
+  verCajaPorUsuario(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verCajaPorUsuario', { headers: headersToken });
+  }
+
+  // poder confirmar un pedido, cambiar estado, desasignar y archivar estado
+
+
+  confirmarPedidoCredito(
+    modeloPedido: Pedido,
+    modeloSucursal: Sucursal,
+    token: string,
+  ): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    // Combina los campos en un solo objeto
+    const parametros = {
+      numeroDeOrden: modeloPedido.numeroDeOrden,
+
+      nombreSucursal: modeloSucursal.nombreSucursal
+
+      // Agrega otros campos de modeloFactura si es necesario
+    };
+
+    return this._http.post(this.url + '/confirmarPedidoCredito', parametros, { headers: headersToken });
+  }
+
+  // ver pedido del repartidor
+
+
+
+
+  verPedidoUsuario(idUsuario, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/verPedidoUsuario/' + idUsuario,
+      { headers: headersToken }
+    );
+  }
+
+
+  confirmarPedidoGeneradoEfectivo(
+    modeloPedido: Pedido,
+    modeloSucursal: Sucursal,
+    modeloCaja: Caja,
+    token: string,
+  ): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    // Combina los campos en un solo objeto
+    const parametros = {
+      numeroDeOrden: modeloPedido.numeroDeOrden,
+
+      nombreSucursal: modeloSucursal.nombreSucursal,
+
+      totalPedidosEfectivo: modeloCaja.totalPedidosEfectivo
+
+      // Agrega otros campos de modeloFactura si es necesario
+    };
+
+    return this._http.post(this.url + '/confirmarPedidoGeneradoEfectivo', parametros, { headers: headersToken });
+  }
+
+
+  /* ver pedido confirmado */
+
+  pedidosEntregadosCredito(idSucursal, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(this.url + '/pedidosEntregadosCredito/' + idSucursal, { headers: headersToken });
+
+  }
+
+
+  pedidosEntregadosEfectivoGenerados(idSucursal, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(this.url + '/pedidosEntregadosEfectivoGenerados/' + idSucursal, { headers: headersToken });
+
+  }
+
 
 
 }

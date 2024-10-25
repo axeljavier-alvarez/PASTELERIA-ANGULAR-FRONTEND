@@ -76,6 +76,11 @@ import { RolfacturadortareasComponent } from './components/rolfacturadortareas/r
 import { RolcajerovercajaComponent } from './components/rolcajerovercaja/rolcajerovercaja.component';
 import { RolfacturadorvercajaComponent } from './components/rolfacturadorvercaja/rolfacturadorvercaja.component';
 import { ManualcajeroComponent } from './components/manualcajero/manualcajero.component';
+import { RolcajeroverpedidosrepartidorComponent } from './components/rolcajeroverpedidosrepartidor/rolcajeroverpedidosrepartidor.component';
+import { RolcajeroverpedidosentregadosComponent } from './components/rolcajeroverpedidosentregados/rolcajeroverpedidosentregados.component';
+import { RolrepartidortareasComponent } from './components/rolrepartidortareas/rolrepartidortareas.component';
+import { RolrepartidorverpedidoComponent } from './compnoents/rolrepartidorverpedido/rolrepartidorverpedido.component';
+import { RolgestorinventarioproductosComponent } from './components/rolgestorinventarioproductos/rolgestorinventarioproductos.component';
 
 const routes: Routes = [
 
@@ -122,6 +127,7 @@ const routes: Routes = [
       { path: 'verganancias', component: VerGananciasComponent },
       { path: 'manualgestor', component: ManualgestorComponent},
 
+      { path: 'rolgestorinventarioproductos/:idSucursal', component: RolgestorinventarioproductosComponent},
 
     ],
   },
@@ -162,10 +168,12 @@ const routes: Routes = [
       { path: 'rolcajeroefetivopedidosconfirmados', component: RolcajeroefectivopedidosconfirmadosComponent },
       { path: 'rolcajerogenerarfacturaefectivo/:idPedido', component: RolcajerogenerarfacturaefectivoComponent},
 
-      
+
       { path: 'rolcajeroverfacturasgeneradas', component: RolcajeroverfacturasgeneradasComponent},
       { path: 'rolcajerovercaja', component: RolcajerovercajaComponent},
-      { path: 'manualcajero', component: ManualcajeroComponent}
+      { path: 'manualcajero', component: ManualcajeroComponent},
+      { path: 'rolcajeroverpedidosrepartidor/:idUsuario', component: RolcajeroverpedidosrepartidorComponent},
+      { path: 'rolcajeroverpedidosentregados', component: RolcajeroverpedidosentregadosComponent}
 
     ]
   },
@@ -179,6 +187,8 @@ const routes: Routes = [
       { path: 'editarrolrepartidor', component: EditarrolrepartidorComponent },
       { path: 'rolrepartidorversucursales', component: RolrepartidorversucursalesComponent },
 
+      { path: 'rolrepartidortareas/:idSucursal', component: RolrepartidortareasComponent},
+      { path: 'rolrepartidorverpedido', component: RolrepartidorverpedidoComponent}
     ]
   },
 

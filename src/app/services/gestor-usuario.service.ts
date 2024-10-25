@@ -257,4 +257,14 @@ export class GestorUsuarioService {
     // Realizar la petición PUT
     return this._http.put(`${this.url}/editarPerfilGestor/${modeloUsuarios._id}`, formData, { headers: headersToken });
   }
+
+
+  productosInventario(idCategoria, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(
+      this.url + '/productosInventario/' + idCategoria,
+      { headers: headersToken }
+    );
+  }
+
 }

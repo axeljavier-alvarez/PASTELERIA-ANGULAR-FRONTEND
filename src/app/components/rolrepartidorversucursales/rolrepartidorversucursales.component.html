@@ -18,6 +18,11 @@
                     <h5 class="card-title"> Municipio: {{sucursales.telefonoSucursal}} </h5>
                     <h5 class="card-title"> Nombre de la empresa: {{ sucursales.datosEmpresa[0].nombreEmpresa }} </h5>
 
+
+                    <button type="button" class="btn btn-agregar-sucursal my-25 w-8" [routerLink]="['/repartidor/rolrepartidortareas', sucursales._id]">
+                      Administración tareas
+                   </button>
+
                 </div>
             </div>
         </div>

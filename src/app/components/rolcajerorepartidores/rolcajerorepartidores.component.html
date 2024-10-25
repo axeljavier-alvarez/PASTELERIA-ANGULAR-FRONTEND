@@ -46,7 +46,6 @@
 
         <div class="card-body">
 
-          <h5 class="card-title">ID: {{repartidor2._id}}</h5>
           <h5 class="card-title"> Email: {{repartidor2.email}} </h5>
           <h5 class="card-title"> Rol: {{repartidor2.rol}} </h5>
           <h5 class="card-title"> Télefono: {{repartidor2.telefono}} </h5>
@@ -54,6 +53,11 @@
           <h5 class="card-title"> Departamento: {{repartidor2.departamento}} </h5>
           <h5 class="card-title"> Municipio: {{repartidor2.municipio}} </h5>
           <h5 class="card-title"> Estado: {{repartidor2.estadoRepartidor}} </h5>
+
+          <button type="button" class="btn btn-agregar-sucursal my-25 w-8" [routerLink]="['/cajero/rolcajeroverpedidosrepartidor', repartidor2._id]">
+            Ver pedido
+         </button>
+
         </div>
       </div>
     </div>

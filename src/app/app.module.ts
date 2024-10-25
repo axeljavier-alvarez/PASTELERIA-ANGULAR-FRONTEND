@@ -80,6 +80,11 @@ import { RolfacturadortareasComponent } from './components/rolfacturadortareas/r
 import { RolcajerovercajaComponent } from './components/rolcajerovercaja/rolcajerovercaja.component';
 import { RolfacturadorvercajaComponent } from './components/rolfacturadorvercaja/rolfacturadorvercaja.component';
 import { ManualcajeroComponent } from './components/manualcajero/manualcajero.component';
+import { RolcajeroverpedidosrepartidorComponent } from './components/rolcajeroverpedidosrepartidor/rolcajeroverpedidosrepartidor.component';
+import { RolcajeroverpedidosentregadosComponent } from './components/rolcajeroverpedidosentregados/rolcajeroverpedidosentregados.component';
+import { RolrepartidortareasComponent } from './components/rolrepartidortareas/rolrepartidortareas.component';
+import { RolrepartidorverpedidoComponent } from './compnoents/rolrepartidorverpedido/rolrepartidorverpedido.component';
+import { RolgestorinventarioproductosComponent } from './components/rolgestorinventarioproductos/rolgestorinventarioproductos.component';
 
 
 
@@ -159,6 +164,11 @@ import { ManualcajeroComponent } from './components/manualcajero/manualcajero.co
     RolcajerovercajaComponent,
     RolfacturadorvercajaComponent,
     ManualcajeroComponent,
+    RolcajeroverpedidosrepartidorComponent,
+    RolcajeroverpedidosentregadosComponent,
+    RolrepartidortareasComponent,
+    RolrepartidorverpedidoComponent,
+    RolgestorinventarioproductosComponent,
 
   ],
   imports: [

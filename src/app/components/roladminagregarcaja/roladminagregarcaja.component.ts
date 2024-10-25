@@ -59,7 +59,14 @@ export class RoladminagregarcajaComponent implements OnInit {
     );
 
     this.CajaModelGetId = new Caja(
-      "", 0, 0, 0,
+
+
+      "",
+      0,
+      0,
+      0,
+      0,
+      0,
       [{
         idSucursal: "",
         nombreSucursal: "",
@@ -68,6 +75,118 @@ export class RoladminagregarcajaComponent implements OnInit {
         departamento: "",
         municipio: ""
       }],
+
+      [{
+        idPedido: "",
+        fecha: null,
+        tipoPago: "",
+        direccionEnvio: "",
+        horaEntrega: "",
+        metodoEnvio: "",
+        descuentos: 0,
+        numeroDeOrden: 0,
+        estadoPedido: "",
+        incrementoEnvio: 0,
+        estadoOrden: "",
+        horaRepartidorAsignado: null,
+        horaPedidoEntregado: null,
+        total: 0,
+
+        pagoEfectivo: [{
+          idEfectivo: "",
+          efectivoCliente: 0,
+          cambioCliente: 0,
+          totalPedido: 0
+        }],
+
+
+        compras: [{
+          idProducto: "",
+          nombreProducto: "",
+          marca: "",
+          cantidad: 0,
+          size: "",
+          precio: 0,
+          subTotal: 0,
+          descripcionCategoria: [{
+            idCategoria: "",
+            nombreCategoria: "",
+          }],
+          datosSucursal: [{
+            idSucursal: "",
+            nombreSucursal: "",
+            direccionSucursal: "",
+            telefonoSucursal: "",
+            departamento: "",
+            municipio: ""
+          }],
+
+
+        }],
+
+      }],
+
+
+      [{
+
+        idPedido: "",
+        fecha: null,
+        tipoPago: "",
+        direccionEnvio: "",
+        horaEntrega: "",
+        metodoEnvio: "",
+        descuentos: 0,
+        numeroDeOrden: 0,
+        estadoPedido: "",
+        incrementoEnvio: 0,
+        estadoOrden: "",
+        horaRepartidorAsignado: null,
+        horaPedidoEntregado: null,
+        total: 0,
+        pagoEfectivo: [{
+          idEfectivo: "",
+          efectivoCliente: 0,
+          cambioCliente: 0,
+          totalPedido: 0
+        }],
+
+        repartidorAsignado: [{
+
+          idRepartidor: "",
+          nombre: "",
+          apellido: "",
+          email: "",
+          telefono: 0,
+          rol: "",
+          estadoRepartidor: ""
+        }],
+
+        compras: [{
+          idProducto: "",
+          nombreProducto: "",
+          marca: "",
+          cantidad: 0,
+          size: "",
+          precio: 0,
+          subTotal: 0,
+          descripcionCategoria: [{
+            idCategoria: "",
+            nombreCategoria: "",
+          }],
+          datosSucursal: [{
+            idSucursal: "",
+            nombreSucursal: "",
+            direccionSucursal: "",
+            telefonoSucursal: "",
+            departamento: "",
+            municipio: ""
+          }],
+
+        }],
+
+
+      }],
+
       [{
 
         idPedido: "",
@@ -103,12 +222,42 @@ export class RoladminagregarcajaComponent implements OnInit {
         }],
 
 
+        compras: [{
+          idProducto: "",
+          nombreProducto: "",
+          marca: "",
+          cantidad: 0,
+          size: "",
+          precio: 0,
+          subTotal: 0,
+          descripcionCategoria: [{
+            idCategoria: "",
+            nombreCategoria: "",
+          }],
+          datosSucursal: [{
+            idSucursal: "",
+            nombreSucursal: "",
+            direccionSucursal: "",
+            telefonoSucursal: "",
+            departamento: "",
+            municipio: ""
+          }],
+
+        }],
 
       }]
-    )
+
+    );
+
 
     this.CajaModelPost = new Caja(
-      "", 0, 0, 0,
+
+      "",
+      0,
+      0,
+      0,
+      0,
+      0,
       [{
         idSucursal: "",
         nombreSucursal: "",
@@ -117,6 +266,118 @@ export class RoladminagregarcajaComponent implements OnInit {
         departamento: "",
         municipio: ""
       }],
+
+      [{
+        idPedido: "",
+        fecha: null,
+        tipoPago: "",
+        direccionEnvio: "",
+        horaEntrega: "",
+        metodoEnvio: "",
+        descuentos: 0,
+        numeroDeOrden: 0,
+        estadoPedido: "",
+        incrementoEnvio: 0,
+        estadoOrden: "",
+        horaRepartidorAsignado: null,
+        horaPedidoEntregado: null,
+        total: 0,
+
+        pagoEfectivo: [{
+          idEfectivo: "",
+          efectivoCliente: 0,
+          cambioCliente: 0,
+          totalPedido: 0
+        }],
+
+
+        compras: [{
+          idProducto: "",
+          nombreProducto: "",
+          marca: "",
+          cantidad: 0,
+          size: "",
+          precio: 0,
+          subTotal: 0,
+          descripcionCategoria: [{
+            idCategoria: "",
+            nombreCategoria: "",
+          }],
+          datosSucursal: [{
+            idSucursal: "",
+            nombreSucursal: "",
+            direccionSucursal: "",
+            telefonoSucursal: "",
+            departamento: "",
+            municipio: ""
+          }],
+
+
+        }],
+
+      }],
+
+
+      [{
+
+        idPedido: "",
+        fecha: null,
+        tipoPago: "",
+        direccionEnvio: "",
+        horaEntrega: "",
+        metodoEnvio: "",
+        descuentos: 0,
+        numeroDeOrden: 0,
+        estadoPedido: "",
+        incrementoEnvio: 0,
+        estadoOrden: "",
+        horaRepartidorAsignado: null,
+        horaPedidoEntregado: null,
+        total: 0,
+        pagoEfectivo: [{
+          idEfectivo: "",
+          efectivoCliente: 0,
+          cambioCliente: 0,
+          totalPedido: 0
+        }],
+
+        repartidorAsignado: [{
+
+          idRepartidor: "",
+          nombre: "",
+          apellido: "",
+          email: "",
+          telefono: 0,
+          rol: "",
+          estadoRepartidor: ""
+        }],
+
+        compras: [{
+          idProducto: "",
+          nombreProducto: "",
+          marca: "",
+          cantidad: 0,
+          size: "",
+          precio: 0,
+          subTotal: 0,
+          descripcionCategoria: [{
+            idCategoria: "",
+            nombreCategoria: "",
+          }],
+          datosSucursal: [{
+            idSucursal: "",
+            nombreSucursal: "",
+            direccionSucursal: "",
+            telefonoSucursal: "",
+            departamento: "",
+            municipio: ""
+          }],
+
+        }],
+
+
+      }],
+
       [{
 
         idPedido: "",
@@ -152,9 +413,32 @@ export class RoladminagregarcajaComponent implements OnInit {
         }],
 
 
+        compras: [{
+          idProducto: "",
+          nombreProducto: "",
+          marca: "",
+          cantidad: 0,
+          size: "",
+          precio: 0,
+          subTotal: 0,
+          descripcionCategoria: [{
+            idCategoria: "",
+            nombreCategoria: "",
+          }],
+          datosSucursal: [{
+            idSucursal: "",
+            nombreSucursal: "",
+            direccionSucursal: "",
+            telefonoSucursal: "",
+            departamento: "",
+            municipio: ""
+          }],
+
+        }],
 
       }]
-    )
+
+    );
   }
 
   ngOnInit(): void {
@@ -168,11 +452,11 @@ export class RoladminagregarcajaComponent implements OnInit {
     const selectedSucursal = this.SucursalesModelGet.find(sucursal => sucursal._id === this.SucursalModelPost._id);
 
     if (selectedSucursal) {
-        this.SucursalModelPost.nombreSucursal = selectedSucursal.nombreSucursal;
+      this.SucursalModelPost.nombreSucursal = selectedSucursal.nombreSucursal;
     } else {
-        this.SucursalModelPost.nombreSucursal = ''; // Limpia el campo si no se encuentra
+      this.SucursalModelPost.nombreSucursal = ''; // Limpia el campo si no se encuentra
     }
-}
+  }
 
   getCajasGeneral() {
     this._adminUsuariosService.obtenerTodasCajas(this.token).subscribe(
@@ -234,7 +518,7 @@ export class RoladminagregarcajaComponent implements OnInit {
       (response) => {
         this.SucursalesModelGet = response.sucursales;
         console.log(this.SucursalesModelGet)
-      },(error) => {
+      }, (error) => {
         console.log('Error al cargar sucursales', error);
       }
     );
@@ -279,21 +563,21 @@ export class RoladminagregarcajaComponent implements OnInit {
   }
 
   //BUSCAR CAJA POR ID
-  getCajaId(idCaja){
-    this._adminUsuariosService.obtenerCajaId(idCaja,this.token).subscribe(
+  getCajaId(idCaja) {
+    this._adminUsuariosService.obtenerCajaId(idCaja, this.token).subscribe(
       (response) => {
         console.log(response);
         this.CajaModelGetId = response.caja;
-      },(error) => {
+      }, (error) => {
         console.log(error);
       }
     )
   }
 
   //EDITAR CAJA
-  putCaja(){
+  putCaja() {
     this._adminUsuariosService.editarCajaSucursal(this.CajaModelGetId, this.token).subscribe(
-      (response)=>{
+      (response) => {
         console.log(response);
         this.getCajasGeneral();
         Swal.fire({
