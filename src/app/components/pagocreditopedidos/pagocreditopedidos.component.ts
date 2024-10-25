@@ -16,6 +16,19 @@ import Swal from 'sweetalert2';
 })
 export class PagocreditopedidosComponent implements OnInit {
 
+  selectedOption: string = 'ingresarNit'; // Opción por defecto
+  inputValue: string = ''; // Inicialmente vacío
+
+  onOptionChange(option: string) {
+    this.selectedOption = option;
+
+    if (option === 'consumidorFinal') {
+      this.inputValue = 'consumidor final'; // Asigna el valor cuando seleccionas esta opción
+    } else {
+      this.inputValue = ''; // Limpia el input al seleccionar "Ingresar NIT"
+    }
+  }
+
   public token: string;
   public FacturaModelPost: Factura;
   public TarjetaModelPost: Tarjeta; // Nueva variable para el modelo de tarjeta
@@ -87,6 +100,7 @@ export class PagocreditopedidosComponent implements OnInit {
   }
 
   postFactura() {
+    this.FacturaModelPost.nit = this.selectedOption === 'consumidorFinal' ? this.inputValue : this.FacturaModelPost.nit;
     // Mensaje de confirmación antes de proceder
     Swal.fire({
       title: '¿Está seguro?',

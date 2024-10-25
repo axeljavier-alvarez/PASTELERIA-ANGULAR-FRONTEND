@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuarios.model';
+import { Caja } from '../models/caja.model';
 
 @Injectable({
   providedIn: 'root'
@@ -83,6 +84,15 @@ export class FacturadorService {
     );
   }
 
-  
+  obtenerCajaId(idCaja,token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization',token);
+    return this._http.get(this.url + '/getCajaPorId/' + idCaja, { headers: headersToken });
+  }
+
+  editarCajaSucursal(modeloCaja: Caja, token): Observable<any> {
+    let parametros = JSON.stringify(modeloCaja);
+    let headersToken = this.headersVariable.set('Authorization',token);
+    return this._http.put(this.url + '/editarCaja/' + modeloCaja._id, parametros, { headers: headersToken });
+  }
 
 }

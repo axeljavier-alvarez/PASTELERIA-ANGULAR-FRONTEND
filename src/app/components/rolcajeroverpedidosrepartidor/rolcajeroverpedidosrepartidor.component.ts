@@ -505,11 +505,10 @@ export class RolcajeroverpedidosrepartidorComponent implements OnInit {
               title: 'Éxito!',
               text: 'Pedido confirmado correctamente',
               showConfirmButton: true,
-              confirmButtonText: 'Aceptar'
+              confirmButtonText: 'Aceptar',
             }).then(() => {
-              // Redirigir a la vista deseada al aceptar
               this.router.navigate(['/cajero/rolcajeroversucursales']).then(() => {
-                this.router.navigated = false;
+                location.reload(); // Refresca la página después de la redirección
               });
             });
           },
@@ -562,11 +561,10 @@ postConfimarPedidoGeneradoEfectivo() {
             title: 'Éxito!',
             text: 'Pedido confirmado correctamente',
             showConfirmButton: true,
-            confirmButtonText: 'Aceptar'
+            confirmButtonText: 'Aceptar',
           }).then(() => {
-            // Redirigir a la vista deseada al aceptar
             this.router.navigate(['/cajero/rolcajeroversucursales']).then(() => {
-              this.router.navigated = false;
+              location.reload(); // Refresca la página después de la redirección
             });
           });
         },

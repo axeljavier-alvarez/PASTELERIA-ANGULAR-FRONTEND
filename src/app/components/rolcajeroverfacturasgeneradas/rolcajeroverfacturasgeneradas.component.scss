@@ -1,10 +1,14 @@
+.container {
+  width: 100%;
+}
+
 .factura {
   border-radius: 10px;
   width: 500px;
 }
 
 .contenido {
-  margin: 20px;
+  margin: 5px;
   padding: 25px 75px;
 }
 
@@ -12,7 +16,21 @@
   text-align: center;
 }
 
-.bordes {
-  display: flex;
-  justify-content: space-around;
+.disposicion {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: auto auto auto;
+}
+
+@media (max-width: 1800px) {
+  .disposicion {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .disposicion {
+    grid-template-columns: auto;
+  }
 }

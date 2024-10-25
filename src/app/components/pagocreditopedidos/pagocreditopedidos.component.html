@@ -95,9 +95,22 @@
   </div>
 
   <form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+    <div class="seleccion-nit" style="display: flex; justify-content: space-around;">
+      <label>
+        <input type="radio" name="option" value="ingresarNit" (change)="onOptionChange('ingresarNit')"
+          [checked]="selectedOption === 'ingresarNit'">
+        Ingresar NIT
+      </label>
+
+      <label>
+        <input type="radio" name="option" value="consumidorFinal" (change)="onOptionChange('consumidorFinal')"
+          [checked]="selectedOption === 'consumidorFinal'">
+        Consumidor Final
+      </label>
+    </div>
     <div class="grupo">
-      <label for="inputNit">Nit</label>
-      <input type="text" id="inputNit" name="nit" #nit="ngModel" [(ngModel)]="FacturaModelPost.nit" maxlength="19"
+      <input type="text" [(ngModel)]="inputValue" [hidden]="selectedOption === 'consumidorFinal'" 
+      id="inputNit" name="nit" #nit="ngModel" [(ngModel)]="FacturaModelPost.nit" maxlength="19"
         autocomplete="off">
     </div>
     <div class="grupo">
