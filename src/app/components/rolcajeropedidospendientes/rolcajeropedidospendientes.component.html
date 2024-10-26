@@ -113,8 +113,23 @@
                   <td>Total</td>
                   <td>{{pedidos.total | currency:'Q'}}</td>
                 </tr>
+
+                <br>
+
+
               </tbody>
+
+
+
             </table>
+
+            <div class="button-container">
+              <button type="button" class="btn-pagar" (click)="deletePedido(pedidos._id)">
+                Eliminar
+              </button>
+            </div>
+
+
           </div>
 
         </div>
@@ -237,7 +252,20 @@
                   <td>{{pedidoscredito.total | currency:'Q'}}</td>
                 </tr>
               </tbody>
+
+
+              <button type="button" class="btn-pagar" (click)="deletePedido(pedidos._id)">
+                Eliminar
+              </button>
+
             </table>
+
+            <div class="button-container">
+              <button type="button" class="btn-pagar" (click)="deletePedido(pedidos._id)">
+                Eliminar
+              </button>
+            </div>
+
           </div>
 
         </div>

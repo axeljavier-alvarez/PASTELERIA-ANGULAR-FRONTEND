@@ -13,13 +13,20 @@ table {
 th, td {
     border-bottom: 1px solid #ffd7bf; /* Bordes de las celdas */
     padding: 8px; /* Espaciado interno */
-    text-align: left; /* Alineación del texto */
+    text-align: center; /* Alineación del texto */
 }
 
 th {
     background-color: #ffd7b1; /* Color del encabezado */
 }
 
+.card-body {
+    display: flex;                /* Utiliza flexbox */
+    flex-direction: column;      /* Alinea los elementos en columna */
+    justify-content: center;      /* Centra verticalmente */
+    align-items: center;          /* Centra horizontalmente */
+    text-align: center;           /* Alinea el texto al centro */
+}
 
 .btn-pagar {
   font-size: 18px;
@@ -53,7 +60,6 @@ th {
   z-index: -1;
 }
 
-
 .btn-pagar:hover:before,
 .btn-pagar:focus:before {
   transition: 0.5s all ease;
@@ -72,19 +78,6 @@ th {
   margin: 20px 0;             /* Espaciado arriba y abajo */
 }
 
-.btn-pagar {
-  font-size: 18px;
-  letter-spacing: 2px;
-  background-color: #ffb574;
-  text-transform: uppercase;
-  padding: 0.7em 2em;
-  border: 3px solid #eb984e;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: 0.3s ease all;
-}
-
-/* Estilo para filas alternas */
 tbody tr:nth-child(even) {
     background-color: #fff7f2; /* Color de las filas pares */
 }

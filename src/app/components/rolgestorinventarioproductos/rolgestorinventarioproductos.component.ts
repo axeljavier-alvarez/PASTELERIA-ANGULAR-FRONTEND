@@ -20,7 +20,9 @@ export class RolgestorinventarioproductosComponent implements OnInit {
   public ProductoModelGet: Producto;
   public ProductoModelGetId: Producto;
   public idSucursal: string;
-
+  public campoBusqueda: string = '';
+  public buscar;
+  
   constructor(
     public _activatedRoute: ActivatedRoute,
 

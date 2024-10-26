@@ -4,6 +4,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { CajeroService } from 'src/app/services/cajero.service';
 import { Pedido } from 'src/app/models/pedido.model';
 import { Title } from '@angular/platform-browser';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rolcajeropedidospendientes',
@@ -78,6 +79,47 @@ export class RolcajeropedidospendientesComponent implements OnInit {
   }
 
 
+
+
+  deletePedido(idPedido){
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario confirma, se llama al servicio para eliminar
+        this._cajeroService.eliminarPedidosSinConfirmar(idPedido,this.token).subscribe(
+          (response) => {
+            console.log(response);
+            Swal.fire({
+              icon: 'success',
+              title: 'Eliminado',
+              text: 'El pedido ha sido eliminado exitosamente.',
+              showConfirmButton: false,
+              timer: 1500,
+              willClose: () => {
+                window.location.reload();
+              }
+            });
+          },(error) => {
+            console.log(<any>error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se pudo eliminar el pedido.',
+              showConfirmButton: false,
+              timer: 2500
+            });
+          }
+        );
+      }
+    });
+
+  }
 
 
 

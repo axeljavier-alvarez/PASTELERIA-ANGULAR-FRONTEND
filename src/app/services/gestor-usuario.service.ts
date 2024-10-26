@@ -267,4 +267,25 @@ export class GestorUsuarioService {
     );
   }
 
+    // ver productos por sucursal
+    obtenerProductosDeMiSucu(token): Observable<any> {
+      let headersToken = this.headersVariable.set('Authorization', token);
+
+      return this._http.get(this.url + '/obtenerProductosDeMiSucu', {
+        headers: headersToken,
+      });
+    }
+
+
+    obtenerUsuariosSucursal(idCategoria, token): Observable<any> {
+      let headersToken = this.headersVariable.set('Authorization', token);
+      return this._http.get(
+        this.url + '/obtenerUsuariosSucursal/' + idCategoria,
+        { headers: headersToken }
+      );
+    }
+
+
+
+
 }

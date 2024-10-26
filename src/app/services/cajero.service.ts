@@ -346,5 +346,11 @@ export class CajeroService {
   }
 
 
+  eliminarPedidosSinConfirmar(idPedido, token) {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.delete(this.url + '/eliminarPedidosSinConfirmar/' + idPedido, { headers: headersToken });
+
+  }
+  
 
 }

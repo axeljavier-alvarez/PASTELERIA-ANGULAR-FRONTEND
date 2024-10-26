@@ -62,4 +62,11 @@ export class RepartidorService {
     return this._http.get(this.url + '/verSucursalRepartidorRegistrado', {headers: headersToken });
   }
 
+
+  verPedidosUsuario(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/verPedidosUsuario', {headers: headersToken });
+  }
+
+
 }

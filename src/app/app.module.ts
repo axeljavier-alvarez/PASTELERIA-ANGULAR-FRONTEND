@@ -86,6 +86,9 @@ import { RolrepartidortareasComponent } from './components/rolrepartidortareas/r
 import { RolgestorinventarioproductosComponent } from './components/rolgestorinventarioproductos/rolgestorinventarioproductos.component';
 import { InicioproductosComponent } from './components/inicioproductos/inicioproductos.component';
 import { RolfacturadorfacturaselectronicasComponent } from './components/rolfacturadorfacturaselectronicas/rolfacturadorfacturaselectronicas.component';
+import { RolfacturadoradmincajaComponent } from './components/rolfacturadoradmincaja/rolfacturadoradmincaja.component';
+import { RolrepartidorverpedidoComponent } from './components/rolrepartidorverpedido/rolrepartidorverpedido.component';
+import { RolgestorverempleadosComponent } from './components/rolgestorverempleados/rolgestorverempleados.component';
 
 
 
@@ -171,6 +174,9 @@ import { RolfacturadorfacturaselectronicasComponent } from './components/rolfact
     RolgestorinventarioproductosComponent,
     InicioproductosComponent,
     RolfacturadorfacturaselectronicasComponent,
+    RolfacturadoradmincajaComponent,
+    RolrepartidorverpedidoComponent,
+    RolgestorverempleadosComponent,
 
   ],
   imports: [
