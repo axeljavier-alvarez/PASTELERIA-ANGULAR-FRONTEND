@@ -95,4 +95,14 @@ export class FacturadorService {
     return this._http.put(this.url + '/editarCaja/' + modeloCaja._id, parametros, { headers: headersToken });
   }
 
+
+  verFacturaCredito(idSucursal, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.get(
+      this.url + '/verFacturaCredito/' + idSucursal,
+      { headers: headersToken }
+    );
+  }
+
 }

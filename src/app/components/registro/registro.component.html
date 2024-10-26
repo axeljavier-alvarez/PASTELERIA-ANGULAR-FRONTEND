@@ -12,7 +12,37 @@
 <link rel="stylesheet" href="../registro/registro.component.scss">
 
 <!--<body class="fondo"> -->
+
+  <nav class="navbar navbar-expand-lg" id="menu">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div class="logo-container">
+        <a class="nav-link" aria-current="page" routerLink="/inicio" routerLinkActive="active">
+          <img src="../../../assets/img/logo_empresa3.jpg" alt="Logo" class="logo">
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/login" routerLinkActive="active">Iniciar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/registro" routerLinkActive="active">Registrarse</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
   <body>
+ 
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
     <div class="circle circle3"></div>

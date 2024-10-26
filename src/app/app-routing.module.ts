@@ -79,8 +79,9 @@ import { ManualcajeroComponent } from './components/manualcajero/manualcajero.co
 import { RolcajeroverpedidosrepartidorComponent } from './components/rolcajeroverpedidosrepartidor/rolcajeroverpedidosrepartidor.component';
 import { RolcajeroverpedidosentregadosComponent } from './components/rolcajeroverpedidosentregados/rolcajeroverpedidosentregados.component';
 import { RolrepartidortareasComponent } from './components/rolrepartidortareas/rolrepartidortareas.component';
-import { RolrepartidorverpedidoComponent } from './compnoents/rolrepartidorverpedido/rolrepartidorverpedido.component';
 import { RolgestorinventarioproductosComponent } from './components/rolgestorinventarioproductos/rolgestorinventarioproductos.component';
+import { InicioproductosComponent } from './components/inicioproductos/inicioproductos.component';
+import { RolfacturadorfacturaselectronicasComponent } from './components/rolfacturadorfacturaselectronicas/rolfacturadorfacturaselectronicas.component';
 
 const routes: Routes = [
 
@@ -89,6 +90,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'inicio', component: InicioComponent },
+  { path: 'inicioproductos/:idSucursal', component: InicioproductosComponent },
 
   /* VISTAS DEL ROL ADMIN*/
   {
@@ -188,7 +190,6 @@ const routes: Routes = [
       { path: 'rolrepartidorversucursales', component: RolrepartidorversucursalesComponent },
 
       { path: 'rolrepartidortareas/:idSucursal', component: RolrepartidortareasComponent},
-      { path: 'rolrepartidorverpedido', component: RolrepartidorverpedidoComponent}
     ]
   },
 
@@ -204,7 +205,9 @@ const routes: Routes = [
 
       { path: 'rolfacturadortareas/:idSucursal', component: RolfacturadortareasComponent},
 
-      { path: 'rolfacturadorvercaja', component: RolfacturadorvercajaComponent}
+      { path: 'rolfacturadorvercaja', component: RolfacturadorvercajaComponent},
+      { path: 'rolfacturadorfacturaselectronicas', component: RolfacturadorfacturaselectronicasComponent}
+
     ]
   },
 

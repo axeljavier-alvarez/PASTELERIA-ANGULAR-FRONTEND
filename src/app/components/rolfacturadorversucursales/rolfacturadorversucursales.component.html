@@ -11,12 +11,11 @@
                     {{sucursales.nombreSucursal}}
                 </div>
                 <div class="card-body">
-
+                  <img src="../../../assets/img/pasteleria.png" class="card-img-top" id="iconos">
                     <h5 class="card-title"> Dirección: {{sucursales.direccionSucursal}} </h5>
                     <h5 class="card-title"> Télefono: {{sucursales.telefonoSucursal}} </h5>
                     <h5 class="card-title"> Departamento: {{sucursales.telefonoSucursal}} </h5>
                     <h5 class="card-title"> Municipio: {{sucursales.telefonoSucursal}} </h5>
-                    <h5 class="card-title"> Nombre de la empresa: {{ sucursales.datosEmpresa[0].nombreEmpresa }} </h5>
 
                     <button type="button" class="btn btn-agregar-sucursal my-25 w-8" [routerLink]="['/facturador/rolfacturadortareas', sucursales._id]">
                       Administración tareas

@@ -1,3 +1,31 @@
+<nav class="navbar navbar-expand-lg" id="menu">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+  </style>
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <div class="logo-container">
+      <a class="nav-link" aria-current="page" routerLink="/inicio" routerLinkActive="active">
+        <img src="../../../assets/img/logo_empresa3.jpg" alt="Logo" class="logo">
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/login" routerLinkActive="active">Iniciar sesión</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/registro" routerLinkActive="active">Registrarse</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <!--CATEGORIAS-->
 <div class="fondo">
   <div id="carouselExampleIndicators" class="carousel slide m-auto mb-5" style="width: 100%;">
@@ -6,7 +34,7 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    <div class="carousel-inner"> 
+    <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="../../../assets/img/panoramica1.jpg" width="100%" class="d-block " alt="...">
       </div>
@@ -39,9 +67,7 @@
           </div>
           <h2>{{ categorias.nombreCategoria }}</h2>
           <h5 class="card-title"> Marca: {{ categorias.descripcionCategoria }} </h5>
-          <button type="button" class="btn mb-3 text-white" style="background-color: #e67e22;">
-            Ver Productos
-          </button>
+
         </div>
       </div>
     </div>
@@ -50,7 +76,7 @@
 </div>
 
 <!--PRODUCTOS-->
-  <h1 class="text-center mt-3">Productos</h1>
+  <h1 class="text-center mt-3">Productos más populares</h1>
   <div class="row  m-auto container-fluid" style="width: 90%;">
     <div class="col-12 col-md-4" *ngFor="let productos of productosModelGet">
       <div class="card text-center mb-3">
@@ -63,7 +89,7 @@
           <h5> Marca: {{ productos.marca }} </h5>
           <h5> Categoría: {{ productos.descripcionCategoria[0].nombreCategoria }} </h5>
           <h5> {{ productos.precio | currency:'Q' }} </h5>
-          <button type="button" class="btn mb-3 text-white" style="background-color: #e67e22;">
+          <button type="button"  routerLink="/cliente/rolclientesucursales"  class="btn mb-3 text-white" style="background-color: #e67e22;">
             Agregar al carrito
           </button>
         </div>
@@ -78,14 +104,12 @@
     <div class="col-12 col-md-4" *ngFor="let sucursales of sucursalesModelGet">
       <div class="card text-center mb-3 tarjeta-productos">
         <div class="">
-          <div class="aspect-ratio">
-            <img *ngIf="sucursales.imagen" [src]="'http://localhost:3000/imagenes/' + sucursales.imagen">
-          </div>
+          <img src="../../../assets/img/pasteleria.png" class="card-img-top" id="iconos">
           <h2>{{ sucursales.nombreSucursal }}</h2>
           <h5> Télefono: {{ sucursales.telefonoSucursal }} </h5>
           <h5> Dirección: {{ sucursales.direccionSucursal }} </h5>
-          <button type="button" class="btn mb-3 text-white" style="background-color: #e67e22;">
-            Ver Categorías
+          <button type="button" class="btn mb-3 text-white" [routerLink]="['/inicioproductos', sucursales._id]" style="background-color: #e67e22;">
+            Ver productos
           </button>
         </div>
       </div>
@@ -105,12 +129,12 @@
     <div class="col-12 col-md-4" >
       <div class="card text-center mb-3">
         <div class="m-4">
-          <h2>MISIÓN</h2> 
+          <h2>MISIÓN</h2>
           <p> {{ empresas.mision }} </p>
         </div>
       </div>
     </div>
-    
+
     <div class="col-12 col-md-4" >
       <div class="card text-center mb-3">
         <div class="m-4">
@@ -128,7 +152,7 @@
         </div>
       </div>
     </div>
-  
+
     <div class=" " >
       <div class="card text-center">
         <div class="">

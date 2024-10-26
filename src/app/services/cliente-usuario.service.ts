@@ -8,6 +8,7 @@ import { Usuario } from '../models/usuarios.model';
 import { Pedido } from '../models/pedido.model';
 import { Factura } from '../models/factura.model';
 import { Tarjeta } from '../models/tarjeta.model';
+import { CarritoEditar } from '../models/carritoeditar.model';
 
 
 @Injectable({
@@ -244,5 +245,36 @@ obtenerPedidosSinConfirmarEfectivo(token): Observable<any> {
 }
 
 
+actualizarStockProducto(modeloCarritoEditar: CarritoEditar, token): Observable<any> {
+  const parametros = JSON.stringify(modeloCarritoEditar);
+  const headersToken = this.headersVariable.set('Authorization', token);
+
+  return this._http.put(`${this.url}/actualizarStockProducto`, parametros, { headers: headersToken });
+}
+
+
+
+verProductoCarritoPorId(idProducto, token): Observable<any> {
+
+  let headersToken = this.headersVariable.set('Authorization', token);
+
+  return this._http.get(this.url + '/verProductoCarritoPorId/' + idProducto, { headers: headersToken });
+
+}
+
+
+eliminarProductoCarrito(idProducto, token) {
+  let headersToken = this.headersVariable.set('Authorization', token);
+  return this._http.delete(this.url + '/eliminarProductoDelCarrito/' + idProducto, { headers: headersToken });
+
+}
+
+
+
+eliminarPedidosSinConfirmar(idPedido, token) {
+  let headersToken = this.headersVariable.set('Authorization', token);
+  return this._http.delete(this.url + '/eliminarPedidosSinConfirmar/' + idPedido, { headers: headersToken });
+
+}
 
 }

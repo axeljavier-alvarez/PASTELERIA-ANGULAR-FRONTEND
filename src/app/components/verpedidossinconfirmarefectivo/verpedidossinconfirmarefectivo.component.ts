@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Pedido } from 'src/app/models/pedido.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ClienteUsuarioService } from 'src/app/services/cliente-usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-verpedidossinconfirmarefectivo',
@@ -40,6 +41,48 @@ export class VerpedidossinconfirmarefectivoComponent implements OnInit {
       }
     )
   }
+
+  deletePedido(idPedido){
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario confirma, se llama al servicio para eliminar
+        this._clienteUsuarioService.eliminarPedidosSinConfirmar(idPedido,this.token).subscribe(
+          (response) => {
+            console.log(response);
+            Swal.fire({
+              icon: 'success',
+              title: 'Eliminado',
+              text: 'El pedido ha sido eliminado exitosamente.',
+              showConfirmButton: false,
+              timer: 1500,
+              willClose: () => {
+                window.location.reload();
+              }
+            });
+          },(error) => {
+            console.log(<any>error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se pudo eliminar el pedido.',
+              showConfirmButton: false,
+              timer: 2500
+            });
+          }
+        );
+      }
+    });
+
+  }
+
+
 
 
 }

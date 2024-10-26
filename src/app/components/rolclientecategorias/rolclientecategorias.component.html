@@ -12,14 +12,10 @@
             <div class="aspect-ratio">
               <img *ngIf="categorias.imagen" [src]="'http://localhost:3000/imagenes/' + categorias.imagen">
             </div>
-            <h5 class="card-title"> Marca: {{ categorias.descripcionCategoria }} </h5>
 
-            <button type="button" class="btn" style="background-color: #e67e22; color: white;">
-           Ver Productos
-          </button>
+            <h5 class="card-title">  {{ categorias.nombreCategoria }} </h5>
 
-
-
+            <h5 class="card-title"> Descripción: {{ categorias.descripcionCategoria }} </h5>
 
           </div>
         </div>

@@ -40,4 +40,8 @@ export class TareaslibresService {
     return this._http.get(this.url + '/ObtenerEmpresaInicio', { headers: this.headersVariable});
   }
 
+  obtenerProductosPorIdSucursalSinToken(id : String): Observable<any> {
+
+    return this._http.get(this.url + '/obtenerProductosPorIdSucursalSinToken/' + id, { headers: this.headersVariable })
+  }
 }
