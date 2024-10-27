@@ -69,7 +69,7 @@ export class RolcajeroverpedidosentregadosComponent implements OnInit {
 
   getpedidosEntregadosEfectivoGenerados( idSucursal: string, token: string) {
     this._cajeroService
-      .pedidosEntregadosCredito(idSucursal, token)
+      .pedidosEntregadosEfectivoGenerados(idSucursal, token)
       .subscribe(
         (response) => {
           this.PedidoModelGet2 = response.pedidos; // Asignar los productos a la variable

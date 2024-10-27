@@ -111,6 +111,14 @@
                   <td>Total</td>
                   <td>{{pedidos.total | currency:'Q'}}</td>
                 </tr>
+                <tr>
+                  <td>Efectivo cliente</td>
+                  <td>{{pedidos.pagoEfectivo[0]?.efectivoCliente | currency:'Q'}}</td>
+                </tr>
+                <tr>
+                  <td>Cambio cliente</td>
+                  <td>{{pedidos.pagoEfectivo[0]?.cambioCliente | currency:'Q'}}</td>
+                </tr>
               </tbody>
             </table>
           
